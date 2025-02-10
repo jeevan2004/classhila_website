@@ -5,6 +5,7 @@ import "./home.css";
 
 import { useAuthContext } from "../../AuthContextAPI";
 import HomeBanner from "../../Components/homeBanner/HomeBanner";
+import WithUs from "../../Components/WithUs/WithUs";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -62,6 +63,7 @@ const Home = () => {
   return (
     <>
       <HomeBanner />
+      <WithUs />
     </>
   );
 };

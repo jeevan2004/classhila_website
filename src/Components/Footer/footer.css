@@ -1,29 +1,30 @@
 footer {
-  background: rgba(0, 28, 66, 1);
+  background: rgba(255, 245, 238, 1);
+
   padding: 60px 0 60px;
 }
 
 footer .footer_about img {
-  padding-bottom: 36px;
+  padding-bottom: 20px;
 }
 
 footer .footer_about p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 1);
-  margin-bottom: 15px;
+  color: rgba(61, 45, 33, 1);
+  margin-bottom: 20px;
 }
 
 footer .footer_link h4,
 .footer_address h4 {
   font-weight: 600;
-  margin-bottom: 30px;
-  color: #fff;
+  margin-bottom: 10px;
+  color: rgba(237, 115, 48, 1);
   position: relative;
   padding-bottom: 15px;
   font-size: 20px;
 }
 
-footer .footer_link h4::before,
+/* footer .footer_link h4::before,
 .footer_address h4::before {
   content: "";
   position: absolute;
@@ -33,13 +34,13 @@ footer .footer_link h4::before,
   height: 4px;
   border-radius: 2px;
   background: var(--tg-theme-primary);
-}
+} */
 
 footer .footer_link a,
 .footer_address p {
   font-weight: 400;
   font-size: 16px;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(61, 45, 33, 1);
   margin-bottom: 10px;
   transition: 0.35s all;
   display: inline-block;
@@ -47,7 +48,7 @@ footer .footer_link a,
 }
 
 footer .footer_link a:hover {
-  color: var(--tg-theme-secondary);
+  color: var(--tg-theme-primary);
 }
 
 footer .footer_link a::before {
@@ -90,7 +91,7 @@ footer .footer_address ul li i:hover {
   color: #fff;
 }
 .footer_bottom {
-  background: rgba(0, 28, 66, 1);
+  background: rgba(255, 245, 238, 1);
   padding: 35px 0;
   border: none;
   border-top: 1px solid rgba(157, 157, 157, 1);
@@ -98,13 +99,35 @@ footer .footer_address ul li i:hover {
 
 .footer_bottom p {
   margin: 0;
-  color: #fff;
+  color: rgba(237, 115, 48, 1);
 }
 
 .footer_bottom ul {
   display: flex;
   align-items: center;
   justify-content: end;
+}
+
+.footer_address .group_email {
+  position: relative;
+}
+.footer_address .group_email input {
+  border: 1px solid rgba(255, 120, 42, 1);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 15px 20px;
+  color: rgba(0, 28, 66, 1);
+  width: 100%;
+  padding-right: 170px;
+}
+.footer_address .group_email button {
+  position: absolute;
+  top: 3.5px;
+  right: 4px;
+}
+
+.footer_address .group_email input::placeholder {
+  color: rgba(0, 28, 66, 1);
 }
 
 .footer_bottom a {

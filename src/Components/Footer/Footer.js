@@ -13,70 +13,69 @@ const Footer = () => {
               <div className="col-xl-4 col-lg-4 col-md-6">
                 <div className="footer_about wow animate__animated animate__fadeInLeft">
                   <img src={logo} alt="" />
-                  {/* <p className="">
-                    We offer a wide range of courses in various subjects, from
-                    business and technology to art and personal development
-                  </p> */}
+                  <p className="">
+                    Classhila Education Privite Limited 19/3RT MIGH Vijayanagar
+                    Colony Hyderabad-500057
+                  </p>
                   {/* <p>
                     Lorem ipsum dolor amet consecto adi pisicing elit sed eiusm
                     tempor incidid unt labore dolore.
                   </p> */}
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-4 col-md-6 col-sm-6">
-                <div className="footer_link wow animate__animated animate__fadeInUp">
-                  <h4>Online Platform</h4>
-                  <ul>
-                    <li>
-                      {/* <a href="">Home</a> */}
-                      <Link to={"#"}>Nextgen Academy</Link>
-                    </li>
-                    <li>
-                      <Link to={"#"}>Talent Hub</Link>
-                    </li>
-                    {/* <li>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div className="footer_link wow animate__animated animate__fadeInUp">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li>
+                    {/* <a href="">Home</a> */}
+                    <Link to={"#"}>About Us</Link>
+                  </li>
+                  <li>
+                    <Link to={"#"}>Our Mentr</Link>
+                  </li>
+                  {/* <li>
                       <a href="">Blog</a>
 
                     </li> */}
-                    <li>
-                      <Link to={"#"}>Skill Sprint 5.0</Link>
-                    </li>
-                  </ul>
-                </div>
+                  <li>
+                    <Link to={"#"}>Pricing</Link>
+                  </li>
+                  <li>
+                    <Link to={"#"}>Blogs</Link>
+                  </li>
+                  <li>
+                    <Link to={"#"}>FAQs</Link>
+                  </li>
+                </ul>
               </div>
-              <div className="col-xl-2 col-lg-4 col-md-6 col-sm-6">
-                <div className="footer_link wow animate__animated animate__fadeInUp">
-                  <h4>Links</h4>
-                  <ul>
-                    <li>
-                      <Link to={"#"}>vvGrad Abroad</Link>
-                    </li>
-                    <li>
-                      <Link to={"#"}>Nxt PrepX</Link>
-                    </li>
-                    <li>
-                      <Link to={"#"}>HireX</Link>
-                    </li>
-                    <li>
-                      <Link to={"#"}>Contact Us</Link>
-                    </li>
-                  </ul>
-                </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div className="footer_link wow animate__animated animate__fadeInUp">
+                <h4>Contact Us</h4>
+                <ul>
+                  <li>
+                    <Link to={"#"}>+91 9553460456</Link>
+                  </li>
+                  <li>
+                    <Link to={"#"}>+91 8333812323</Link>
+                  </li>
+                  <li>
+                    <Link to={"#"}>Support@classhila.com</Link>
+                  </li>
+                </ul>
               </div>
-              <div className="col-xl-4 col-lg-4 col-md-6">
-                <div className="footer_address wow animate__animated animate__fadeInUp">
-                  <h4>Email</h4>
-                  <ul>
-                    <li>
-                      <p>hello@vvgrad.com | 8074 943 404</p>
-                    </li>
-                    <li>
-                      <i class="fab fa-google"></i>
-                      <i class="fab fa-facebook-f"></i>
-                      <i class="fab fa-twitter"></i>
-                      <i class="fab fa-linkedin-in"></i>
-                    </li>
-                  </ul>
+            </div>
+            <div className="col-xl-5 col-lg-5 col-md-6">
+              <div className="footer_address wow animate__animated animate__fadeInUp">
+                <h4>Subscribe for more useful updates</h4>
+
+                <div className="group_email">
+                  <input type="text" placeholder="Email Address" />
+                  <button className="btn_secondary">Subscribe</button>
                 </div>
               </div>
             </div>
@@ -88,10 +87,9 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 wow animate__animated animate__fadeInLeft">
-              <p className=" main_text text-center mb-3">
-                Copyright © 2024 vvGrad | All Rights Reserved
+              <p className=" main_text text-center ">
+                Copyright © 2024 Classhila.com All Rights Reserved.
               </p>
-              <p className="main_text text-center">Privacy policy | Terms</p>
             </div>
             {/* <div className="col-md-6 wow animate__animated animate__fadeInRight">
               <ul>

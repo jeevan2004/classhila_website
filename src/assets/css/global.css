@@ -214,10 +214,12 @@ input::placeholder {
 .btn_primary {
   background: var(--tg-theme-primary);
   color: #fff;
-  border-radius: 60px;
+  border-radius: 10px;
   padding: 10px 20px;
   transition: 0.3s;
   outline: none;
+  font-size: 18px;
+
   /* border: none; */
   width: fit-content;
   border: 1px solid transparent;
@@ -291,26 +293,28 @@ input::placeholder {
 .btn_secondary {
   background: var(--tg-theme-secondary);
   color: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 10px 30px;
   transition: 0.3s;
   outline: none;
   /* border: none; */
+  font-size: 18px;
   border: 1px solid transparent;
   text-align: center;
   text-transform: capitalize;
-
+  display: flex;
+  align-items: center;
   transition: 0.3s;
 
   /* box-shadow: 4px 6px 0px 0px var(--tg-common-color-blue); */
   overflow: hidden;
 }
 
-/* .btn_primary:hover {
-  background: var(--tg-theme-secondary);
-  color: #fff;
-  box-shadow: 0 0 0 0 var(--tg-common-color-blue);
-} */
+.btn_secondary img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
 
 .btn.circle {
   -webkit-border-radius: 40px;

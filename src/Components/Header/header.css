@@ -2,6 +2,7 @@ header {
   /* padding: 30px 35px; */
   /* box-shadow: 0 3px 9px rgb(0 0 0 / 5%); */
   position: absolute;
+  background: rgba(255, 245, 238, 1);
   top: 0;
   right: 0;
   left: 0;
@@ -66,7 +67,7 @@ header .navbar_link i {
 }
 
 header .active {
-  color: var(--tg-theme-primary);
+  color: var(--tg-theme-primary) !important;
 }
 
 header .nav-item {
@@ -315,9 +316,9 @@ header .call_box .list-wrap li.line {
 .header_white .navbar-nav > .nav-item > .navbar_link:hover {
   color: #f36321;
 }
-.sticky-menu .navbar_link {
+/* .sticky-menu .navbar_link {
   color: #333 !important;
-}
+} */
 
 @media (max-width: 1200px) and (min-width: 1024px) {
   header .navbar_link {

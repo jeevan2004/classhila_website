@@ -3,11 +3,8 @@ import "./header.css";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/image/logo.png";
 import { api } from "../../api/api";
-import CustomPopup from "../CustomPopup/CustomPopup";
-import CustomInput from "../common/Input/Input";
 import { useForm } from "react-hook-form";
-import PhoneInput from "react-phone-input-2";
-import CheckBox from "../common/Checkbox/Checkbox";
+import UserIcon from "../../assets/image/icon/RTM_users.png";
 import { useAuthContext } from "../../AuthContextAPI";
 
 function Header() {
@@ -133,12 +130,12 @@ function Header() {
 
     {
       title: "Course",
-      path: "/",
+      path: "",
       subMenu: false,
     },
     {
       title: "Blog",
-      path: "/",
+      path: "",
       subMenu: false,
     },
     {
@@ -226,7 +223,8 @@ function Header() {
                 className="btn_secondary"
                 onClick={() => setPopupOpen(true)}
               >
-                Join Now <i class="fas fa-arrow-right"></i>
+                <img src={UserIcon} alt="" />
+                Login/Register
               </button>
               {/* <a href="#" target="_self" class="btn_primary ">
               Try for free <i class="icon-4"></i>
