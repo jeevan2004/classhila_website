@@ -1,0 +1,166 @@
+.hero_banner.skill_sprint {
+  align-items: flex-end;
+  position: relative;
+  background: #183965;
+  background: url("../../assets/image/skill_banner.png");
+  padding-top: 100px;
+  min-height: 660px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.skill_course {
+  background: rgba(236, 246, 255, 1);
+}
+
+.skill_course .accordion-button:focus {
+  box-shadow: none;
+}
+.why_vvgrad_img .shape {
+  z-index: 9;
+}
+.why_vvgrad_img .vector {
+  position: absolute;
+  bottom: 62px;
+  right: 70px;
+}
+.hero_banner.skill_sprint .containers {
+  height: 535px;
+}
+
+.hero_banner.skill_sprint .containers .row.align-items-center {
+  height: 100%;
+}
+.skill_course .accordion-item {
+  border: 1px solid rgba(226, 226, 226, 1);
+  background: rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.skill_course .accordion-item .accordion-button {
+  border: none;
+  font-weight: 600;
+  border-radius: 12px !important;
+}
+
+.skill_course .accordion-button:not(.collapsed) {
+  background-color: unset;
+  box-shadow: none;
+}
+
+.skill_course .accordion-body {
+  color: rgba(90, 90, 90, 1);
+}
+
+.skill_course .why_vvgrad_img {
+  position: relative;
+  margin-top: 70px;
+}
+.skill_course .why_vvgrad_img img {
+  position: relative;
+  z-index: 99;
+}
+
+.skill_program {
+  background: rgba(0, 51, 102, 1);
+}
+
+.skill_program .content {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.skill_program .content p {
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.skill_program .skill_program_heaiding {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+.skill_program .content ul li span {
+  position: relative;
+}
+
+.skill_program .content ul li {
+  padding-left: 15px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 15px;
+}
+
+.skill_program .content ul li span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  transform: translate(0%, -50%);
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.skill_program ::-webkit-scrollbar {
+  width: 5px; /* Width of the vertical scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+  background: #000;
+}
+
+.skill_program ::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track background color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.skill_program ::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.skill_works .content {
+  background: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(237, 237, 237, 1);
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  padding: 30px 40px;
+  height: 100%;
+}
+
+.skill_works .content h1 {
+  color: rgba(211, 233, 255, 1);
+  font-size: 80px;
+}
+
+.skill_opportunities {
+  background: rgba(236, 246, 255, 1);
+}
+
+.skill_opportunities .team-content {
+  background: none;
+}
+
+.skill_features {
+  background: rgba(255, 246, 246, 1);
+}
+
+.skill_features .content {
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.02);
+  border: 2px solid rgba(237, 237, 237, 1);
+  background: rgba(255, 255, 255, 1);
+  padding: 30px 40px;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.skill_features .content img {
+  margin-bottom: 25px;
+  width: 60px;
+  height: 60px;
+}
+@media (max-width: 991px) {
+  .hero_banner .banner-content {
+    padding: 10px;
+  }
+}

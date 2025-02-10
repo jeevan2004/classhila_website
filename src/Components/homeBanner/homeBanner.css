@@ -1,0 +1,186 @@
+.hero-banner.hero-style-1 {
+  align-items: flex-end;
+  position: relative;
+  /* background-color: var(--bg-color); */
+  background: rgba(255, 245, 238, 1);
+
+  padding-top: 100px;
+}
+.hero-banner {
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-banner .banner-content {
+  position: relative;
+  z-index: 1;
+}
+.hero-banner .banner-content .title {
+  margin-bottom: 18px;
+  font-size: 50px;
+}
+.hero-banner .banner-content p {
+  color: var(--color-text);
+  font-size: 18px;
+}
+.hero-banner .banner-content .links {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 300;
+  /* background: linear-gradient(90deg, #f26322 0%, #0663bf 100%); */
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 20px 14px;
+}
+.hero-banner .banner-content .links a:nth-child(1) {
+  background: #f26322;
+}
+.hero-banner .banner-content .links a:nth-child(2) {
+  background: #0663bf;
+}
+.hero-banner .banner-content .links a:nth-child(3) {
+  background: #ecc72f;
+  color: #000;
+  font-weight: 200;
+}
+.hero-banner
+  .banner-thumbnail
+  .instructor-info.first
+  .inner
+  .media
+  .content
+  span {
+  color: #f16348;
+}
+.hero-banner .banner-content .links a {
+  padding: 5px 7px;
+  border-radius: 7px;
+  margin: 0 4px;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.hero-banner .banner-thumbnail {
+  position: relative;
+  z-index: 1;
+}
+.hero-banner .banner-thumbnail .thumbnail {
+  text-align: right;
+}
+.hero-banner .banner-thumbnail .instructor-info {
+  position: absolute;
+  bottom: 110px;
+  right: -45px;
+  width: fit-content;
+}
+
+.hero-banner .banner-thumbnail .instructor-info.first {
+  top: 100px;
+  left: -45px;
+}
+
+.hero-banner .banner-thumbnail .instructor-info .inner {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 2px solid rgba(255, 255, 255, 1);
+  padding: 20px 20px;
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.14);
+}
+
+.hero-banner .banner-thumbnail .instructor-info.first .inner .thumb {
+  background: rgba(6, 99, 191, 1);
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.hero-banner .banner-thumbnail .instructor-info .inner .title {
+  margin-bottom: 5px;
+}
+.hero-banner .banner-thumbnail .instructor-info .inner .media .content {
+  line-height: 1;
+  color: rgba(42, 42, 42, 1);
+  font-weight: 500;
+  font-size: 18px;
+}
+.hero-banner .banner-thumbnail .instructor-info .inner .media .content span {
+  display: block;
+  font-weight: 600;
+  font-size: 35px;
+  color: rgba(33, 33, 33, 1);
+  padding-bottom: 5px;
+}
+
+.notify {
+  background: rgba(242, 99, 34, 1);
+  padding: 20px 0;
+}
+
+.notify h6 {
+  color: rgba(255, 255, 255, 1);
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+.notify p {
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/*  */
+.features-area {
+  /* background: linear-gradient(-90deg, #31b978, #0663bf); */
+  background: var(--tg-theme-primary);
+}
+.features-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+/* .features-box.features-style-2:first-child {
+  padding-left: 0;
+} */
+
+.features-box.features-style-2 {
+  background-color: transparent;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border-right: 1px solid hsla(0, 0%, 100%, 0.15);
+  padding: 30px 20px 30px 20px;
+}
+.features-box.features-style-2:last-child {
+  border-right: none;
+}
+.features-box.features-style-2 .icon {
+  margin: 0;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  color: var(--color-white);
+}
+.features-box .icon {
+  height: 80px;
+  width: 80px;
+  min-width: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 28px;
+  transition: 0.3s ease;
+}
+.features-box.features-style-2 .content {
+  padding-left: 20px;
+}
+.features-box.features-style-2 .content .title {
+  margin-bottom: 0;
+  font-weight: 400;
+  color: var(--color-white);
+  font-size: 22px;
+}
+.features-box .content .title span {
+  display: block;
+}

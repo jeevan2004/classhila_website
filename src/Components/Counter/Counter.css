@@ -1,0 +1,35 @@
+.counter-box {
+  box-shadow: 0 30px 70px 0 rgba(16, 12, 47, 0.05);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  text-align: center;
+  padding: 25px;
+}
+
+.counter-box p {
+  margin-bottom: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: var(--p-medium);
+}
+
+.counter_sec {
+  margin-top: -30px;
+  padding-bottom: 140px;
+}
+
+.counter-box i {
+  width: 60px;
+  height: 60px;
+  background: #0663bf;
+  align-content: space-around;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.counter-box h2.counter {
+  font-size: 36px;
+  margin-bottom: 20px;
+}

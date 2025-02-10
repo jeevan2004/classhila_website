@@ -1,0 +1,121 @@
+footer {
+  background: rgba(0, 28, 66, 1);
+  padding: 60px 0 60px;
+}
+
+footer .footer_about img {
+  padding-bottom: 36px;
+}
+
+footer .footer_about p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 15px;
+}
+
+footer .footer_link h4,
+.footer_address h4 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #fff;
+  position: relative;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+footer .footer_link h4::before,
+.footer_address h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--tg-theme-primary);
+}
+
+footer .footer_link a,
+.footer_address p {
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+  transition: 0.35s all;
+  display: inline-block;
+  position: relative;
+}
+
+footer .footer_link a:hover {
+  color: var(--tg-theme-secondary);
+}
+
+footer .footer_link a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.4s cubic-bezier(0.74, 0.72, 0.27, 0.24);
+}
+footer .footer_link a:hover::before {
+  transform-origin: left top;
+
+  transform: scale(1, 1);
+}
+
+footer .footer_address ul li {
+  display: flex;
+  align-items: center;
+}
+footer .footer_address ul li i {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  color: rgba(0, 28, 66, 1);
+  transition: 0.3s;
+}
+
+footer .footer_address ul li i:hover {
+  background: rgba(242, 99, 34, 1);
+  color: #fff;
+}
+.footer_bottom {
+  background: rgba(0, 28, 66, 1);
+  padding: 35px 0;
+  border: none;
+  border-top: 1px solid rgba(157, 157, 157, 1);
+}
+
+.footer_bottom p {
+  margin: 0;
+  color: #fff;
+}
+
+.footer_bottom ul {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.footer_bottom a {
+  color: #c2d1e2;
+  margin-left: 10px;
+  border-bottom: 1px solid;
+}
+
+@media (max-width: 768px) {
+}
+
+footer .row [class*="col-"]:nth-child(1) .footer_about {
+  margin-right: 60px;
+}
