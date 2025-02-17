@@ -1,0 +1,119 @@
+/* PricingPlan.css */
+:root {
+  --orange: #ff6b00;
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.btn-orange {
+  background-color: var(--orange);
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #e65d00;
+  color: white;
+}
+
+.pricing_plan {
+  padding-top: 120px;
+}
+
+.pricing-subtitle {
+  color: var(--orange);
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.pricing-toggle .btn {
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+}
+
+.pricing-card {
+  border-radius: 15px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e65d00;
+}
+
+.pricing-title {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.pricing-price .period {
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.pricing-card ul li {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.pricing-card ul li i {
+  color: var(--orange);
+  margin-right: 10px;
+}
+
+.btn-secondary {
+  background-color: #a9927d;
+  border: none;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #8f7b69;
+}
+
+.btn-primary {
+  background-color: var(--orange);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e65d00;
+}
+
+.card {
+  padding: 2rem;
+}
+
+.discover span {
+  color: rgb(255, 107, 0);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.discover h2 {
+  color: rgb(255, 107, 0);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.discover p {
+  font-size: 1.1rem;
+  color: rgb(51, 51, 51);
+  max-width: 600px;
+  margin: 0px auto;
+  line-height: 1.6;
+}

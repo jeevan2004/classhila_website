@@ -1,9 +1,13 @@
+import Faq from "../Components/faq/FAQPage";
+import AboutPage from "../Pages/About/AboutPage";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 
 import Home from "../Pages/Home/Home";
 import ForgotPassword from "../Pages/Login/ForgotPassword";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import Signup from "../Pages/Login/Signup";
+import PricingPlan from "../Pages/Pricing/PricingPlan";
 import PrivacyPolicy from "../Pages/TermsConditions/PrivacyPolicy";
 import TermsConditions from "../Pages/TermsConditions/TermsConditions";
 
@@ -44,7 +48,7 @@ export const routes = [
   {
     notLazy: true,
     path: "/register",
-    element: Register,
+    element: Signup,
     role: "private",
     name: "Register",
     subRouting: false,
@@ -53,6 +57,30 @@ export const routes = [
     notLazy: true,
     path: "/login",
     element: Login,
+    role: "private",
+    name: "Login",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/pricing-plan",
+    element: PricingPlan,
+    role: "private",
+    name: "Login",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/about-us",
+    element: AboutPage,
+    role: "private",
+    name: "Login",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/faq",
+    element: Faq,
     role: "private",
     name: "Login",
     subRouting: false,
