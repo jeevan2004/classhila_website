@@ -1,0 +1,28 @@
+.about_top {
+  background: rgba(248, 111, 3, 0.16);
+  padding-top: 150px;
+  padding-bottom: 120px;
+  text-align: center;
+}
+
+.about_top h2 {
+  margin-bottom: 15px;
+  font-size: 55px;
+}
+
+.about_top span {
+  font-size: 18px;
+  font-size: 500;
+}
+
+.about_top p {
+  font-size: 20px;
+  font-size: 400;
+  color: rgba(61, 45, 33, 1);
+  margin-top: 30px;
+}
+
+.vision p {
+  color: rgba(237, 115, 48, 1);
+  font-size: 22px;
+}

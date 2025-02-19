@@ -6,7 +6,7 @@ import Home from "../Pages/Home/Home";
 import ForgotPassword from "../Pages/Login/ForgotPassword";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
-import Signup from "../Pages/Login/Signup";
+import Mentor from "../Pages/Mentor/Mentor";
 import PricingPlan from "../Pages/Pricing/PricingPlan";
 import PrivacyPolicy from "../Pages/TermsConditions/PrivacyPolicy";
 import TermsConditions from "../Pages/TermsConditions/TermsConditions";
@@ -48,7 +48,7 @@ export const routes = [
   {
     notLazy: true,
     path: "/register",
-    element: Signup,
+    element: Register,
     role: "private",
     name: "Register",
     subRouting: false,
@@ -79,10 +79,10 @@ export const routes = [
   },
   {
     notLazy: true,
-    path: "/faq",
-    element: Faq,
+    path: "/mentor",
+    element: Mentor,
     role: "private",
-    name: "Login",
+    name: "Mentor",
     subRouting: false,
   },
   {

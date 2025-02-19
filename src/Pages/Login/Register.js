@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import "./login.css";
+import { Tab, Tabs } from "react-bootstrap";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
-
 const Register = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullname: "",
     email: "",
+    phone: "",
+    schoolName: "",
+    district: "",
+    village: "",
     password: "",
     confirmPassword: "",
   });
-
-  const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -25,85 +27,45 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Password and Confirm Password Validation
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    // Clear any previous errors
-    setError("");
-
-    let payload = {
-      fullName: formData.fullName,
-      email: formData.email,
-      password: formData.password,
-    };
-
-    // const formdata = new FormData();
-    // formdata.append("fullName", "vishnu");
-    // formdata.append("password", "Vishnu@11");
-    // formdata.append("email", "vishnu1@oneehr.net");
-
-    try {
-      let res = await api(
-        `api/v1/users/create`,
-        payload,
-        "postMultipart",
-        "",
-        "Account Created Successfully",
-        ""
-      );
-
-      if (res) {
-        console.log("Registration successful", res);
-        // You can redirect or show a success message here
-        setFormData({
-          fullName: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-      }
-    } catch (error) {
-      console.error("Error creating account:", error);
-    }
+    // let payload = {
+    //   email: formData.email,
+    //   password: formData.password,
+    // };
+    // let res = await api(
+    //   `api/v1/users/userlogin`,
+    //   payload,
+    //   "post",
+    //   "",
+    //   // currUserData?.token,
+    //   "Login Successfully",
+    //   ""
+    // );
+    // if (res) {
+    //   navigate("/");
+    //   localStorage.setItem("user", JSON.stringify(res));
+    //   console.log(res, "card login");
+    // }
   };
-
   return (
     <>
-      <Breadcrumb name={"Register"} pageName={"Register"} />
       <div className="register-area overflow-hidden">
         <div className="container">
           <div className="row">
             <div className="col-lg-6" style={{ margin: "0 auto" }}>
-              <div className="contact-form-wrap">
-                <h4 className="title">Create Your Account</h4>
-                <p>
-                  Hey there! Ready to join the party? We just need a few details
-                  from you to get <br />
-                  started. Let's do this!
-                </p>
-                <form className="mt-4" onSubmit={handleSubmit}>
+              <div className="contact-form">
+                <form className="mt-4" onSubmit={(e) => handleSubmit(e)}>
                   <div className="mb-3">
-                    <label htmlFor="Yourname" className="form-label">
-                      Full Name
-                    </label>
                     <input
-                      type="text"
+                      type="name"
                       className="form-control"
                       placeholder="Full Name"
-                      id="Yourname"
-                      name="fullName"
-                      value={formData.fullName}
+                      id="Youremail"
+                      name="fullname"
+                      value={formData.fullname}
                       onChange={handleChange}
                     />
                   </div>
-
                   <div className="mb-3">
-                    <label htmlFor="Youremail" className="form-label">
-                      Email
-                    </label>
                     <input
                       type="email"
                       className="form-control"
@@ -114,13 +76,53 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   </div>
-
                   <div className="mb-3">
-                    <label htmlFor="Password" className="form-label">
-                      Password
-                    </label>
                     <input
-                      type="password"
+                      type="number"
+                      className="form-control"
+                      placeholder="Phone"
+                      id=""
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="School Name"
+                      id=""
+                      name="schoolName"
+                      value={formData.schoolName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Village/Town"
+                      id=""
+                      name="village"
+                      value={formData.village}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="District"
+                      id=""
+                      name="district"
+                      value={formData.district}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
                       className="form-control"
                       id="Password"
                       name="password"
@@ -129,33 +131,42 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   </div>
-
                   <div className="mb-3">
-                    <label htmlFor="ConfirmPassword" className="form-label">
-                      Confirm Password
-                    </label>
                     <input
-                      type="password"
+                      type="text"
                       className="form-control"
-                      placeholder="Confirm Password"
-                      id="ConfirmPassword"
+                      id=""
                       name="confirmPassword"
+                      placeholder="Confirm Password"
                       value={formData.confirmPassword}
                       onChange={handleChange}
                     />
                   </div>
 
-                  {error && <p style={{ color: "red" }}>{error}</p>}
-
+                  {/* <div className="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    />
+                    <label className="form-check-label" htmlFor="exampleCheck1">
+                      By checking this box, you agree to our privacy policy and
+                      terms of service.{" "}
+                      <Link to={"#"}>
+                        <b>Privacy Policy</b>
+                      </Link>
+                    </label>
+                  </div> */}
                   <button
-                    className="btn_secondary btn_md w-100 mt-3"
+                    className=" btn_secondary btn_md w-100 mt-5 text-center"
                     type="submit"
                   >
                     Sign Up
                   </button>
 
                   <p className="already">
-                    Already have an account? <Link to="/login">Login</Link>
+                    Dont have an account?
+                    <Link to={"/login"}>Sign In</Link>
                   </p>
                 </form>
               </div>

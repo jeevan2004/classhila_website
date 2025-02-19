@@ -36,8 +36,8 @@ const FAQPage = () => {
     },
   ];
   return (
-    <div className="faq-page">
-      <Container className="py-5">
+    <div className="faq-page p-100">
+      <Container className="">
         <h1 className="text-center mb-5 fw-bold" style={{ color: "#333" }}>
           FAQs<span style={{ color: "#F47F24" }}>.</span>
         </h1>
@@ -99,57 +99,6 @@ const FAQPage = () => {
           </Col>
         </Row>
       </Container>
-
-      <div className="py-5" style={{ backgroundColor: "#FFF5F2" }}>
-        <Container>
-          <Row className="justify-content-between align-items-center">
-            <Col xs={12}>
-              <h5 className="text-center mb-5">Our Partners</h5>
-            </Col>
-
-            <Col xs={6} md className="text-center mb-4">
-              <img
-                src="com1.png"
-                alt="Partner Logo 1"
-                className="img-fluid"
-                style={{ maxHeight: "80px" }}
-              />
-            </Col>
-            <Col xs={6} md className="text-center mb-4">
-              <img
-                src="com1.png"
-                alt="Partner Logo 2"
-                className="img-fluid"
-                style={{ maxHeight: "80px" }}
-              />
-            </Col>
-            <Col xs={6} md className="text-center mb-4">
-              <img
-                src="com2.png"
-                alt="Partner Logo 3"
-                className="img-fluid"
-                style={{ maxHeight: "80px" }}
-              />
-            </Col>
-            <Col xs={6} md className="text-center mb-4">
-              <img
-                src="com2.png"
-                alt="Partner Logo 4"
-                className="img-fluid"
-                style={{ maxHeight: "80px" }}
-              />
-            </Col>
-            <Col xs={6} md className="text-center mb-4">
-              <img
-                src="com2.png"
-                alt="Partner Logo 5"
-                className="img-fluid"
-                style={{ maxHeight: "80px" }}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </div>
     </div>
   );
 };

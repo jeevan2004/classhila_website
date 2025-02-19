@@ -6,8 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 const Login = () => {
   const [formData, setFormData] = useState({
+    fullname: "",
     email: "",
+    phone: "",
+    schoolName: "",
+    district: "",
+    village: "",
     password: "",
+    confirmPassword: "",
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -21,43 +27,45 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let payload = {
-      email: formData.email,
-      password: formData.password,
-    };
-    let res = await api(
-      `api/v1/users/userlogin`,
-      payload,
-      "post",
-      "",
-      // currUserData?.token,
-      "Login Successfully",
-      ""
-    );
-    if (res) {
-      navigate("/");
-      localStorage.setItem("user", JSON.stringify(res));
-      console.log(res, "card login");
-    }
+    // let payload = {
+    //   email: formData.email,
+    //   password: formData.password,
+    // };
+    // let res = await api(
+    //   `api/v1/users/userlogin`,
+    //   payload,
+    //   "post",
+    //   "",
+    //   // currUserData?.token,
+    //   "Login Successfully",
+    //   ""
+    // );
+    // if (res) {
+    //   navigate("/");
+    //   localStorage.setItem("user", JSON.stringify(res));
+    //   console.log(res, "card login");
+    // }
   };
   return (
     <>
-      <Breadcrumb name={"Login"} pageName={"Login"} />
       <div className="register-area overflow-hidden">
         <div className="container">
           <div className="row">
             <div className="col-lg-6" style={{ margin: "0 auto" }}>
-              <div className="contact-form-wrap">
-                <h4 class="title">Welcome back!</h4>
-                <p>
-                  Hey there! Ready to log in? Just enter your email and password
-                  below and you will be back in action in no time. Lets go!
-                </p>
+              <div className="contact-form">
                 <form className="mt-4" onSubmit={(e) => handleSubmit(e)}>
                   <div className="mb-3">
-                    <label htmlFor="Youremail" className="form-label">
-                      Email
-                    </label>
+                    <input
+                      type="name"
+                      className="form-control"
+                      placeholder="Full Name"
+                      id="Youremail"
+                      name="fullname"
+                      value={formData.fullname}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
                     <input
                       type="email"
                       className="form-control"
@@ -69,16 +77,13 @@ const Login = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Password" className="form-label">
-                      Password
-                    </label>
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
-                      id="Password"
-                      name="password"
-                      placeholder="Password"
-                      value={formData.password}
+                      placeholder="Phone"
+                      id=""
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
                     />
                   </div>
@@ -98,10 +103,10 @@ const Login = () => {
                     </label>
                   </div> */}
                   <button
-                    className=" btn_secondary btn_md w-100 mt-3"
+                    className=" btn_secondary btn_md w-100 mt-5 text-center"
                     type="submit"
                   >
-                    Sign In
+                    Login
                   </button>
 
                   <p className="already">

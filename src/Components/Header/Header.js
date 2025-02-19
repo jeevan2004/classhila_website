@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./header.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/image/logo.png";
 import { api } from "../../api/api";
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ function Header() {
   const { popupOpen, setPopupOpen } = useAuthContext();
 
   const location = useLocation();
+  const navigate = useNavigate();
   const [show, setShow] = useState(popupOpen);
   const [value, setValue] = useState("");
   const [phone, setPhone] = useState("");
@@ -221,7 +222,7 @@ function Header() {
             <div className="call_box d-flex">
               <button
                 className="btn_secondary"
-                onClick={() => setPopupOpen(true)}
+                onClick={() => navigate("/login")}
               >
                 <img src={UserIcon} alt="" />
                 Login/Register

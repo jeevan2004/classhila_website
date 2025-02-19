@@ -7,6 +7,9 @@ import { useAuthContext } from "../../AuthContextAPI";
 import HomeBanner from "../../Components/homeBanner/HomeBanner";
 import WithUs from "../../Components/WithUs/WithUs";
 import BestCoaching from "../../Components/BestCoaching/BestCoaching";
+import OurGoal from "../../Components/OurGoal/OurGoal";
+import OurMentor from "../../Components/OurMentor/OurMentor";
+import FAQPage from "../../Components/faq/FAQPage";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -66,7 +69,41 @@ const Home = () => {
       <HomeBanner />
 
       <WithUs />
+      <OurGoal />
+      <OurMentor />
+
+      <div className="total_counter">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <div className="content">
+                <h2>100K+</h2>
+                <p>Active Students</p>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="content">
+                <h2>90+</h2>
+                <p>Schools Enroled</p>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="content">
+                <h2>80+</h2>
+                <p>Courses</p>
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="content">
+                <h2>50+</h2>
+                <p>Expert Instructors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <BestCoaching />
+      <FAQPage />
     </>
   );
 };
