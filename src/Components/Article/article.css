@@ -1,0 +1,30 @@
+.article_card .card_image {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.article_card .card_content a {
+  color: #968374;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 500;
+  margin-top: 20px;
+  display: block;
+  font-family: "Inter", serif;
+}
+
+.article_card .card_content h5 {
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #ed7330;
+  font-weight: 500;
+}
+
+.article_card .card_content p {
+  color: #3d2d21;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}

@@ -1,0 +1,47 @@
+.our_mentor .content .comment {
+  background: rgba(255, 245, 238, 1);
+  position: relative;
+  color: rgba(61, 45, 33, 1);
+  font-size: 18px;
+  font-style: italic;
+  border-radius: 20px;
+  padding: 20px 30px;
+  padding-top: 50px;
+  margin-top: 50px;
+}
+
+.our_mentor .content .comment::after {
+  content: "";
+  background: url("../../assets/image/icon/coma.png");
+  position: absolute;
+  top: -35px;
+  left: 32px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.our_mentor .content .comment p {
+  font-size: 24px;
+  color: rgba(237, 115, 48, 1);
+  font-style: normal;
+  margin-top: 15px;
+}
+.our_mentor .content .comment small {
+  font-size: 16px;
+  color: rgba(237, 115, 48, 1);
+  font-style: normal;
+}
+
+.our_mentor .team_member img {
+  border-radius: 20px;
+}
+.our_mentor .team_member h4 {
+  margin-top: 10px;
+  color: rgba(237, 115, 48, 1);
+  font-size: 20px;
+  font-weight: 600;
+}
+.our_mentor .team_member img {
+  border-radius: 20px;
+}
