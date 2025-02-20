@@ -1,0 +1,57 @@
+import React from "react";
+import boy from "../../assets/image/boy.png";
+import video from "../../assets/image/Video.png";
+import phone from "../../assets/image/icon/phone.png";
+import "./withus.css";
+const WithUs = () => {
+  return (
+    <div className="with_us p-100">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="content">
+              <h2 className="main_heading mb-3">
+                Start Better Learning with Us.
+              </h2>
+              <p className="main_text mb-2">
+                To create a world where every student, regardless of their
+                background, is empowered with a well-rounded education that
+                nurtures resilience, critical thinking, and a passion for
+                lifelong learning, equipping them to confidently navigate and
+                succeed in the complexities of the modern world.
+              </p>
+              <p className="main_text mb-3">
+                With a team of experienced educators and industry professionals,
+                we offer engaging content designed to inspire and motivate
+                learners from all backgrounds. Join our vibrant community of
+                learners and start your journey with us today!
+              </p>
+              <button className="btn_secondary ">Learn More</button>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="images">
+              <div className="row">
+                <div className="col-md-6">
+                  <img src={boy} alt="" className="rounded-4" />
+                  <div className="with_us_button btn_secondary mt-3">
+                    <img src={phone} alt="" />
+                    <div>
+                      <p>Contact Us</p>
+                      <p>+91-7036816361</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <img src={video} alt="" className="mt-5" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default WithUs;
