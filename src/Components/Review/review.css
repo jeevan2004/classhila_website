@@ -1,0 +1,42 @@
+.review .review_inner {
+  padding: 0 50px;
+  position: relative;
+}
+
+.review_inner .review_content {
+  box-shadow: 0px 4px 31px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  width: 60%;
+  position: absolute;
+  bottom: -100px;
+  right: -40px;
+
+  /* z-index: 999; */
+  background: rgba(255, 255, 255, 1);
+}
+
+.review_inner .review_content .author {
+  width: 700px;
+  text-align: end;
+  margin-right: 25px;
+}
+
+.review_inner .review_content .author h2 {
+  color: rgba(237, 115, 48, 1);
+  font-size: 22px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.review_inner .review_content .author p {
+  color: rgba(255, 120, 42, 1);
+  font-size: 16px;
+}
+
+.review_inner .review_content .author_content p {
+  color: rgba(237, 115, 48, 1);
+  font-size: 16px;
+  margin-top: 10px;
+  font-style: italic;
+}

@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
+import phone from "../../assets/image/icon/phone.png";
 import "./FAQPage.css";
 
 const FAQPage = () => {
@@ -63,11 +64,11 @@ const FAQPage = () => {
                 className="border-0 mt-5"
                 style={{ backgroundColor: "#F47F24", borderRadius: "8px" }}
               >
-                <Card.Body className="">
+                <Card.Body className=" faq_contact">
                   <div className="d-flex align-items-center">
                     <div className="me-3">
                       <span style={{ fontSize: "24px", color: "white" }}>
-                        ☎
+                        <img src={phone} alt="" />
                       </span>
                     </div>
                     <div>

@@ -53,3 +53,7 @@
 .img-fluid {
   filter: brightness(0);
 }
+
+.faq_contact {
+  padding: 20px;
+}

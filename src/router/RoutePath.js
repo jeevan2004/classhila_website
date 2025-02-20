@@ -1,6 +1,7 @@
 import Faq from "../Components/faq/FAQPage";
 import AboutPage from "../Pages/About/AboutPage";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import Courses from "../Pages/Courses/Courses";
 
 import Home from "../Pages/Home/Home";
 import ForgotPassword from "../Pages/Login/ForgotPassword";
@@ -81,6 +82,14 @@ export const routes = [
     notLazy: true,
     path: "/mentor",
     element: Mentor,
+    role: "private",
+    name: "Mentor",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/courses",
+    element: Courses,
     role: "private",
     name: "Mentor",
     subRouting: false,

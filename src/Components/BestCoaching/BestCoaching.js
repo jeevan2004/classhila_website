@@ -66,7 +66,7 @@ const BestCoaching = () => {
 
   return (
     <div className="best_coaching">
-      <div className="container py-5">
+      <div className="container">
         {/* Header Section */}
         <div className="text-center mb-5">
           <h1 className="display-4 mb-3" style={{ color: "#FF6B35" }}>

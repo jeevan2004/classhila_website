@@ -10,6 +10,8 @@ import BestCoaching from "../../Components/BestCoaching/BestCoaching";
 import OurGoal from "../../Components/OurGoal/OurGoal";
 import OurMentor from "../../Components/OurMentor/OurMentor";
 import FAQPage from "../../Components/faq/FAQPage";
+import Review from "../../Components/Review/Review";
+import Plan from "../../Components/Plan/Plan";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -103,6 +105,33 @@ const Home = () => {
         </div>
       </div>
       <BestCoaching />
+      <Review />
+
+      <div className="plan p-100">
+        <div className="container ">
+          {/* Header Section */}
+          <div className="text-center mb-5">
+            <h1
+              className="display-4 mb-3"
+              style={{ color: "rgba(237, 115, 48, 1)" }}
+            >
+              Select a Plan That Suits You.
+            </h1>
+            <p className="text-muted">
+              Explore flexible pricing options tailored to fit your learning
+              needs. Choose from our affordable plans
+            </p>
+          </div>
+          <div className="row justify-content-center gx-5">
+            <div className="col-md-4">
+              <Plan />
+            </div>
+            <div className="col-md-4">
+              <Plan />
+            </div>
+          </div>
+        </div>
+      </div>
       <FAQPage />
     </>
   );

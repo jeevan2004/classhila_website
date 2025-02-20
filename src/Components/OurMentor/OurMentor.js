@@ -2,8 +2,10 @@ import React from "react";
 import teacher from "../../assets/image/teacher.png";
 import team from "../../assets/image/team.png";
 import "./ourMentor.css";
+import { useNavigate } from "react-router-dom";
 
 const OurMentor = () => {
+  const navigate = useNavigate();
   return (
     <div className="our_mentor p-100">
       <div className="container">
@@ -54,7 +56,10 @@ const OurMentor = () => {
           </div>
         </div>
 
-        <button className="btn_secondary mt-4 mx-auto">
+        <button
+          className="btn_secondary mt-4 mx-auto"
+          onClick={() => navigate("/mentor")}
+        >
           View All Mentor/Faculty
         </button>
       </div>

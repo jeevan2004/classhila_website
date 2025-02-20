@@ -110,7 +110,7 @@ function Header() {
 
     {
       title: "About",
-      path: "",
+      path: "/about-us",
       subMenu: false,
     },
     // {
@@ -130,8 +130,8 @@ function Header() {
     // },
 
     {
-      title: "Course",
-      path: "",
+      title: "Courses",
+      path: "/courses",
       subMenu: false,
     },
     {
