@@ -19,9 +19,6 @@ import blank_image from "../../assets/image/blank_image.png";
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
 
-  useEffect(() => {
-    document.title = "NextGen 5.0 - Transform Your Future with vvGrad";
-  }, []);
   const tabs = [
     "tab1",
     "tab2",

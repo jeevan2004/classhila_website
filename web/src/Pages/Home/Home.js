@@ -14,9 +14,6 @@ import FAQPage from "../../Components/faq/FAQPage";
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
 
-  useEffect(() => {
-    document.title = "NextGen 5.0 - Transform Your Future with vvGrad";
-  }, []);
   const tabs = [
     "tab1",
     "tab2",
