@@ -58,7 +58,7 @@ const Register = () => {
                     <input
                       type="name"
                       className="form-control"
-                      placeholder="Full Name"
+                      placeholder="*Full Name"
                       id="Youremail"
                       name="fullname"
                       value={formData.fullname}
@@ -69,7 +69,7 @@ const Register = () => {
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="*Email"
                       id="Youremail"
                       name="email"
                       value={formData.email}
@@ -80,7 +80,7 @@ const Register = () => {
                     <input
                       type="number"
                       className="form-control"
-                      placeholder="Phone"
+                      placeholder="*Phone"
                       id=""
                       name="phone"
                       value={formData.phone}
@@ -91,7 +91,7 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="School Name"
+                      placeholder="*School Name"
                       id=""
                       name="schoolName"
                       value={formData.schoolName}
@@ -102,7 +102,7 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Village/Town"
+                      placeholder="*Village/Town"
                       id=""
                       name="village"
                       value={formData.village}
@@ -113,7 +113,7 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="District"
+                      placeholder="*District"
                       id=""
                       name="district"
                       value={formData.district}
@@ -126,7 +126,7 @@ const Register = () => {
                       className="form-control"
                       id="Password"
                       name="password"
-                      placeholder="Password"
+                      placeholder="*Password"
                       value={formData.password}
                       onChange={handleChange}
                     />
@@ -137,7 +137,7 @@ const Register = () => {
                       className="form-control"
                       id=""
                       name="confirmPassword"
-                      placeholder="Confirm Password"
+                      placeholder="*Confirm Password"
                       value={formData.confirmPassword}
                       onChange={handleChange}
                     />

@@ -68,7 +68,7 @@ const Courses = () => {
         <div className="container ">
           {/* Header Section */}
           <div className="row justify-content-center">
-            <div className="col-md-8">
+            <div className="col-lg-6">
               <div className="text-center mb-5">
                 <h1
                   className="main_heading mb-3"

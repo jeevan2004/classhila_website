@@ -85,26 +85,30 @@ const AboutPage = () => {
         <WithUs />
         <div className="vision text-center p-70">
           <div className="container">
-            <div className="mb-5">
-              <h4 className="second_heading">Vision</h4>
-              <p>
-                Empowering every student with accessible, inclusive, and
-                transformative education for a brighter future.
-              </p>
-            </div>
-            <div className="">
-              <h4 className="second_heading">Mission</h4>
-              <p>
-                To make quality education affordable and inclusive, fostering
-                academic and personal and academic growth for all.
-              </p>
+            <div className="row justify-content-center">
+              <div className="col-md-10">
+                <div className="mb-5">
+                  <h4 className="second_heading">Vision</h4>
+                  <p>
+                    Empowering every student with accessible, inclusive, and
+                    transformative education for a brighter future.
+                  </p>
+                </div>
+                <div className="">
+                  <h4 className="second_heading">Mission</h4>
+                  <p>
+                    To make quality education affordable and inclusive,
+                    fostering academic and personal and academic growth for all.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className="total_counter">
           <div className="container">
             <div className="counter_inner">
-              <div className="row">
+              <div className="row" style={{ padding: "0 90px" }}>
                 <div className="col-md-3">
                   <div className="content">
                     <h2>100K+</h2>
@@ -187,7 +191,7 @@ const AboutPage = () => {
           <div className="container ">
             {/* Header Section */}
             <div className="row justify-content-center">
-              <div className="col-md-8">
+              <div className="col-lg-6">
                 <div className="text-center mb-5">
                   <h1
                     className="main_heading mb-3"

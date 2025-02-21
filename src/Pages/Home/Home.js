@@ -128,7 +128,7 @@ const Home = () => {
         <div className="container ">
           {/* Header Section */}
           <div className="row justify-content-center">
-            <div className="col-md-8">
+            <div className="col-lg-6">
               <div className="text-center mb-5">
                 <h1
                   className="main_heading mb-3"
@@ -164,7 +164,7 @@ const Home = () => {
       <div className="home_single_blog p-70">
         <Container>
           <div className="row justify-content-center text-center">
-            <div className="col-12 col-lg-7 mx-auto">
+            <div className="col-12 col-lg-6 mx-auto">
               <div className="text-center mb-5">
                 <h6 className="pre_heading mb-2">Latest Article</h6>
 

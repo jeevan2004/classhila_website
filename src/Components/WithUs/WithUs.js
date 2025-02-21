@@ -12,10 +12,10 @@ const WithUs = () => {
     <div className="with_us p-100">
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <div className="content">
               <h2 className="main_heading mb-3">
-                Start Better Learning{" "}
+                Start Better Learning <br />
                 <span className="secondary_text">with Us.</span>
               </h2>
               <p className="main_text mb-2">

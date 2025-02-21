@@ -136,7 +136,7 @@ function Header() {
     },
     {
       title: "Blog",
-      path: "",
+      path: "/blog",
       subMenu: false,
     },
     {

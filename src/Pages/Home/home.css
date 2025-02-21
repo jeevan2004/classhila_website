@@ -1,5 +1,6 @@
 .total_counter {
   background: rgba(248, 111, 3, 0.45);
+  padding: 50px 0;
 }
 .total_counter .content {
   padding: 30px 0;
@@ -98,4 +99,28 @@
   position: absolute;
   top: 220px;
   right: 15%;
+}
+
+@media (min-width: 1700px) {
+  .plan .shape2 {
+    position: absolute;
+    top: 105px;
+    left: 24%;
+    width: 35px;
+  }
+  .plan .shape3 {
+    position: absolute;
+    top: 170px;
+    left: 28%;
+  }
+  .plan .shape1 {
+    position: absolute;
+    top: 30%;
+    right: 20%;
+  }
+  .plan .shape4 {
+    position: absolute;
+    top: 220px;
+    right: 18%;
+  }
 }

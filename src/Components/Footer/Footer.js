@@ -1,6 +1,10 @@
 import React from "react";
 import logo from "../../assets/image/logo_footer.png";
 import "./footer.css";
+import fb from "../../assets/image/facebook.png";
+import twitter from "../../assets/image/twitter.png";
+import insta from "../../assets/image/instagram.png";
+import youtube from "../../assets/image/youtube.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -76,6 +80,27 @@ const Footer = () => {
                 <div className="group_email">
                   <input type="text" placeholder="Email Address" />
                   <button className="btn_secondary">Subscribe</button>
+                </div>
+                <div className="share_on_footer">
+                  <p>
+                    <Link>
+                      {" "}
+                      <img src={fb} />{" "}
+                    </Link>
+                    <Link>
+                      {" "}
+                      <img src={insta} />{" "}
+                    </Link>
+
+                    <Link>
+                      {" "}
+                      <img src={twitter} />{" "}
+                    </Link>
+                    <Link>
+                      {" "}
+                      <img src={youtube} />{" "}
+                    </Link>
+                  </p>
                 </div>
               </div>
             </div>

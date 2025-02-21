@@ -47,7 +47,7 @@ const Faq = ({ questions }) => {
       <section class="faq__area">
         <div class="container">
           <div className="row justify-content-center mb-5 pb-4">
-            <div className="col-md-6 text-center">
+            <div className="col-lg-6 text-center">
               <h3 className="sub_heading">FAQ</h3>
               <h1 className="main_heading">frequently asked questions</h1>
               <img className="heading_shape mt-3" src={shape} alt="" />
