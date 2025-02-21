@@ -98,6 +98,14 @@ export const routes = [
   },
   {
     notLazy: true,
+    path: "/faq",
+    element: Faq,
+    role: "private",
+    name: "Mentor",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
     path: "/forgot-password",
     element: ForgotPassword,
     role: "private",

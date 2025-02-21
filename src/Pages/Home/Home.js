@@ -12,6 +12,9 @@ import OurMentor from "../../Components/OurMentor/OurMentor";
 import FAQPage from "../../Components/faq/FAQPage";
 import Review from "../../Components/Review/Review";
 import Plan from "../../Components/Plan/Plan";
+import { Container } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import blank_image from "../../assets/image/blank_image.png";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -66,6 +69,19 @@ const Home = () => {
     ],
   };
 
+  const BlogData = [
+    {
+      id: "importance-feedback-in-online-learning",
+      image: blank_image,
+      heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
+      content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
+      contentList: [
+        `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
+      ],
+    },
+  ];
+  const blog = BlogData[0];
+  const LatestArticle = [1, 2, 3];
   return (
     <>
       <HomeBanner />
@@ -132,7 +148,76 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       <FAQPage />
+      <div className="home_single_blog ">
+        <Container>
+          <div className="row justify-content-center text-center">
+            <div className="col-12 col-lg-8 mx-auto">
+              <div className="text-center mb-5">
+                <h6 className="pre_heading mb-2">Latest Article</h6>
+
+                <h1
+                  className="display-4 mb-3"
+                  style={{ color: "rgba(237, 115, 48, 1)" }}
+                >
+                  Latest Updates in Online <br /> Courses and Education.
+                </h1>
+                <p className="">
+                  Check back regularly for new courses, special events, and
+                  exciting opportunities to enrich your education!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-7">
+              <div className="card_image">
+                <img className="w-100" src={blog?.image} />
+              </div>
+              <div className="content">
+                <h5>{blog?.heading}</h5>
+                {blog?.contentList.map((item) => {
+                  return (
+                    <>
+                      <p>{item}</p>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-md-5">
+              <div className="latest_sec">
+                {/* <h4>Latest Article</h4> */}
+                <ul>
+                  {LatestArticle?.map((item) => {
+                    return (
+                      <>
+                        <li>
+                          <img src={blank_image} alt="" />
+                          <div className="contents">
+                            <h5>
+                              How They Impact Your Online Education Journey
+                            </h5>
+                            <p>
+                              Juggling work, family, and studies can be
+                              daunting. This article offers tips on time
+                              management, prioritization, and setting realistic
+                              goals.
+                            </p>
+                            <Link to={"#"}>{"Read More >"}</Link>
+                          </div>
+                        </li>
+                      </>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button className="btn_primary px-5 mt-4 mx-auto">More</button>
+        </Container>
+      </div>
     </>
   );
 };

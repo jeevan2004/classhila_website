@@ -206,8 +206,8 @@ input::placeholder {
 /*--------button----------------------*/
 
 .btn_primary {
-  background: var(--tg-theme-primary);
-  color: #fff;
+  background: rgba(255, 245, 238, 1);
+  color: rgba(255, 120, 42, 1);
   border-radius: 10px;
   padding: 10px 20px;
   transition: 0.3s;
@@ -219,6 +219,12 @@ input::placeholder {
   border: 1px solid transparent;
   display: flex;
   align-items: center;
+  transition: 0.3s;
+}
+
+.btn_primary:hover {
+  background: rgba(248, 111, 3, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .btn_primary i {

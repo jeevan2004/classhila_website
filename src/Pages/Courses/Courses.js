@@ -12,7 +12,7 @@ const Courses = () => {
         </div>
       </div>
       <BestCoaching />
-      <div className="discover">
+      <div className="discover mt-5">
         <div
           className="container-fluid"
           style={{ backgroundColor: "#FFF5F0", padding: "80px 0" }}
