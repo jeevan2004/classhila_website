@@ -362,6 +362,7 @@ input::placeholder {
   max-height: 370px;
   overflow-y: scroll;
 }
+
 .custom_input,
 .form-control {
   width: 100%;
