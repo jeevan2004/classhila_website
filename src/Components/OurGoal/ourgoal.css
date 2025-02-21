@@ -17,3 +17,9 @@
   font-weight: 600;
   margin-bottom: 10px;
 }
+
+@media (min-width: 1400px) {
+  .our_goal .content h5 {
+    font-size: 28px;
+  }
+}

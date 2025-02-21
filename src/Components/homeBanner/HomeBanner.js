@@ -4,6 +4,8 @@ import banner from "../../assets/image/banner.png";
 import activeStudent from "../../assets/image/active_student.png";
 import star from "../../assets/image/Star.png";
 import ipsum from "../../assets/image/logo_ipsum.png";
+import star_yellow from "../../assets/image/icon/star_yellow.png";
+import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import { Link } from "react-router-dom";
 
 const HomeBanner = ({ handleScroll }) => {
@@ -102,6 +104,10 @@ const HomeBanner = ({ handleScroll }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="shape">
+          <img src={star_yellow} alt="" className="shape1" />
+          <img src={ellipse_orange} alt="" className="shape2" />
         </div>
       </div>
       {/* <div className="notify">

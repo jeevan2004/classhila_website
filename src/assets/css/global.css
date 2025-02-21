@@ -24,10 +24,13 @@ a {
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 18px;
+  line-height: 27px;
   font-weight: 400;
-  color: #6d6c80;
+  color: rgba(61, 45, 33, 1);
+  font-family: "Inter", serif;
+  margin: 0;
+  padding: 0;
 }
 
 span.highlight {
@@ -47,7 +50,6 @@ h3,
 h4,
 h5,
 h6,
-p,
 dl,
 ol,
 ul {
@@ -93,7 +95,7 @@ h6 {
   color: var(--tg-theme-primary) !important;
 }
 .secondary_text {
-  color: rgba(242, 99, 34, 1) !important;
+  color: rgba(255, 120, 42, 1) !important;
 }
 .text_white {
   color: #fff !important;
@@ -161,8 +163,11 @@ input::placeholder {
 }
 
 .pre_heading {
-  color: rgba(237, 115, 48, 1);
+  color: rgba(255, 120, 42, 1);
   font-size: 18px;
+  font-weight: 600;
+  font-family: "Urbanist", serif;
+  margin-bottom: 10px;
 }
 
 /*-------paragraph--------*/
@@ -213,7 +218,8 @@ input::placeholder {
   transition: 0.3s;
   outline: none;
   font-size: 18px;
-
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
   /* border: none; */
   width: fit-content;
   border: 1px solid transparent;
@@ -305,6 +311,8 @@ input::placeholder {
   display: flex;
   align-items: center;
   transition: 0.3s;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
 
   /* box-shadow: 4px 6px 0px 0px var(--tg-common-color-blue); */
   overflow: hidden;
@@ -437,6 +445,13 @@ html {
 @media (max-width: 767px) {
   .second_heading {
     font-size: 30px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 1360px) {
+  .second_heading {
+    font-size: 70px;
     font-weight: 400;
   }
 }

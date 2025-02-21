@@ -4,6 +4,9 @@
   color: rgba(61, 45, 33, 1);
   font-size: 18px;
   font-style: italic;
+  font-weight: 400;
+  font-family: "Inter", serif;
+
   border-radius: 20px;
   padding: 20px 30px;
   padding-top: 50px;
@@ -26,11 +29,14 @@
   color: rgba(237, 115, 48, 1);
   font-style: normal;
   margin-top: 15px;
+  font-weight: 500;
+  font-family: "Urbanist", serif;
 }
 .our_mentor .content .comment small {
   font-size: 16px;
-  color: rgba(237, 115, 48, 1);
+  color: rgba(255, 120, 42, 1);
   font-style: normal;
+  font-weight: 400;
 }
 
 .our_mentor .team_member img {
@@ -39,9 +45,17 @@
 .our_mentor .team_member h4 {
   margin-top: 10px;
   color: rgba(237, 115, 48, 1);
-  font-size: 20px;
+  font-size: 28px;
+
   font-weight: 600;
 }
+.our_mentor .team_member span {
+  color: rgba(150, 131, 116, 1);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+}
+
 .our_mentor .team_member img {
   border-radius: 20px;
 }

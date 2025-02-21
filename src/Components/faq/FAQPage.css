@@ -1,3 +1,20 @@
+.faq-page {
+  background: rgba(255, 245, 238, 1);
+  position: relative;
+}
+.faq-page .shape1 {
+  position: absolute;
+  right: 25px;
+  bottom: 35px;
+  width: 80px;
+}
+.faq-page .shape2 {
+  position: absolute;
+  right: 25px;
+  bottom: 120px;
+  width: 10px;
+}
+
 .custom-accordion .accordion-button {
   box-shadow: none !important;
   padding: 1rem 0;
@@ -27,8 +44,22 @@
 .faq-question {
   color: #f47f24;
   font-weight: 500;
+  font-size: 24px;
+  font-family: "Urbanist", serif;
 }
 
+.faq__wrap .accordion-header button {
+  border-bottom: 1px solid rgba(237, 115, 48, 1);
+}
+
+.faq__wrap .accordion-item:last-child button {
+  border: none;
+}
+.faq__wrap .accordion-item .accordion-body {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+}
 .custom-accordion .accordion-item {
   border: none !important;
   background-color: transparent !important;

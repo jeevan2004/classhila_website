@@ -1,3 +1,6 @@
+.review {
+  position: relative;
+}
 .review .review_inner {
   padding: 0 50px;
   position: relative;
@@ -25,18 +28,26 @@
 
 .review_inner .review_content .author h2 {
   color: rgba(237, 115, 48, 1);
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 10px;
   font-weight: 500;
 }
 .review_inner .review_content .author p {
   color: rgba(255, 120, 42, 1);
   font-size: 16px;
+  font-weight: 400;
 }
 
 .review_inner .review_content .author_content p {
   color: rgba(237, 115, 48, 1);
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
   font-style: italic;
+}
+
+.review .shape1 {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 50px;
 }

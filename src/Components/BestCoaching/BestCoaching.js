@@ -68,16 +68,20 @@ const BestCoaching = () => {
     <div className="best_coaching">
       <div className="container">
         {/* Header Section */}
-        <div className="text-center mb-5">
-          <h1 className="display-4 mb-3" style={{ color: "#FF6B35" }}>
-            Best Coaching At The Lowest
-            <br />
-            Prices In The Market
-          </h1>
-          <p className="text-muted">
-            We offers an affordable and accessible solution compared to the high
-            costs associated with other coaching institutes.
-          </p>
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="text-center mb-5">
+              <h1 className="main_heading mb-3">
+                Best Coaching At The Lowest
+                <br />
+                Prices In The Market
+              </h1>
+              <p className="main_text">
+                We offers an affordable and accessible solution compared to the
+                high costs associated with other coaching institutes.
+              </p>
+            </div>
+          </div>
         </div>
 
         <section className=" best_coaching_tab pt-3">
@@ -157,6 +161,7 @@ const BestCoaching = () => {
                               </div>
                               <div className="plus_icon">+</div>
                             </div>
+                            <div className="tag">Maths</div>
                           </div>
                         </div>
                       </div>
