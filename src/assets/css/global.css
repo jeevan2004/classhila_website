@@ -388,10 +388,10 @@ input::placeholder {
   padding: 10px;
   color: rgba(61, 45, 33, 1);
   border-radius: 0px;
-  font-size: 15px;
+  font-size: 16px;
   border: none;
   border-bottom: 1px solid rgba(61, 45, 33, 1);
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   background: #fff;
   @media (max-width: 1439.98px) {
@@ -445,13 +445,6 @@ html {
 @media (max-width: 767px) {
   .second_heading {
     font-size: 30px;
-    font-weight: 400;
-  }
-}
-
-@media (min-width: 1360px) {
-  .second_heading {
-    font-size: 70px;
     font-weight: 400;
   }
 }

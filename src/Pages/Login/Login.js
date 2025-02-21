@@ -111,7 +111,9 @@ const Login = () => {
 
                   <p className="already">
                     Dont have an account?
-                    <Link to={"/register"}>Sign Up</Link>
+                    <Link to={"/register"} className="ms-2">
+                      Sign Up
+                    </Link>
                   </p>
                 </form>
               </div>
