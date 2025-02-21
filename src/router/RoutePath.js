@@ -4,6 +4,7 @@ import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Courses from "../Pages/Courses/Courses";
+import CoursesDetails from "../Pages/Courses/CoursesDetails";
 
 import Home from "../Pages/Home/Home";
 import ForgotPassword from "../Pages/Login/ForgotPassword";
@@ -99,11 +100,21 @@ export const routes = [
   {
     notLazy: true,
     path: "/faq",
-    element: Faq,
     role: "private",
-    name: "Mentor",
+
+    element: Faq,
+    name: "faq",
     subRouting: false,
   },
+  {
+    notLazy: true,
+    path: "/courses/:name",
+    element: CoursesDetails,
+    role: "private",
+    name: "courseSingle",
+    subRouting: false,
+  },
+
   {
     notLazy: true,
     path: "/forgot-password",
