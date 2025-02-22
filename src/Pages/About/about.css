@@ -7,24 +7,27 @@
 
 .about_top h2 {
   margin-bottom: 15px;
-  font-size: 55px;
 }
 
 .about_top span {
   font-size: 18px;
   font-size: 500;
+  font-family: "Inter", serif;
 }
 
-.about_top p {
+.about_top h6 {
   font-size: 20px;
-  font-size: 400;
+  font-weight: 400;
   color: rgba(61, 45, 33, 1);
   margin-top: 30px;
 }
 
 .vision p {
   color: rgba(237, 115, 48, 1);
-  font-size: 22px;
+  font-size: 34px;
+  font-weight: 400;
+  font-family: "Urbanist", serif;
+  line-height: 40.8px;
 }
 
 .about_us .total_counter {

@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
 import phone from "../../assets/image/icon/phone.png";
+import star from "../../assets/image/icon/star_big.png";
+import ellipse_grey from "../../assets/image/icon/ellipse_grey.png";
 import "./FAQPage.css";
 
 const FAQPage = () => {
@@ -37,31 +39,26 @@ const FAQPage = () => {
     },
   ];
   return (
-    <div className="faq-page p-100">
+    <div className="faq-page p-70">
       <Container className="">
-        <h1 className="text-center mb-5 fw-bold" style={{ color: "#333" }}>
+        {/* <h1 className="text-center mb-5 fw-bold" style={{ color: "#333" }}>
           FAQs<span style={{ color: "#F47F24" }}>.</span>
-        </h1>
+        </h1> */}
 
         <Row>
-          <Col lg={4}>
+          <Col lg={5}>
             <div className="mb-4">
-              <h6 className="text-uppercase" style={{ color: "#F47F24" }}>
-                FAQS
-              </h6>
-              <h2
-                className="mb-4"
-                style={{ color: "#F47F24", fontWeight: "bold" }}
-              >
+              <h6 className="pre_heading">FAQS</h6>
+              <h2 className="main_heading mb-3">
                 Your Guide To Online Learning Success.
               </h2>
-              <p className="text-muted">
+              <p className="main_text">
                 We've got answers! Here you'll find information on enrollment,
                 course structure, payment options, and technical support.
               </p>
 
               <Card
-                className="border-0 mt-5"
+                className="border-0 mt-3"
                 style={{ backgroundColor: "#F47F24", borderRadius: "8px" }}
               >
                 <Card.Body className=" faq_contact">
@@ -99,6 +96,10 @@ const FAQPage = () => {
             </div>
           </Col>
         </Row>
+        <div className="shape">
+          <img src={star} alt="" className="shape1" />
+          <img src={ellipse_grey} alt="" className="shape2" />
+        </div>
       </Container>
     </div>
   );

@@ -3,6 +3,10 @@
 import BestCoaching from "../../Components/BestCoaching/BestCoaching";
 import Plan from "../../Components/Plan/Plan";
 import WithUs from "../../Components/WithUs/WithUs";
+import star_grey from "../../assets/image/icon/star_grey.png";
+import star_orange from "../../assets/image/icon/star_orange.png";
+import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
+import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import "./about.css";
 const AboutPage = () => {
   const categories = ["All", "SSC", "CBSC", "Groups", "RRB", "Civil Services"];
@@ -66,7 +70,7 @@ const AboutPage = () => {
             <h2 className="second_heading">About Us</h2>
             <span>Home - About Us</span>
 
-            <p>
+            <h6>
               Classhila is an innovative educational platform designed to
               empower students in India with affordable and inclusive
               preparation for competitive exams. We provide personalized
@@ -75,7 +79,7 @@ const AboutPage = () => {
               accessibility and quality, Classhila strives to bridge the gap
               between students and their career aspirations by offering tailored
               support and comprehensive exam coverage.
-            </p>
+            </h6>
           </div>
         </div>
         <WithUs />
@@ -182,17 +186,21 @@ const AboutPage = () => {
         <div className="plan p-100">
           <div className="container ">
             {/* Header Section */}
-            <div className="text-center mb-5">
-              <h1
-                className="display-4 mb-3"
-                style={{ color: "rgba(237, 115, 48, 1)" }}
-              >
-                Select a Plan That Suits You.
-              </h1>
-              <p className="text-muted">
-                Explore flexible pricing options tailored to fit your learning
-                needs. Choose from our affordable plans
-              </p>
+            <div className="row justify-content-center">
+              <div className="col-md-8">
+                <div className="text-center mb-5">
+                  <h1
+                    className="main_heading mb-3"
+                    style={{ color: "rgba(237, 115, 48, 1)" }}
+                  >
+                    Select a Plan That Suits You.
+                  </h1>
+                  <p className="main_text">
+                    Explore flexible pricing options tailored to fit your
+                    learning needs. Choose from our affordable plans
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="row justify-content-center gx-5">
               <div className="col-md-4">
@@ -201,6 +209,12 @@ const AboutPage = () => {
               <div className="col-md-4">
                 <Plan />
               </div>
+            </div>
+            <div className="shape">
+              <img src={star_grey} alt="" className="shape1" />
+              <img src={star_orange} alt="" className="shape2" />
+              <img src={ellipse_orange} alt="" className="shape3" />
+              <img src={ellipse_yellow} alt="" className="shape4" />
             </div>
           </div>
         </div>

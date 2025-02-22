@@ -6,11 +6,12 @@
   text-align: center;
 }
 .total_counter .content h2 {
-  font-size: 40px;
+  font-size: 64px;
+  color: rgba(44, 43, 43, 1);
   font-weight: 600;
 }
 .total_counter .content p {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: rgba(61, 45, 33, 1);
 }
@@ -23,6 +24,7 @@
   font-size: 24px;
   margin-top: 30px;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .home_single_blog .content p {
@@ -30,6 +32,7 @@
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 15px;
+  font-weight: 400;
   font-family: "Inter", serif;
 }
 /*  */
@@ -53,9 +56,16 @@
 .latest_sec ul li .contents h5 {
   font-size: 20px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 500;
   color: #ed7330;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.latest_sec ul li .contents p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+  margin-bottom: 5px;
 }
 
 .latest_sec ul li .contents a {
@@ -63,4 +73,29 @@
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
+}
+
+.plan {
+  position: relative;
+}
+.plan .shape2 {
+  position: absolute;
+  top: 105px;
+  left: 15%;
+  width: 35px;
+}
+.plan .shape3 {
+  position: absolute;
+  top: 170px;
+  left: 20%;
+}
+.plan .shape1 {
+  position: absolute;
+  top: 260px;
+  right: 18%;
+}
+.plan .shape4 {
+  position: absolute;
+  top: 220px;
+  right: 15%;
 }

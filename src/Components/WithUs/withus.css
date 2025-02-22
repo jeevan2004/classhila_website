@@ -5,4 +5,39 @@
 }
 .with_us_button p {
   color: rgba(255, 255, 255, 1);
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Urbanist", serif;
+  margin-bottom: 5px;
+}
+.with_us_button span {
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Inter", serif;
+}
+
+.with_us .images {
+  position: relative;
+}
+.with_us .images .shape1 {
+  position: absolute;
+  bottom: 0px;
+  right: 90px;
+}
+.with_us .images .shape2 {
+  position: absolute;
+  top: 0px;
+  right: 120px;
+}
+.with_us .images .shape3 {
+  position: absolute;
+  bottom: 24px;
+  right: 140px;
+}
+.with_us .images .shape4 {
+  width: 20px;
+  position: absolute;
+  top: 90px;
+  left: -40px;
 }

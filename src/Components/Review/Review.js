@@ -2,11 +2,12 @@ import React from "react";
 import mask from "../../assets/image/mask.png";
 import blank from "../../assets/image/blank.png";
 import star from "../../assets/image/Star.png";
+import star_yellow from "../../assets/image/icon/star_yellow.png";
 import "./review.css";
 
 const Review = () => {
   return (
-    <div className="review p-70">
+    <div className="review p-100">
       <div className="container">
         <div className="review_inner">
           <img src={mask} alt="" />
@@ -26,6 +27,10 @@ const Review = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="shape">
+        <img src={star_yellow} alt="" className="shape1" />
       </div>
     </div>
   );

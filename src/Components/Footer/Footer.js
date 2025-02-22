@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/image/logo.png";
+import logo from "../../assets/image/logo_footer.png";
 import "./footer.css";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mt-3">
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
               <div className="footer_link wow animate__animated animate__fadeInUp">
                 <h4>Quick Links</h4>

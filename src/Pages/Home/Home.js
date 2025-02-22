@@ -15,6 +15,10 @@ import Plan from "../../Components/Plan/Plan";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import blank_image from "../../assets/image/blank_image.png";
+import star_grey from "../../assets/image/icon/star_grey.png";
+import star_orange from "../../assets/image/icon/star_orange.png";
+import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
+import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -123,17 +127,21 @@ const Home = () => {
       <div className="plan p-100">
         <div className="container ">
           {/* Header Section */}
-          <div className="text-center mb-5">
-            <h1
-              className="display-4 mb-3"
-              style={{ color: "rgba(237, 115, 48, 1)" }}
-            >
-              Select a Plan That Suits You.
-            </h1>
-            <p className="text-muted">
-              Explore flexible pricing options tailored to fit your learning
-              needs. Choose from our affordable plans
-            </p>
+          <div className="row justify-content-center">
+            <div className="col-md-8">
+              <div className="text-center mb-5">
+                <h1
+                  className="main_heading mb-3"
+                  style={{ color: "rgba(237, 115, 48, 1)" }}
+                >
+                  Select a Plan That Suits You.
+                </h1>
+                <p className="main_text">
+                  Explore flexible pricing options tailored to fit your learning
+                  needs. Choose from our affordable plans
+                </p>
+              </div>
+            </div>
           </div>
           <div className="row justify-content-center gx-5">
             <div className="col-md-4">
@@ -144,30 +152,36 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div className="shape">
+          <img src={star_grey} alt="" className="shape1" />
+          <img src={star_orange} alt="" className="shape2" />
+          <img src={ellipse_orange} alt="" className="shape3" />
+          <img src={ellipse_yellow} alt="" className="shape4" />
+        </div>
       </div>
 
       <FAQPage />
-      <div className="home_single_blog ">
+      <div className="home_single_blog p-70">
         <Container>
           <div className="row justify-content-center text-center">
-            <div className="col-12 col-lg-8 mx-auto">
+            <div className="col-12 col-lg-7 mx-auto">
               <div className="text-center mb-5">
                 <h6 className="pre_heading mb-2">Latest Article</h6>
 
                 <h1
-                  className="display-4 mb-3"
+                  className="main_heading mb-3"
                   style={{ color: "rgba(237, 115, 48, 1)" }}
                 >
                   Latest Updates in Online <br /> Courses and Education.
                 </h1>
-                <p className="">
+                <p className="main_text">
                   Check back regularly for new courses, special events, and
                   exciting opportunities to enrich your education!
                 </p>
               </div>
             </div>
           </div>
-          <div className="row mt-5">
+          <div className="row ">
             <div className="col-md-7">
               <div className="card_image">
                 <img className="w-100" src={blog?.image} />

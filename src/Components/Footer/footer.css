@@ -4,14 +4,12 @@ footer {
   padding: 60px 0 60px;
 }
 
-footer .footer_about img {
-  padding-bottom: 20px;
-}
-
 footer .footer_about p {
   font-size: 16px;
   color: rgba(61, 45, 33, 1);
   margin-bottom: 20px;
+  font-family: "Inter", serif;
+  font-weight: 400;
 }
 
 footer .footer_link h4,
@@ -45,6 +43,7 @@ footer .footer_link a,
   transition: 0.35s all;
   display: inline-block;
   position: relative;
+  font-family: "Inter";
 }
 
 footer .footer_link a:hover {

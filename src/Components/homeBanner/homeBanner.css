@@ -3,7 +3,19 @@
   /* background-color: var(--bg-color); */
   background: rgba(255, 245, 238, 1);
 
-  padding-top: 120px;
+  padding-top: 150px;
+}
+
+.hero-banner .shape1 {
+  position: absolute;
+  top: 550px;
+  left: 350px;
+  width: 45px;
+}
+.hero-banner .shape2 {
+  position: absolute;
+  top: 660px;
+  right: 420px;
 }
 .hero-banner {
   min-height: 660px;
@@ -20,16 +32,25 @@
   text-align: center;
 }
 .hero-banner .banner-content h6 {
-  color: rgba(237, 115, 48, 1);
+  color: rgba(255, 120, 42, 1);
+  font-family: "Urbanist", serif;
+  font-size: 18px;
+  font-weight: 600;
 }
 .hero-banner .banner-content .title {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   color: rgba(237, 115, 48, 1);
-  font-size: 50px;
+  font-size: 48px;
+  font-family: "Urbanist", serif;
+  font-weight: 600;
 }
 .hero-banner .banner-content p {
   color: var(--color-text);
-  font-size: 18px;
+  font-size: 16px;
+}
+.hero-banner .banner-btn button {
+  background: rgba(248, 111, 3, 1);
+  color: rgba(255, 255, 255, 1);
 }
 .hero-banner .banner-content .links {
   color: #fff;
@@ -104,17 +125,19 @@
   margin-bottom: 5px;
 }
 .hero-banner .banner-thumbnail .instructor-info .inner .media .content {
-  line-height: 1;
+  line-height: 27px;
   color: rgba(255, 255, 255, 1);
   font-weight: 500;
   font-size: 18px;
+  font-family: "Inter", serif;
 }
 .hero-banner .banner-thumbnail .instructor-info .inner .media .content span {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 28px;
+  font-family: "Inter", serif;
   color: rgba(255, 255, 255, 1);
   padding-bottom: 5px;
 }
@@ -168,4 +191,10 @@
 
 .features-box .icon img {
   filter: invert(1);
+}
+
+@media (min-width: 1400px) {
+  .hero-banner .banner-content .title {
+    font-size: 74px;
+  }
 }

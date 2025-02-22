@@ -18,6 +18,7 @@
   font-size: 18px;
   font-weight: 500;
   color: rgba(255, 120, 42, 1);
+  font-family: "Inter", serif;
 }
 
 .best_coaching_tab .nav-pills .nav-link.active h4,
@@ -34,6 +35,7 @@
   background: rgba(255, 245, 238, 1);
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
 }
 
 .best_coaching .coaching_box .content {
@@ -60,6 +62,8 @@
   margin-right: 10px;
   color: rgba(248, 111, 3, 1);
   font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
 }
 
 .best_coaching .author {
@@ -82,9 +86,31 @@
 .best_coaching .author_name p span {
   font-size: 18px;
   font-weight: 500;
+  font-family: "Inter", serif;
+
   color: rgba(237, 115, 48, 1);
+}
+.best_coaching .author_name p small {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+
+  color: rgba(150, 131, 116, 1);
 }
 
 .best_coaching .author .plus_icon {
   font-size: 28px;
+}
+
+.best_coaching .tag {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: rgba(150, 131, 116, 1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+  padding: 6px 30px;
 }
