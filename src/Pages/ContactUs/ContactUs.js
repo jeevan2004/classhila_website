@@ -31,14 +31,14 @@ const ContactUs = () => {
             Support <span>.</span>
           </h4>
         </div>
-        <Support />
+        <Support Contact_box={false} />
         <div className="contact-area overflow-hidden">
           <Container>
             <Row className="top_120">
               {data?.map((item) => {
                 return (
                   <>
-                    <Col md={3}>
+                    <Col md={3} className="mb-4">
                       <div className="box">
                         <img src={item?.image} />
                         <h5>{item?.heading}</h5>

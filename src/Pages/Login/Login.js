@@ -51,6 +51,9 @@ const Login = () => {
       <div className="register-area overflow-hidden">
         <div className="container">
           <div className="row">
+            <div className="col-lg-6" style={{ margin: "0 auto" }}></div>
+          </div>
+          <div className="row">
             <div className="col-lg-6" style={{ margin: "0 auto" }}>
               <div className="contact-form">
                 <form className="mt-4" onSubmit={(e) => handleSubmit(e)}>

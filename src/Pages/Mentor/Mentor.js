@@ -2,6 +2,7 @@ import React from "react";
 import "./mentor.css";
 import OurMentor from "../../Components/OurMentor/OurMentor";
 import FAQPage from "../../Components/faq/FAQPage";
+import Faq from "../../Components/faq/Faq";
 
 const Mentor = () => {
   return (
@@ -13,7 +14,7 @@ const Mentor = () => {
         </div>
       </div>
       <OurMentor />
-      <FAQPage />
+      <Faq />
     </>
   );
 };

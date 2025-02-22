@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
+import phone from "../../assets/image/phone.svg";
 import "./Support.css";
-const Support = () => {
+const Support = ({ Contact_box }) => {
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -50,7 +51,19 @@ const Support = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <img className="w-100" src={login_img} />
+            <div className="image_sec">
+              {Contact_box && (
+                <div className="contact_box d-flex">
+                  <img src={phone} />
+                  <div>
+                    <h5>Contact Us</h5>
+                    <p>0761-8523-398</p>
+                  </div>
+                </div>
+              )}
+
+              <img className="w-100" src={login_img} />
+            </div>
           </Col>
           <Col md={6}>
             <div className="content">

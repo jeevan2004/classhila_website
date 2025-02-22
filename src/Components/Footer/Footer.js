@@ -46,10 +46,10 @@ const Footer = () => {
 
                     </li> */}
                   <li>
-                    <Link to={"#"}>Pricing</Link>
+                    <Link to={"/pricing-plan"}>Pricing</Link>
                   </li>
                   <li>
-                    <Link to={"#"}>Blogs</Link>
+                    <Link to={"/blog"}>Blogs</Link>
                   </li>
                   <li>
                     <Link to={"/faq"}>FAQs</Link>
