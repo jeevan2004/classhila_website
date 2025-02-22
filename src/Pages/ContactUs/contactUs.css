@@ -54,3 +54,32 @@
 .contact_map iframe {
   width: 100%;
 }
+/*  */
+
+.contact-area .box {
+  background: #f86f03;
+  text-align: center;
+  padding: 30px 10px;
+  border-radius: 20px;
+}
+.top_120 {
+  position: relative;
+  top: 110px;
+}
+.contact-area .box h5 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.contact-area .box p {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #fff;
+  min-height: 57px;
+}
+
+.contact-area .box img {
+}

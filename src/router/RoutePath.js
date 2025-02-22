@@ -101,7 +101,6 @@ export const routes = [
     notLazy: true,
     path: "/faq",
     role: "private",
-
     element: Faq,
     name: "faq",
     subRouting: false,
