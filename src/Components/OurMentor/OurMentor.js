@@ -10,7 +10,7 @@ const OurMentor = () => {
     <div className="our_mentor p-100">
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <div className="content">
               <h6 className="pre_heading">Our Mentor</h6>
               <h3 className="main_heading">

@@ -30,6 +30,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
+  top: 50px;
 }
 .hero-banner .banner-content h6 {
   color: rgba(255, 120, 42, 1);
@@ -196,5 +197,24 @@
 @media (min-width: 1400px) {
   .hero-banner .banner-content .title {
     font-size: 74px;
+  }
+  .hero-banner .shape2 {
+    top: 60%;
+    right: 30%;
+  }
+  .hero-banner .shape1 {
+    top: 52%;
+    left: 26%;
+  }
+}
+
+@media (min-width: 2000px) {
+  .hero-banner .shape2 {
+    top: 60%;
+    right: 35%;
+  }
+  .hero-banner .shape1 {
+    top: 52%;
+    left: 35%;
   }
 }

@@ -54,38 +54,46 @@ const Login = () => {
             <div className="col-lg-6" style={{ margin: "0 auto" }}>
               <div className="contact-form">
                 <form className="mt-4" onSubmit={(e) => handleSubmit(e)}>
-                  <div className="mb-3">
-                    <input
-                      type="name"
-                      className="form-control"
-                      placeholder="Full Name"
-                      id="Youremail"
-                      name="fullname"
-                      value={formData.fullname}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email"
-                      id="Youremail"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="number"
-                      className="form-control"
-                      placeholder="Phone"
-                      id=""
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="mb-3">
+                        <input
+                          type="name"
+                          className="form-control"
+                          placeholder="*Full Name"
+                          id="Youremail"
+                          name="fullname"
+                          value={formData.fullname}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="mb-3">
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="*Email"
+                          id="Youremail"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="mb-3">
+                        <input
+                          type="number"
+                          className="form-control"
+                          placeholder="*Phone"
+                          id=""
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* <div className="mb-3 form-check">
