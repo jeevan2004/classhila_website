@@ -33,7 +33,7 @@ const HomeBanner = ({ handleScroll }) => {
                   className="sal-animate"
                 >
                   Discover the possibilities of online education and unlock your
-                  true potential! Expand your mind with online education.
+                  true potential! <br /> Expand your mind with online education.
                 </p>
 
                 <div

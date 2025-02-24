@@ -15,11 +15,11 @@ footer .footer_about p {
 footer .footer_link h4,
 .footer_address h4 {
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 17px;
   color: rgba(237, 115, 48, 1);
   position: relative;
-  padding-bottom: 15px;
-  font-size: 20px;
+  padding-bottom: 0px;
+  font-size: 28px;
 }
 
 /* footer .footer_link h4::before,
@@ -118,6 +118,7 @@ footer .footer_address ul li i:hover {
   color: rgba(0, 28, 66, 1);
   width: 100%;
   padding-right: 170px;
+  background-color: transparent;
 }
 .footer_address .group_email button {
   position: absolute;

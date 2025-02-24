@@ -166,7 +166,9 @@ const Home = () => {
           <div className="row justify-content-center text-center">
             <div className="col-12 col-lg-6 mx-auto">
               <div className="text-center mb-5">
-                <h6 className="pre_heading mb-2">Latest Article</h6>
+                <h6 className="pre_heading mb-2 text-uppercase">
+                  Latest Article
+                </h6>
 
                 <h1
                   className="main_heading mb-3"
