@@ -141,7 +141,7 @@ function Header() {
     },
     {
       title: "Contact Us",
-      path: "",
+      path: "/contact-us",
       subMenu: false,
     },
   ];

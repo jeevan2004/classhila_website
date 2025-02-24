@@ -437,6 +437,19 @@ html {
   max-width: 100%;
   overflow-x: hidden;
 }
+.heading h4 {
+  text-align: center;
+  color: #3d2d21;
+  font-size: 64px;
+  line-height: 78px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+.heading h4 span {
+  color: #ed7331;
+  position: relative;
+  left: -13px;
+}
 @media (max-width: 768px) {
   .flex-column-reverse-mobile {
     flex-direction: column-reverse;
