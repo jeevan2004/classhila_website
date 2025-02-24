@@ -1,17 +1,103 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PricingPlan.css";
 import BestCoaching from "../../Components/BestCoaching/BestCoaching";
 import Plan from "../../Components/Plan/Plan";
+import { useLocation } from "react-router-dom";
+import { Col, Nav, Row, Tab } from "react-bootstrap";
+import coaching from "../../assets/image/coaching.png";
+import notebook from "../../assets/image/icon/notebook.png";
+import group from "../../assets/image/icon/user-group.png";
+import blank from "../../assets/image/blank.png";
+import OurMentor from "../../Components/OurMentor/OurMentor";
 
 const PricingPlan = () => {
+  const [activeTab, setActiveTab] = useState("tab1");
+  const handleSelect = (key) => setActiveTab(key);
   return (
     <div>
       <div className="courses">
         <div className="container">
-          <h2 className="second_heading">Courses We Offer.</h2>
+          <h2 className="second_heading">Price List.</h2>
         </div>
       </div>
-      <BestCoaching />
+
+      <div className="best_coaching">
+        <div className="container">
+          {/* Header Section */}
+          <div className="row justify-content-center">
+            <div className="col-lg-7">
+              <div className="text-center mb-5">
+                <div className="pre_heading">PRICING PLAN</div>
+                <h1 className="main_heading mb-3">
+                  Select a Plan That Suits You.
+                </h1>
+                <p className="main_text">
+                  Explore flexible pricing options tailored to fit your learning
+                  needs. Choose from our affordable plans
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <section className=" best_coaching_tab pt-3">
+            <Tab.Container
+              defaultActiveKey="tab1"
+              activeKey={activeTab}
+              onSelect={handleSelect}
+            >
+              {/* Left-Side Tabs */}
+              <div className="tabs-nav">
+                <Nav variant="pills" className="">
+                  <Nav.Item>
+                    <Nav.Link eventKey="tab1">
+                      <h4>Yearly</h4>
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="tab2">
+                      {" "}
+                      <h4>Monthly</h4>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </div>
+              <Row>
+                {/* Right-Side Content */}
+                <Col md={12} className="tabs-content mt-5 ">
+                  <Tab.Content>
+                    <Tab.Pane eventKey="tab1">
+                      <div className="row gx-5">
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                      </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="tab2">
+                      <div className="row gx-5">
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                        <div className="col-md-4">
+                          <Plan />
+                        </div>
+                      </div>
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+          </section>
+        </div>
+      </div>
       <div className="discover mt-5">
         <div
           className="container-fluid"
@@ -59,31 +145,7 @@ const PricingPlan = () => {
           </div>
         </div>
       </div>
-      <div className="plan p-100">
-        <div className="container ">
-          {/* Header Section */}
-          <div className="text-center mb-5">
-            <h1
-              className="display-4 mb-3"
-              style={{ color: "rgba(237, 115, 48, 1)" }}
-            >
-              Select a Plan That Suits You.
-            </h1>
-            <p className="text-muted">
-              Explore flexible pricing options tailored to fit your learning
-              needs. Choose from our affordable plans
-            </p>
-          </div>
-          <div className="row justify-content-center gx-5">
-            <div className="col-md-4">
-              <Plan />
-            </div>
-            <div className="col-md-4">
-              <Plan />
-            </div>
-          </div>
-        </div>
-      </div>
+      <OurMentor />
     </div>
   );
 };
