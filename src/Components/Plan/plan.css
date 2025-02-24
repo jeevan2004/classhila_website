@@ -25,6 +25,7 @@
 
 .plan_card ul li {
   border-bottom: 1px solid rgba(61, 45, 33, 1);
+  color: rgba(61, 45, 33, 1);
   padding: 10px 0;
   display: flex;
   align-items: center;

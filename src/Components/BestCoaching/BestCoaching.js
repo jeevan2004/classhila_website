@@ -71,6 +71,7 @@ const BestCoaching = () => {
         <div className="row justify-content-center">
           <div className="col-lg-6">
             <div className="text-center mb-5">
+              <div className="pre_heading">PRICING PLAN</div>
               <h1 className="main_heading mb-3">
                 Best Coaching At The Lowest
                 <br />
