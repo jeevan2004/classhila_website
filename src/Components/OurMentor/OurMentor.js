@@ -10,7 +10,7 @@ const OurMentor = () => {
     <div className="our_mentor p-100">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-6 mb-4">
             <div className="content">
               <h6 className="pre_heading">Our Mentor</h6>
               <h3 className="main_heading">
@@ -28,8 +28,8 @@ const OurMentor = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <img src={teacher} alt="" />
+          <div className="col-lg-6 mb-4">
+            <img className="w-100" src={teacher} alt="" />
           </div>
         </div>
         <div className="row mt-5">

@@ -69,7 +69,7 @@ const BestCoaching = () => {
       <div className="container">
         {/* Header Section */}
         <div className="row justify-content-center">
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-12">
             <div className="text-center mb-5">
               <div className="pre_heading">PRICING PLAN</div>
               <h1 className="main_heading mb-3">
@@ -139,7 +139,7 @@ const BestCoaching = () => {
                     <div className="row">
                       <div className="col-md-4">
                         <div className="coaching_box">
-                          <img src={coaching} alt="" />
+                          <img className="w-100" src={coaching} alt="" />
                           <div className="content">
                             <ul>
                               <li>

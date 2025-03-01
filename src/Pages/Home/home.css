@@ -124,3 +124,15 @@
     right: 18%;
   }
 }
+
+@media (max-width: 1024px) {
+  .total_counter .content h2 {
+    font-size: 34px;
+  }
+  .total_counter .content p {
+    font-size: 20px;
+  }
+  .total_counter {
+    padding: 20px 0;
+  }
+}

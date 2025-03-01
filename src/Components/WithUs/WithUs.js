@@ -12,7 +12,7 @@ const WithUs = () => {
     <div className="with_us p-100">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-6 mb-4">
             <div className="content">
               <h2 className="main_heading mb-3">
                 Start Better Learning <br />
@@ -34,10 +34,10 @@ const WithUs = () => {
               <button className="btn_secondary ">Learn More</button>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-lg-6 mb-4">
             <div className="images">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <img src={boy} alt="" className="rounded-4" />
                   <div className="with_us_button btn_secondary mt-3">
                     <img src={phone} alt="" />
@@ -47,7 +47,7 @@ const WithUs = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <img src={video} alt="" className="mt-5" />
                 </div>
               </div>

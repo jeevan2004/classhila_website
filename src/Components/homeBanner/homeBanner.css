@@ -218,3 +218,16 @@
     left: 35%;
   }
 }
+
+@media (max-width: 991px) {
+  .hero-banner .banner-thumbnail .instructor-info.first {
+    top: 215px;
+    left: 0px;
+    z-index: 99;
+  }
+  .hero-banner .banner-thumbnail .instructor-info {
+    bottom: 200px;
+    right: 5px;
+    z-index: 999;
+  }
+}

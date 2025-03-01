@@ -60,3 +60,16 @@
   position: relative;
   top: -40px;
 }
+
+@media (max-width: 1024px) {
+  .our_goal .box:before {
+    height: 30px;
+    top: -30px;
+  }
+  .our_goal .box {
+    margin-top: 30px;
+  }
+  .our_goal {
+    margin-top: 40px;
+  }
+}

@@ -144,10 +144,10 @@ const Home = () => {
             </div>
           </div>
           <div className="row justify-content-center gx-5">
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-4">
               <Plan />
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-4">
               <Plan />
             </div>
           </div>
@@ -184,7 +184,7 @@ const Home = () => {
             </div>
           </div>
           <div className="row ">
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <div className="card_image">
                 <img className="w-100" src={blog?.image} />
               </div>
@@ -199,7 +199,7 @@ const Home = () => {
                 })}
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-lg-5">
               <div className="latest_sec">
                 {/* <h4>Latest Article</h4> */}
                 <ul>

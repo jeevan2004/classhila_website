@@ -337,7 +337,12 @@ input::placeholder {
   position: relative;
   top: 3px;
 }
-
+@media (max-width: 1024px) {
+  .btn_secondary {
+    padding: 10px 10px;
+    font-size: 15px;
+  }
+}
 @media (max-width: 767px) {
   .default-padding {
     padding-top: 50px;
@@ -451,11 +456,23 @@ html {
   position: relative;
   left: -13px;
 }
+@media (max-width: 991px) {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 100%;
+  }
+  .p-100 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
 @media (max-width: 768px) {
   .flex-column-reverse-mobile {
     flex-direction: column-reverse;
   }
 }
+
 @media (max-width: 767px) {
   .second_heading {
     font-size: 30px;

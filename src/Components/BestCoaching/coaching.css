@@ -114,3 +114,14 @@
   font-family: "Inter", serif;
   padding: 6px 30px;
 }
+
+@media (max-width: 991px) {
+  .best_coaching_tab .nav-link {
+    padding: 8px 16px;
+  }
+
+  .best_coaching_tab .nav-pills {
+    margin: 0;
+    width: 100%;
+  }
+}

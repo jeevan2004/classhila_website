@@ -20,12 +20,12 @@ const OurGoal = () => {
   };
 
   return (
-    <div className="our_goal">
-      <div className="container">
+    <div className="our_goal px-md-4 ">
+      <div className="container ">
         <div className="row">
           {/* Box 1 - Inclusive Education */}
           <div
-            className="col-md-3 box"
+            className="col-lg-3 col-md-6 box"
             onMouseEnter={() => handleMouseEnter("qualified1")}
             onMouseLeave={() => handleMouseLeave("qualified1")}
           >
@@ -44,7 +44,7 @@ const OurGoal = () => {
 
           {/* Box 2 - Affordable Learning (Uses the same "badge" icon) */}
           <div
-            className="col-md-3 box"
+            className="col-lg-3 col-md-6 box"
             onMouseEnter={() => handleMouseEnter("badge")}
             onMouseLeave={() => handleMouseLeave("badge")}
           >
@@ -59,7 +59,7 @@ const OurGoal = () => {
 
           {/* Box 3 - Ed-Zen (Same icon as Box 1) */}
           <div
-            className="col-md-3 box"
+            className="col-lg-3 col-md-6 box"
             onMouseEnter={() => handleMouseEnter("qualified2")}
             onMouseLeave={() => handleMouseLeave("qualified2")}
           >
@@ -79,7 +79,7 @@ const OurGoal = () => {
 
           {/* Box 4 - Expert Guidance (Different icon) */}
           <div
-            className="col-md-3 box"
+            className="col-lg-3 col-md-6 box"
             onMouseEnter={() => handleMouseEnter("cloud")}
             onMouseLeave={() => handleMouseLeave("cloud")}
           >
