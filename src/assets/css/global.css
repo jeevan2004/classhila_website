@@ -97,6 +97,17 @@ h6 {
 .secondary_text {
   color: rgba(255, 120, 42, 1) !important;
 }
+.btn-outline-primary {
+  color: rgba(255, 120, 42, 1) !important;
+  border-color: rgba(255, 120, 42, 1);
+}
+.btn-outline-primary:hover,
+.btn-outline-primary.btn:first-child:active,
+.btn-outline-primary:not(.btn-check) + .btn:active {
+  background-color: rgba(255, 120, 42, 1);
+  color: #fff !important;
+  border-color: rgba(255, 120, 42, 1);
+}
 .text_white {
   color: #fff !important;
 }
@@ -478,4 +489,7 @@ html {
     font-size: 30px;
     font-weight: 400;
   }
+}
+.fit_auto {
+  max-width: fit-content;
 }

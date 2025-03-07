@@ -15,10 +15,16 @@ import Plan from "../../Components/Plan/Plan";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import blank_image from "../../assets/image/blank_image.png";
+import img1 from "../../assets/image/img1.png";
+import latest1 from "../../assets/image/latest1.png";
+import latest2 from "../../assets/image/latest2.png";
+import latest3 from "../../assets/image/latest3.png";
+
 import star_grey from "../../assets/image/icon/star_grey.png";
 import star_orange from "../../assets/image/icon/star_orange.png";
 import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
+import Faq from "../../Components/faq/Faq";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -73,7 +79,7 @@ const Home = () => {
   const BlogData = [
     {
       id: "importance-feedback-in-online-learning",
-      image: blank_image,
+      image: img1,
       heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
       content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
       contentList: [
@@ -82,14 +88,81 @@ const Home = () => {
     },
   ];
   const blog = BlogData[0];
-  const LatestArticle = [1, 2, 3];
+  const LatestArticle = [
+    {
+      id: "importance-feedback-in-online-learning",
+      image: latest1,
+      heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
+      content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
+      contentList: [
+        `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
+      ],
+    },
+    {
+      id: "importance-feedback-in-online-learning",
+      image: latest2,
+      heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
+      content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
+      contentList: [
+        `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
+      ],
+    },
+    {
+      id: "importance-feedback-in-online-learning",
+      image: latest3,
+      heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
+      content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
+      contentList: [
+        `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
+      ],
+    },
+  ];
+
+  const planData = [
+    {
+      plan: "Monthly",
+      price: "599",
+      duration: "Monthly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Quarterly",
+      price: "3594",
+      duration: "Quarterly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Yearly",
+      price: "7189",
+      duration: "Yearly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+  ];
   return (
     <>
       <HomeBanner />
 
-      <WithUs />
+      <WithUs btn={true} />
       <OurGoal />
-      <OurMentor />
+      <OurMentor viewMore={false} viewAll={true} />
 
       <div className="total_counter">
         <div className="container">
@@ -144,12 +217,15 @@ const Home = () => {
             </div>
           </div>
           <div className="row justify-content-center gx-5">
-            <div className="col-md-6 col-lg-4">
-              <Plan />
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <Plan />
-            </div>
+            {planData?.map((item) => {
+              return (
+                <>
+                  <div className="col-md-6 col-lg-4">
+                    <Plan data={item} />
+                  </div>
+                </>
+              );
+            })}
           </div>
         </div>
         <div className="shape">
@@ -159,8 +235,9 @@ const Home = () => {
           <img src={ellipse_yellow} alt="" className="shape4" />
         </div>
       </div>
-
-      <FAQPage />
+      <div className="faq_sec">
+        <Faq />
+      </div>
       <div className="home_single_blog p-70">
         <Container>
           <div className="row justify-content-center text-center">
@@ -194,6 +271,7 @@ const Home = () => {
                   return (
                     <>
                       <p>{item}</p>
+                      <Link to={"#"}>{"Read More >"}</Link>
                     </>
                   );
                 })}
@@ -207,7 +285,7 @@ const Home = () => {
                     return (
                       <>
                         <li>
-                          <img src={blank_image} alt="" />
+                          <img src={item?.image} alt="" />
                           <div className="contents">
                             <h5>
                               How They Impact Your Online Education Journey
@@ -218,7 +296,9 @@ const Home = () => {
                               management, prioritization, and setting realistic
                               goals.
                             </p>
-                            <Link to={"#"}>{"Read More >"}</Link>
+                            <Link to={"/blog/maximizing-online-learning"}>
+                              {"Read More >"}
+                            </Link>
                           </div>
                         </li>
                       </>

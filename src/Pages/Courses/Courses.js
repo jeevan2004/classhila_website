@@ -7,8 +7,48 @@ import star_grey from "../../assets/image/icon/star_grey.png";
 import star_orange from "../../assets/image/icon/star_orange.png";
 import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
+  const navigate = useNavigate();
+  const planData = [
+    {
+      plan: "Monthly",
+      price: "599",
+      duration: "Monthly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Quarterly",
+      price: "3594",
+      duration: "Quarterly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Yearly",
+      price: "7189",
+      duration: "Yearly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+  ];
   return (
     <div>
       <div className="courses">
@@ -57,6 +97,7 @@ const Courses = () => {
                   (e.target.style.backgroundColor = "#9e8466")
                 }
                 onMouseOut={(e) => (e.target.style.backgroundColor = "#8B7355")}
+                onClick={() => navigate("/register")}
               >
                 Join Now
               </button>
@@ -84,12 +125,15 @@ const Courses = () => {
             </div>
           </div>
           <div className="row justify-content-center gx-5">
-            <div className="col-md-4">
-              <Plan />
-            </div>
-            <div className="col-md-4">
-              <Plan />
-            </div>
+            {planData?.map((item) => {
+              return (
+                <>
+                  <div className="col-md-6 col-lg-4">
+                    <Plan data={item} />
+                  </div>
+                </>
+              );
+            })}
           </div>
           <div className="shape">
             <img src={star_grey} alt="" className="shape1" />

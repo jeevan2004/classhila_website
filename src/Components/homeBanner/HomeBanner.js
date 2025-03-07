@@ -4,11 +4,18 @@ import banner from "../../assets/image/banner.png";
 import activeStudent from "../../assets/image/active_student.png";
 import star from "../../assets/image/Star.png";
 import ipsum from "../../assets/image/logo_ipsum.png";
+import logo1 from "../../assets/image/logo1.png";
+import logo2 from "../../assets/image/logo2.png";
+import logo3 from "../../assets/image/logo3.png";
+import logo4 from "../../assets/image/logo4.png";
+import logo5 from "../../assets/image/logo5.png";
+
 import star_yellow from "../../assets/image/icon/star_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomeBanner = ({ handleScroll }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="hero-banner hero-style-1">
@@ -16,6 +23,11 @@ const HomeBanner = ({ handleScroll }) => {
           <div className="row align-items-center">
             <div className="col-lg-8 mx-auto">
               <div className="banner-content">
+                {/* <p className="top">World's First AI Online Club</p>
+                <p className="top">
+                  India's First EduTech Platform to be Backed by Osmania
+                  Technology Business Incubation (OTBI) in Osmania University
+                </p> */}
                 <h6>EXCELLENCE IN EDUCATION</h6>
                 <h1
                   className="title sal-animate"
@@ -42,7 +54,10 @@ const HomeBanner = ({ handleScroll }) => {
                   data-sal="slide-up"
                   data-sal-duration="1000"
                 >
-                  <button className="btn_primary mt-3">
+                  <button
+                    onClick={() => navigate("/register")}
+                    className="btn_primary mt-3"
+                  >
                     Get Started Today
                   </button>
                 </div>
@@ -128,27 +143,27 @@ const HomeBanner = ({ handleScroll }) => {
           <div class="features-grid-wrap">
             <div class="features-box features-style-2 edublink-svg-animate">
               <div class="icon">
-                <img src={ipsum} alt="" />
+                <img src={logo1} alt="" />
               </div>
             </div>
             <div class="features-box features-style-2 edublink-svg-animate">
               <div class="icon">
-                <img src={ipsum} alt="" />
+                <img src={logo2} alt="" />
               </div>
             </div>
             <div class="features-box features-style-2 edublink-svg-animate">
               <div class="icon">
-                <img src={ipsum} alt="" />
+                <img src={logo3} alt="" />
               </div>
             </div>
             <div class="features-box features-style-2 edublink-svg-animate">
               <div class="icon">
-                <img src={ipsum} alt="" />
+                <img src={logo4} alt="" />
               </div>
             </div>
             <div class="features-box features-style-2 edublink-svg-animate">
               <div class="icon">
-                <img src={ipsum} alt="" />
+                <img src={logo5} alt="" />
               </div>
             </div>
           </div>

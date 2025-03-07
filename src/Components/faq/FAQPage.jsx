@@ -41,7 +41,7 @@ const FAQPage = () => {
   ];
   return (
     <>
-      <div className="faq-page pt_150">
+      <div className="faq-page pt_150 ">
         <Container className="">
           {/* <h1 className="text-center mb-5 fw-bold" style={{ color: "#333" }}>
           FAQs<span style={{ color: "#F47F24" }}>.</span>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./PricingPlan.css";
 import BestCoaching from "../../Components/BestCoaching/BestCoaching";
 import Plan from "../../Components/Plan/Plan";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Col, Nav, Row, Tab } from "react-bootstrap";
 import coaching from "../../assets/image/coaching.png";
 import notebook from "../../assets/image/icon/notebook.png";
@@ -11,8 +11,47 @@ import blank from "../../assets/image/blank.png";
 import OurMentor from "../../Components/OurMentor/OurMentor";
 
 const PricingPlan = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("tab1");
   const handleSelect = (key) => setActiveTab(key);
+  const planData = [
+    {
+      plan: "Monthly",
+      price: "599",
+      duration: "Monthly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Quarterly",
+      price: "3594",
+      duration: "Quarterly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Yearly",
+      price: "7189",
+      duration: "Yearly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+  ];
   return (
     <div>
       <div className="courses">
@@ -21,14 +60,75 @@ const PricingPlan = () => {
         </div>
       </div>
 
-      <div className="best_coaching">
-        <div className="container">
+      {/* Header Section */}
+
+      <section className=" best_coaching_tab pt-3 d-none">
+        <Tab.Container
+          defaultActiveKey="tab1"
+          activeKey={activeTab}
+          onSelect={handleSelect}
+        >
+          {/* Left-Side Tabs */}
+          <div className="tabs-nav">
+            <Nav variant="pills" className="">
+              <Nav.Item>
+                <Nav.Link eventKey="tab1">
+                  <h4>Monthly</h4>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="tab2">
+                  {" "}
+                  <h4>Monthly</h4>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </div>
+          <Row>
+            {/* Right-Side Content */}
+            <Col md={12} className="tabs-content mt-5 ">
+              <Tab.Content>
+                <Tab.Pane eventKey="tab1">
+                  <div className="row gx-5">
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                  </div>
+                </Tab.Pane>
+                <Tab.Pane eventKey="tab2">
+                  <div className="row gx-5">
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                    <div className="col-md-4">
+                      <Plan />
+                    </div>
+                  </div>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
+      </section>
+      <div className="plan">
+        <div className="container ">
           {/* Header Section */}
           <div className="row justify-content-center">
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <div className="text-center mb-5">
-                <div className="pre_heading">PRICING PLAN</div>
-                <h1 className="main_heading mb-3">
+                <h1
+                  className="main_heading mb-3"
+                  style={{ color: "rgba(237, 115, 48, 1)" }}
+                >
                   Select a Plan That Suits You.
                 </h1>
                 <p className="main_text">
@@ -38,66 +138,20 @@ const PricingPlan = () => {
               </div>
             </div>
           </div>
-
-          <section className=" best_coaching_tab pt-3">
-            <Tab.Container
-              defaultActiveKey="tab1"
-              activeKey={activeTab}
-              onSelect={handleSelect}
-            >
-              {/* Left-Side Tabs */}
-              <div className="tabs-nav">
-                <Nav variant="pills" className="">
-                  <Nav.Item>
-                    <Nav.Link eventKey="tab1">
-                      <h4>Yearly</h4>
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="tab2">
-                      {" "}
-                      <h4>Monthly</h4>
-                    </Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </div>
-              <Row>
-                {/* Right-Side Content */}
-                <Col md={12} className="tabs-content mt-5 ">
-                  <Tab.Content>
-                    <Tab.Pane eventKey="tab1">
-                      <div className="row gx-5">
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="tab2">
-                      <div className="row gx-5">
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                        <div className="col-md-4">
-                          <Plan />
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Col>
-              </Row>
-            </Tab.Container>
-          </section>
+          <div className="row justify-content-center gx-5">
+            {planData?.map((item) => {
+              return (
+                <>
+                  <div className="col-md-6 col-lg-4">
+                    <Plan data={item} />
+                  </div>
+                </>
+              );
+            })}
+          </div>
         </div>
       </div>
+
       <div className="discover mt-5">
         <div
           className="container-fluid"
@@ -138,6 +192,7 @@ const PricingPlan = () => {
                   (e.target.style.backgroundColor = "#9e8466")
                 }
                 onMouseOut={(e) => (e.target.style.backgroundColor = "#8B7355")}
+                onClick={() => navigate("/register")}
               >
                 Join Now
               </button>
@@ -145,7 +200,7 @@ const PricingPlan = () => {
           </div>
         </div>
       </div>
-      <OurMentor />
+      <OurMentor viewMore={true} viewAll={false} />
     </div>
   );
 };

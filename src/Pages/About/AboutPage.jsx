@@ -8,7 +8,10 @@ import star_orange from "../../assets/image/icon/star_orange.png";
 import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import "./about.css";
+import { useNavigate } from "react-router-dom";
+
 const AboutPage = () => {
+  const navigate = useNavigate();
   const categories = ["All", "SSC", "CBSC", "Groups", "RRB", "Civil Services"];
 
   const courseCards = [
@@ -61,14 +64,51 @@ const AboutPage = () => {
       mentorRole: "Mentor",
     },
   ];
-
+  const planData = [
+    {
+      plan: "Monthly",
+      price: "599",
+      duration: "Monthly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Quarterly",
+      price: "3594",
+      duration: "Quarterly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+    {
+      plan: "Yearly",
+      price: "7189",
+      duration: "Yearly",
+      services: [
+        `Unlimited Access Courses`,
+        `Certificate After Completion`,
+        `Excercise Files & Notes`,
+        `Personalized Feedback`,
+        `Community Support`,
+      ],
+    },
+  ];
   return (
     <>
       <div className="about_us">
         <div className="about_top">
           <div className="container">
             <h2 className="second_heading">About Us</h2>
-            <span>Home - About Us</span>
+            {/* <span>Home - About Us</span> */}
 
             <h6>
               Classhila is an innovative educational platform designed to
@@ -82,7 +122,7 @@ const AboutPage = () => {
             </h6>
           </div>
         </div>
-        <WithUs />
+        <WithUs btn={false} />
         <div className="vision text-center p-70">
           <div className="container">
             <div className="row justify-content-center">
@@ -179,6 +219,7 @@ const AboutPage = () => {
                   onMouseOut={(e) =>
                     (e.target.style.backgroundColor = "#8B7355")
                   }
+                  onClick={() => navigate("/register")}
                 >
                   Join Now
                 </button>
@@ -207,12 +248,15 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="row justify-content-center gx-5">
-              <div className="col-md-4">
-                <Plan />
-              </div>
-              <div className="col-md-4">
-                <Plan />
-              </div>
+              {planData?.map((item) => {
+                return (
+                  <>
+                    <div className="col-md-6 col-lg-4">
+                      <Plan data={item} />
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="shape">
               <img src={star_grey} alt="" className="shape1" />

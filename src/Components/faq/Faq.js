@@ -79,7 +79,7 @@ const Faq = () => {
         </div>
       </section> */}
       <div className="faq-page pt-5">
-        <Container className="">
+        <Container className="py-5">
           <Row>
             <Col lg={5}>
               <div className="mb-4">
@@ -93,7 +93,7 @@ const Faq = () => {
                 </p>
 
                 <Card
-                  className="border-0 mt-3"
+                  className="border-0 mt-3 fit_auto"
                   style={{ backgroundColor: "#F47F24", borderRadius: "8px" }}
                 >
                   <Card.Body className=" faq_contact">
@@ -105,7 +105,7 @@ const Faq = () => {
                       </div>
                       <div>
                         <h5 className="mb-0 text-white">
-                          Any Question? Ask Us!
+                          Any Question? Ask Us !
                         </h5>
                         <p className="mb-0 text-white">+91-70368 16361</p>
                       </div>

@@ -7,9 +7,12 @@ import Courses from "../Pages/Courses/Courses";
 import CoursesDetails from "../Pages/Courses/CoursesDetails";
 
 import Home from "../Pages/Home/Home";
+import CreatePassword from "../Pages/Login/CreatePassword";
 import ForgotPassword from "../Pages/Login/ForgotPassword";
 import Login from "../Pages/Login/Login";
+import Otp from "../Pages/Login/Otp";
 import Register from "../Pages/Login/Register";
+import ThankYou from "../Pages/Login/ThankYou";
 import Mentor from "../Pages/Mentor/Mentor";
 import PricingPlan from "../Pages/Pricing/PricingPlan";
 import PrivacyPolicy from "../Pages/TermsConditions/PrivacyPolicy";
@@ -122,6 +125,32 @@ export const routes = [
     name: "ForgotPassword",
     subRouting: false,
   },
+
+  {
+    notLazy: true,
+    path: "/otp",
+    element: Otp,
+    role: "private",
+    name: "otp",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/create-password",
+    element: CreatePassword,
+    role: "private",
+    name: "create password",
+    subRouting: false,
+  },
+  {
+    notLazy: true,
+    path: "/thank-you",
+    element: ThankYou,
+    role: "private",
+    name: "Thank You",
+    subRouting: false,
+  },
+
   {
     notLazy: true,
     path: "/blog",

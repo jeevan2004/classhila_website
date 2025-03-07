@@ -7,7 +7,8 @@ import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import star_orange from "../../assets/image/icon/star_orange.png";
 import star_yellow from "../../assets/image/icon/star_yellow.png";
 import "./withus.css";
-const WithUs = () => {
+import { Link } from "react-router-dom";
+const WithUs = ({ btn }) => {
   return (
     <div className="with_us p-100">
       <div className="container">
@@ -31,7 +32,11 @@ const WithUs = () => {
                 learners from all backgrounds. Join our vibrant community of
                 learners and start your journey with us today!
               </p>
-              <button className="btn_secondary ">Learn More</button>
+              {btn && (
+                <Link to={"/about-us"} className="btn_secondary fit_auto">
+                  Learn More
+                </Link>
+              )}
             </div>
           </div>
           <div className="col-lg-6 mb-4">
@@ -48,7 +53,9 @@ const WithUs = () => {
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <img src={video} alt="" className="mt-5" />
+                  <div className="img_box">
+                    <img src={video} alt="" className="mt-5 w-100" />
+                  </div>
                 </div>
               </div>
 

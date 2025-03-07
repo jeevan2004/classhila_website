@@ -9,7 +9,7 @@ import { useAuthContext } from "../../AuthContextAPI";
 
 function Header() {
   const { popupOpen, setPopupOpen } = useAuthContext();
-
+  const [activeSubmenu, setActiveSubmenu] = useState();
   const location = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(popupOpen);
@@ -134,6 +134,44 @@ function Header() {
       path: "/courses",
       subMenu: false,
     },
+    // {
+    //   title: "Online AI Club",
+    //   path: "#",
+    //   subMenu: true,
+    //   subMenu: [
+    //     {
+    //       title: "Guest Lectures",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //     {
+    //       title: "Online Workshops",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //     {
+    //       title: "Mentorship programs",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //     {
+    //       title: "Project Showcase",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //     {
+    //       title: "AI Hackathons",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //     {
+    //       title: "Resources Repository",
+    //       path: "/",
+    //       subMenu: false,
+    //     },
+    //   ],
+    // },
+
     {
       title: "Blog",
       path: "/blog",
@@ -184,34 +222,108 @@ function Header() {
               <ul className="navbar-nav mb-2 mb-lg-0">
                 {headerMenu?.map((item, index) => {
                   return (
-                    <li className="nav-item" key={index}>
-                      {item.scrollToId ? (
-                        // Render a button for scroll-to-section functionality
-                        <Link
-                          className="navbar_link Link-link"
-                          onClick={() => {
-                            const section = document.getElementById(
-                              item.scrollToId
-                            );
-                            if (section) {
-                              section.scrollIntoView({ behavior: "smooth" });
-                            }
-                          }}
-                        >
-                          {item.title}
-                        </Link>
-                      ) : (
-                        // Render a Link for navigation
-                        <Link
-                          className={`${
-                            location.pathname === item.path ? "active" : ""
-                          } navbar_link`}
-                          to={item.path}
-                          id={item.title}
-                          role="button"
-                        >
-                          {item.title}
-                        </Link>
+                    // <li className="nav-item" key={index}>
+                    //   {item.scrollToId ? (
+                    //     <Link
+                    //       className="navbar_link Link-link"
+                    //       onClick={() => {
+                    //         const section = document.getElementById(
+                    //           item.scrollToId
+                    //         );
+                    //         if (section) {
+                    //           section.scrollIntoView({ behavior: "smooth" });
+                    //         }
+                    //       }}
+                    //     >
+                    //       {item.title}
+                    //     </Link>
+                    //   ) : (
+                    //     // Render a Link for navigation
+                    //     <Link
+                    //       className={`${
+                    //         location.pathname === item.path ? "active" : ""
+                    //       } navbar_link`}
+                    //       to={item.path}
+                    //       id={item.title}
+                    //       role="button"
+                    //     >
+                    //       {item.title}
+                    //     </Link>
+                    //   )}
+                    // </li>
+
+                    <li className="nav-item">
+                      <Link
+                        className={`${
+                          location.pathname === item.path ? "active" : ""
+                        } navbar_link`}
+                        to={item.path}
+                        id={item.title}
+                        role="button"
+                      >
+                        {item.title}{" "}
+                        {/* {item.subMenu && <i className="fas fa-angle-down"></i>} */}
+                      </Link>
+
+                      {item.subMenu && (
+                        <div className="dropdown-menu sub_first">
+                          <ul
+                            className="sub_first_ul"
+                            aria-labelledby={item.title}
+                          >
+                            {item.subMenu &&
+                              item.subMenu?.map((subFirst, index) => {
+                                return (
+                                  <li
+                                    className={`nav-item dropdown dropdown-item sub_first_item ${
+                                      activeSubmenu === subFirst?.title
+                                        ? "active"
+                                        : ""
+                                    }`}
+                                  >
+                                    <Link
+                                      className={`navbar_link `}
+                                      to="/"
+                                      id={subFirst.title}
+                                      role="button"
+                                    >
+                                      {subFirst.title}{" "}
+                                    </Link>
+
+                                    {subFirst.subMenu && (
+                                      <div className="dropdown-menu sub_sec">
+                                        <ul
+                                          className="sub_sec_ul"
+                                          aria-labelledby={subFirst.title}
+                                        >
+                                          {subFirst.subMenu &&
+                                            subFirst.subMenu?.map(
+                                              (subSec, index) => {
+                                                return (
+                                                  <li>
+                                                    <Link
+                                                      className={`${
+                                                        location.pathname ===
+                                                        subSec?.title
+                                                          ? "active"
+                                                          : ""
+                                                      } navbar_link dropdown-item`}
+                                                      to={subSec?.path}
+                                                    >
+                                                      {subSec.title}
+                                                    </Link>
+                                                  </li>
+                                                );
+                                              }
+                                            )}
+                                        </ul>
+                                      </div>
+                                    )}
+                                  </li>
+                                );
+                              })}
+                          </ul>
+                        </div>
                       )}
                     </li>
                   );

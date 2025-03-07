@@ -5,16 +5,10 @@ import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import { Link, useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import { api } from "../../api/api";
-const ForgotPassword = () => {
+const CreatePassword = () => {
   const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    schoolName: "",
-    district: "",
-    village: "",
-    password: "",
-    confirmPassword: "",
+    Password: "",
+    ConfirmPassword: "",
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -46,7 +40,6 @@ const ForgotPassword = () => {
     //   localStorage.setItem("user", JSON.stringify(res));
     //   console.log(res, "card login");
     // }
-    navigate("/otp");
   };
   return (
     <>
@@ -57,30 +50,46 @@ const ForgotPassword = () => {
           </div>
           <div className="row">
             <div className="col-lg-6 mx-auto">
-              <h3 className="text-center mb-4">Confirm Your Phone Number</h3>
+              <h3 className="text-center mb-4">Please Create New Password</h3>
               <div className="img_sec">
                 <img src={login_img} />
               </div>
               <div className="contact-form">
                 <form className="mt-4" onSubmit={(e) => handleSubmit(e)}>
                   <div className="row">
-                    <div className="col-md-9 mx-auto">
+                    <div className="col-md-8 mx-auto ">
                       <div className="mb-3 px-2">
                         <input
-                          type="email"
+                          type="text"
                           className="form-control"
-                          placeholder="*Phone Number"
-                          id="Youremail"
-                          name="email"
-                          value={formData.email}
+                          placeholder="*Password"
+                          id="Password"
+                          name="Password"
+                          value={formData.Password}
                           onChange={handleChange}
+                          maxLength={15}
                         />
                       </div>
+
+                      <div className="mb-3 px-2">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="*Confirm Password"
+                          id="ConfirmPassword"
+                          name="ConfirmPassword"
+                          value={formData.ConfirmPassword}
+                          onChange={handleChange}
+                          maxLength={15}
+                        />
+                      </div>
+
                       <button
+                        onClick={() => navigate("/thank-you")}
                         className=" btn_secondary btn_md w-100 mt-4 text-center"
                         type="submit"
                       >
-                        Submit
+                        Create
                       </button>
                     </div>
                   </div>
@@ -99,13 +108,6 @@ const ForgotPassword = () => {
                       </Link>
                     </label>
                   </div> */}
-
-                  {/* <p className="already mt-1">
-                    Don't have an account?
-                    <Link to={"/register"} className="ms-2">
-                      Sign Up
-                    </Link>
-                  </p> */}
                 </form>
               </div>
             </div>
@@ -116,4 +118,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default CreatePassword;

@@ -24,3 +24,29 @@
 .register-area .btn_secondary {
   justify-content: center;
 }
+.register-area .img_sec img {
+  max-width: 380px;
+  margin: 0 auto;
+  display: block;
+}
+.register h3 {
+  font-size: 50px;
+}
+.register-area h3 {
+  color: var(--tg-theme-primary) !important;
+  font-size: 40px;
+}
+.register-area h3 span {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+.register-area .btn_secondary {
+  font-size: 23px;
+  padding: 5px 16px;
+}
+.register-area span.btn-link {
+  font-weight: 300;
+  text-decoration: none;
+}

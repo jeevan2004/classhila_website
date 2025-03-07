@@ -52,7 +52,7 @@ const OurGoal = () => {
               <img src={hovered["badge"] ? badge_o : badge} alt="Badge" />
               <h5>Affordable Learning</h5>
               <p className="main_text">
-                Access to quality education for just ₹599/month.
+                Access to quality <br /> education for just <br /> ₹599/month.
               </p>
             </div>
           </div>

@@ -1,6 +1,12 @@
 .best_coaching {
   padding-top: 120px;
 }
+.best_coaching .author_name p span.staff {
+  color: #968374;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
 .best_coaching_tab .nav-pills {
   background: rgba(255, 245, 238, 1);
   width: fit-content;
@@ -124,4 +130,34 @@
     margin: 0;
     width: 100%;
   }
+}
+
+/*  */
+
+.pagination-container button.btn-primary {
+  background: var(--tg-theme-secondary);
+}
+
+.pagination-container button.btn.btn-dark {
+  background: #ff6d16;
+  border-color: #ff6d16;
+}
+
+.pagination-container .btn-outline-primary {
+  color: #ff6d16 !important;
+  border-color: #ff6d16 !important;
+}
+.pagination-container .btn-outline-primary:hover {
+  color: #fff !important;
+  background: #ff6d16;
+}
+/*  */
+
+.best_coaching .author .plus_icon i.far.fa-heart {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.best_coaching .author .plus_icon i.far.fa-heart:hover {
+  font-weight: 600;
 }

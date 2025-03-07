@@ -10,10 +10,10 @@ const Mentor = () => {
       <div className="mentor">
         <div className="container">
           <h2 className="second_heading">Our Faculty & Mentors.</h2>
-          <span>Home - Our Faculty & Mentors.</span>
+          {/* <span>Home - Our Faculty & Mentors.</span> */}
         </div>
       </div>
-      <OurMentor />
+      <OurMentor viewMore={true} viewAll={false} />
       <Faq />
     </>
   );
