@@ -243,11 +243,10 @@ const BestCoaching = () => {
                                   </li>
                                 </ul>
                                 <h4
-                                  // onClick={() =>
-                                  //   navigate(`/courses/${item._id}`)
-                                  // }
-
-                                  onClick={() => handlePurchase(item._id)}
+                                  onClick={() =>
+                                    navigate(`/courses/${item._id}`)
+                                  }
+                                  // onClick={() => handlePurchase(item._id)}
                                 >
                                   {item.title}
                                 </h4>

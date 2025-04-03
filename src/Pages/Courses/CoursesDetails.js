@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./course.css";
 import ReactPlayer from "react-player";
 import { Container } from "react-bootstrap";
 import profile from "../../assets/image/icon/profile.jpeg";
 import { ReactComponent as Play } from "../../assets/image/icon/play.svg";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useAuthContext } from "../../AuthContextAPI";
+import { api } from "../../api/api";
 
 const CoursesDetails = () => {
+  const [course, setCourse] = useState();
+  const { currUserData } = useAuthContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const courseId = useParams();
+  console.log(courseId, "CourseId");
   const courseModules = [
     {
       title: "Foreword",
@@ -52,6 +61,35 @@ const CoursesDetails = () => {
     { id: "quiz", title: "Quiz" },
   ];
 
+  // Fetch Courses
+  const getCourseData = async () => {
+    setIsLoading(true);
+    let res = await api(
+      `api/v1/student/getliveCourses?page=1&limit=10`,
+      "",
+      "get",
+      currUserData?.token,
+      ""
+    );
+
+    if (res?.success) {
+      // setCourse(res?.data || []);
+      console.log(res, "neeneeees");
+      const filteredData = res?.data.find(
+        (course) => course._id === courseId.name
+      );
+      //const filteredData = res?.data.filter((item) => item._id === courseId);
+
+      console.log(filteredData, "filteredData");
+      setCourse(filteredData);
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getCourseData();
+  }, []);
+  console.log(course, "course");
   return (
     <div className="course_single pt_150">
       <Container>
