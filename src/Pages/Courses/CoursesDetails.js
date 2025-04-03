@@ -11,10 +11,14 @@ import { api } from "../../api/api";
 
 const CoursesDetails = () => {
   const [course, setCourse] = useState();
+  const [currentVideo, setCurrentVideo] = useState(
+    `https://www.w3schools.com/html/mov_bbb.mp4`
+  );
+
   const { currUserData } = useAuthContext();
   const [isLoading, setIsLoading] = useState(false);
   const courseId = useParams();
-  console.log(courseId, "CourseId");
+  console.log(course, "coursecourse");
   const courseModules = [
     {
       title: "Foreword",
@@ -75,9 +79,7 @@ const CoursesDetails = () => {
     if (res?.success) {
       // setCourse(res?.data || []);
       console.log(res, "neeneeees");
-      const filteredData = res?.data.find(
-        (course) => course._id === courseId.name
-      );
+      const filteredData = res?.data.find((item) => item._id === courseId.name);
       //const filteredData = res?.data.filter((item) => item._id === courseId);
 
       console.log(filteredData, "filteredData");
@@ -89,26 +91,23 @@ const CoursesDetails = () => {
   useEffect(() => {
     getCourseData();
   }, []);
-  console.log(course, "course");
+  console.log(currentVideo, "currentVideocurrentVideo");
   return (
     <div className="course_single pt_150">
       <Container>
         <div className="row">
-          {/* Left Side - Video Player */}
           <div className="col-md-8">
             <div className="left_side">
               <div className="player">
                 <ReactPlayer
-                  url="https://www.w3schools.com/html/mov_bbb.mp4"
+                  url={currentVideo?.videoUrl}
                   light="https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   controls
                   className="video_player"
                 />
               </div>
               <div className="course_heading">
-                <h2>
-                  Drawing Fundamentals 1: Basic Skills & Sketching Accurately
-                </h2>
+                <h2>{currentVideo?.title}</h2>
                 <ul>
                   <li>
                     <i class="far fa-flag"></i>
@@ -451,7 +450,7 @@ const CoursesDetails = () => {
                           className="accordion"
                           id={`childAccordion${parentIndex}`}
                         >
-                          {courseModules.map((module, childIndex) => (
+                          {course?.content.map((module, childIndex) => (
                             <div
                               className="accordion-item"
                               key={`child-${childIndex}`}
@@ -471,7 +470,7 @@ const CoursesDetails = () => {
                                   }
                                   aria-controls={`childCollapse${parentIndex}-${childIndex}`}
                                 >
-                                  {module.title}
+                                  {module.moduleTitle}
                                 </button>
                               </h2>
 
@@ -487,7 +486,10 @@ const CoursesDetails = () => {
                                 <div className="accordion-body p-0">
                                   <ul className="course_videos">
                                     {module.videos.map((video) => (
-                                      <li key={video.id}>
+                                      <li
+                                        key={video.id}
+                                        onClick={() => setCurrentVideo(video)}
+                                      >
                                         <Play
                                           width={8}
                                           height={8}
@@ -495,7 +497,7 @@ const CoursesDetails = () => {
                                         />{" "}
                                         <span className="ps-3 d-flex   justify-content-between video_link w-100">
                                           {" "}
-                                          <span> {video.name} </span>{" "}
+                                          <span> {video.title} </span>{" "}
                                           <span> {video.duration} </span>
                                         </span>
                                       </li>
