@@ -8,12 +8,15 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useAuthContext } from "../../AuthContextAPI";
 import { api } from "../../api/api";
+import { loadRazorpay } from "../../Utils";
 
 const CoursesDetails = () => {
   const [course, setCourse] = useState();
-  const [currentVideo, setCurrentVideo] = useState(
-    `https://www.w3schools.com/html/mov_bbb.mp4`
-  );
+  const [currentVideo, setCurrentVideo] = useState({
+    videoUrl: `https://www.w3schools.com/html/mov_bbb.mp4`,
+    title: "Drawing Fundamentals 1: Basic Skills & Sketching Accurately",
+  });
+  const [status, setStatus] = useState("");
 
   const { currUserData } = useAuthContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -92,6 +95,77 @@ const CoursesDetails = () => {
     getCourseData();
   }, []);
   console.log(currentVideo, "currentVideocurrentVideo");
+
+  const handlePurchase = async (courseId) => {
+    try {
+      // Load Razorpay dynamically
+      const Razorpay = await loadRazorpay();
+      if (!Razorpay) throw new Error("Failed to load Razorpay SDK");
+
+      // Step 1: Create Order
+      const payload = { courseId };
+      const res = await api(
+        "api/v1/payment/createOrder",
+        payload,
+        "post",
+        currUserData?.token,
+        ""
+      );
+      if (!res?.status)
+        throw new Error(res?.response || "Order creation failed");
+
+      const orderData = res.data;
+      console.log(orderData, "Order Created");
+
+      // Step 2: Configure Razorpay
+      const options = {
+        key: orderData.key,
+        amount: orderData.amount * 100, // Convert to paise
+        currency: orderData.currency,
+        name: "Your Learning Platform",
+        description: "Course Purchase",
+        order_id: orderData.orderId,
+        handler: async (response) => {
+          try {
+            // Step 3: Verify Payment
+            const verificationRes = await api(
+              `api/v1/payment/verifyPayment/${orderData.paymentId}`,
+              response,
+              "post",
+              currUserData?.token,
+              ""
+            );
+
+            console.log(verificationRes, "Payment Verified");
+
+            if (!verificationRes?.status)
+              throw new Error(
+                verificationRes?.response || "Payment verification failed"
+              );
+
+            setStatus("✅ Payment successful! Course enrolled.");
+          } catch (error) {
+            setStatus("❌ Verification failed: " + error.message);
+          }
+        },
+        prefill: {
+          name: currUserData?.name || "Test User",
+          email: currUserData?.email || "test@example.com",
+          contact: currUserData?.phone || "9999999999",
+        },
+        theme: { color: "#4CAF50" },
+      };
+
+      // Step 4: Open Razorpay Checkout
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error("Payment Error:", error.message);
+      setStatus("❌ Error: " + error.message);
+    }
+  };
+
+  console.log(course, "course");
   return (
     <div className="course_single pt_150">
       <Container>
@@ -515,7 +589,13 @@ const CoursesDetails = () => {
               </div>
 
               {/* Download Material Button */}
-              <button className="download_button">Download Material</button>
+              <button
+                className="download_button"
+                onClick={() => handlePurchase(course?._id)}
+              >
+                {/* Download Material */}
+                Purchase Now
+              </button>
             </div>
           </div>
         </div>
