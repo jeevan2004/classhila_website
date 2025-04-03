@@ -1,62 +1,16 @@
 import React from "react";
 import "./course.css";
 import ReactPlayer from "react-player";
-import { Container } from "react-bootstrap";
 import profile from "../../assets/image/icon/profile.jpeg";
-import { ReactComponent as Play } from "../../assets/image/icon/play.svg";
-
-const CoursesDetails = () => {
-  const courseModules = [
-    {
-      title: "Foreword",
-      videos: [
-        { id: 1, name: "Foreword", duration: "1:00", url: "" },
-        {
-          id: 2,
-          name: "Download Practice Material",
-          duration: "1:00",
-          url: "",
-        },
-      ],
-    },
-    {
-      title: "Introduction",
-      videos: [
-        { id: 3, name: "Introduction Video", duration: "2:30", url: "" },
-      ],
-    },
-    {
-      title: "Getting Started",
-      videos: [
-        { id: 4, name: "Setup & Installation", duration: "3:00", url: "" },
-      ],
-    },
-    {
-      title: "Tools",
-      videos: [
-        { id: 5, name: "Essential Drawing Tools", duration: "4:00", url: "" },
-      ],
-    },
-    {
-      title: "Plugins",
-      videos: [
-        { id: 6, name: "Recommended Plugins", duration: "2:45", url: "" },
-      ],
-    },
-  ];
-
-  const parentAccordions = [
-    { id: "videoCourses", title: "Video Courses" },
-    { id: "module", title: "Modul" },
-    { id: "audio", title: "Audio" },
-    { id: "quiz", title: "Quiz" },
-  ];
-
+import { Container } from "react-bootstrap";
+// import { ReactComponent as Like } from "../../assets/images/icon/like.svg";
+// import { ReactComponent as Heart } from "../../assets/images/icon/heart.svg";
+// import { ReactComponent as Share } from "../../assets/images/icon/share.svg";
+const CoursesDetails2 = () => {
   return (
     <div className="course_single pt_150">
       <Container>
         <div className="row">
-          {/* Left Side - Video Player */}
           <div className="col-md-8">
             <div className="left_side">
               <div className="player">
@@ -375,106 +329,54 @@ const CoursesDetails = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Side - Parent Accordion */}
           <div className="col-md-4">
             <div className="right_side">
-              <div className="accordion" id="parentAccordion">
-                {parentAccordions.map((parent, parentIndex) => (
-                  <div className="accordion-item" key={`parent-${parentIndex}`}>
-                    {/* Parent Accordion Header */}
-                    <h2
-                      className="accordion-header"
-                      id={`parentHeading${parentIndex}`}
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
                     >
-                      <button
-                        className="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#parentCollapse${parentIndex}`}
-                        aria-expanded={parentIndex === 0 ? "true" : "false"}
-                        aria-controls={`parentCollapse${parentIndex}`}
-                      >
-                        {parent.title}
-                      </button>
-                    </h2>
-
-                    {/* Parent Accordion Body - Child Accordion */}
-                    <div
-                      id={`parentCollapse${parentIndex}`}
-                      className={`accordion-collapse collapse ${
-                        parentIndex === 0 ? "show" : ""
-                      }`}
-                      aria-labelledby={`parentHeading${parentIndex}`}
-                      data-bs-parent="#parentAccordion"
-                    >
-                      <div className="accordion-body">
-                        <div
-                          className="accordion"
-                          id={`childAccordion${parentIndex}`}
-                        >
-                          {courseModules.map((module, childIndex) => (
-                            <div
-                              className="accordion-item"
-                              key={`child-${childIndex}`}
-                            >
-                              {/* Child Accordion Header */}
-                              <h2
-                                className="accordion-header"
-                                id={`childHeading${parentIndex}-${childIndex}`}
-                              >
-                                <button
-                                  className="accordion-button"
-                                  type="button"
-                                  data-bs-toggle="collapse"
-                                  data-bs-target={`#childCollapse${parentIndex}-${childIndex}`}
-                                  aria-expanded={
-                                    childIndex === 0 ? "true" : "false"
-                                  }
-                                  aria-controls={`childCollapse${parentIndex}-${childIndex}`}
-                                >
-                                  {module.title}
-                                </button>
-                              </h2>
-
-                              {/* Child Accordion Body - List of Videos */}
-                              <div
-                                id={`childCollapse${parentIndex}-${childIndex}`}
-                                className={`accordion-collapse collapse ${
-                                  childIndex === 0 ? "show" : ""
-                                }`}
-                                aria-labelledby={`childHeading${parentIndex}-${childIndex}`}
-                                data-bs-parent={`#childAccordion${parentIndex}`}
-                              >
-                                <div className="accordion-body p-0">
-                                  <ul className="course_videos">
-                                    {module.videos.map((video) => (
-                                      <li key={video.id}>
-                                        <Play
-                                          width={8}
-                                          height={8}
-                                          className="play-icon"
-                                        />{" "}
-                                        <span className="ps-3 d-flex   justify-content-between video_link w-100">
-                                          {" "}
-                                          <span> {video.name} </span>{" "}
-                                          <span> {video.duration} </span>
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                      Video Courses
+                      <span>(1/115)</span>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">1</div>
                   </div>
-                ))}
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Modul
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">2</div>
+                  </div>
+                </div>
               </div>
 
-              {/* Download Material Button */}
               <button className="download_button">Download Material</button>
             </div>
           </div>
@@ -484,4 +386,4 @@ const CoursesDetails = () => {
   );
 };
 
-export default CoursesDetails;
+export default CoursesDetails2;
