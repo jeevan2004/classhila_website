@@ -3,6 +3,7 @@ import { Col, Nav, Row, Tab, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { useAuthContext } from "../../AuthContextAPI";
+import { getTemporaryUrl, loadRazorpay } from "../../Utils";
 import coaching from "../../assets/image/coaching.png";
 import notebook from "../../assets/image/icon/notebook.png";
 import group from "../../assets/image/icon/user-group.png";
@@ -101,6 +102,76 @@ const BestCoaching = () => {
     return pages;
   };
 
+  const [status, setStatus] = useState("");
+  const handlePurchase = async (courseId) => {
+    try {
+      // Load Razorpay dynamically
+      const Razorpay = await loadRazorpay();
+      if (!Razorpay) throw new Error("Failed to load Razorpay SDK");
+
+      // Step 1: Create Order
+      const payload = { courseId };
+      const res = await api(
+        "api/v1/payment/createOrder",
+        payload,
+        "post",
+        currUserData?.token,
+        ""
+      );
+      if (!res?.status)
+        throw new Error(res?.response || "Order creation failed");
+
+      const orderData = res.data;
+      console.log(orderData, "Order Created");
+
+      // Step 2: Configure Razorpay
+      const options = {
+        key: orderData.key,
+        amount: orderData.amount * 100, // Convert to paise
+        currency: orderData.currency,
+        name: "Your Learning Platform",
+        description: "Course Purchase",
+        order_id: orderData.orderId,
+        handler: async (response) => {
+          try {
+            // Step 3: Verify Payment
+            const verificationRes = await api(
+              `api/v1/payment/verifyPayment/${orderData.paymentId}`,
+              response,
+              "post",
+              currUserData?.token,
+              ""
+            );
+
+            console.log(verificationRes, "Payment Verified");
+
+            if (!verificationRes?.status)
+              throw new Error(
+                verificationRes?.response || "Payment verification failed"
+              );
+
+            setStatus("✅ Payment successful! Course enrolled.");
+          } catch (error) {
+            setStatus("❌ Verification failed: " + error.message);
+          }
+        },
+        prefill: {
+          name: currUserData?.name || "Test User",
+          email: currUserData?.email || "test@example.com",
+          contact: currUserData?.phone || "9999999999",
+        },
+        theme: { color: "#4CAF50" },
+      };
+
+      // Step 4: Open Razorpay Checkout
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error("Payment Error:", error.message);
+      setStatus("❌ Error: " + error.message);
+    }
+  };
+
   return (
     <div className="best_coaching">
       <div className="container">
@@ -172,9 +243,11 @@ const BestCoaching = () => {
                                   </li>
                                 </ul>
                                 <h4
-                                  onClick={() =>
-                                    navigate(`/courses/${item._id}`)
-                                  }
+                                  // onClick={() =>
+                                  //   navigate(`/courses/${item._id}`)
+                                  // }
+
+                                  onClick={() => handlePurchase(item._id)}
                                 >
                                   {item.title}
                                 </h4>
@@ -206,6 +279,18 @@ const BestCoaching = () => {
                         </p>
                       )}
                     </div>
+
+                    {status && (
+                      <div
+                        className={`alert ${
+                          status.includes("successful")
+                            ? "alert-success"
+                            : "alert-danger"
+                        }`}
+                      >
+                        {status}
+                      </div>
+                    )}
 
                     {/* Pagination Controls */}
                     <div className="pagination-container text-center mt-4">

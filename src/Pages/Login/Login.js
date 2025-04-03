@@ -5,7 +5,11 @@ import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import { Link, useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import { api } from "../../api/api";
+import { useAuthContext } from "../../AuthContextAPI";
+
 const Login = () => {
+  const { doLogin } = useAuthContext();
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -28,24 +32,25 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // let payload = {
-    //   email: formData.email,
-    //   password: formData.password,
-    // };
-    // let res = await api(
-    //   `api/v1/users/userlogin`,
-    //   payload,
-    //   "post",
-    //   "",
-    //   // currUserData?.token,
-    //   "Login Successfully",
-    //   ""
-    // );
-    // if (res) {
-    //   navigate("/");
-    //   localStorage.setItem("user", JSON.stringify(res));
-    //   console.log(res, "card login");
-    // }
+    let payload = {
+      email: formData.email,
+      password: formData.password,
+    };
+    let res = await api(
+      `api/v1/student/login`,
+      payload,
+      "postWithoutToken",
+      "",
+      // currUserData?.token,
+      "Login Successfully",
+      ""
+    );
+    if (res) {
+      doLogin({
+        token: res?.data?.token,
+      });
+      navigate("/");
+    }
   };
   return (
     <>
@@ -84,7 +89,7 @@ const Login = () => {
                           placeholder="*password"
                           id=""
                           name="password"
-                          value={formData.phone}
+                          value={formData.password}
                           onChange={handleChange}
                         />
                       </div>
