@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import { Container } from "react-bootstrap";
 import profile from "../../assets/image/icon/profile.jpeg";
 import { ReactComponent as Play } from "../../assets/image/icon/play.svg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useAuthContext } from "../../AuthContextAPI";
 import { api } from "../../api/api";
@@ -19,6 +19,7 @@ const CoursesDetails = () => {
   const [status, setStatus] = useState("");
 
   const { currUserData } = useAuthContext();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const courseId = useParams();
   console.log(course, "coursecourse");
@@ -97,6 +98,9 @@ const CoursesDetails = () => {
   console.log(currentVideo, "currentVideocurrentVideo");
 
   const handlePurchase = async (courseId) => {
+    if (!currUserData?.token) {
+      navigate("/login");
+    }
     try {
       // Load Razorpay dynamically
       const Razorpay = await loadRazorpay();
@@ -589,6 +593,13 @@ const CoursesDetails = () => {
               </div>
 
               {/* Download Material Button */}
+              <button
+                className="btn_border w-100 mb-3"
+                onClick={() => handlePurchase(course?._id)}
+              >
+                {/* Download Material */}
+                Price : {course?.price}
+              </button>
               <button
                 className="download_button"
                 onClick={() => handlePurchase(course?._id)}

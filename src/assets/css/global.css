@@ -274,14 +274,16 @@ input::placeholder {
 .btn_border {
   background: transparent;
   color: #000;
-  border-radius: 60px;
+  border-radius: 10px;
   padding: 10px 20px;
+
   transition: 0.3s;
   outline: none;
   /* border: none; */
   width: fit-content;
   border: 1px solid #000;
-  display: flex;
+  /* display: flex; */
+  text-align: center;
   align-items: center;
 }
 

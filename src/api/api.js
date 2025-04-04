@@ -1,65 +1,64 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const getMyAccessToken = async (retry) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  console.log("my");
-  const ud = JSON.parse(localStorage.getItem("authUserData"));
-  // const uid = JSON.parse(localStorage.getItem("uid"));
-  if (ud && ud.token && ud.uid) {
-    if (retry) {
-      const headers = {
-        "Content-Type": "application/json",
-        // authorization: ud.token,
-      };
-      try {
-        const res = await axios.get(
-          `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/generateToken/${ud.uid}`,
-          // `${mainUrl.mainUrl}/tokens/${ud.refreshToken}`,
-          { headers }
-        );
-        if (res?.data?.token) {
-          // store.dispatch(setToken(res.data));
-          const user = JSON.parse(localStorage.getItem("authUserData"));
+// const getMyAccessToken = async (retry) => {
+//   console.log("my");
+//   const ud = JSON.parse(localStorage.getItem("authUserData"));
+//   // const uid = JSON.parse(localStorage.getItem("uid"));
+//   if (ud && ud.token && ud.uid) {
+//     if (retry) {
+//       const headers = {
+//         "Content-Type": "application/json",
+//         // authorization: ud.token,
+//       };
+//       try {
+//         const res = await axios.get(
+//           `${process.env.URL}/api/v1/user/generateToken/${ud.uid}`,
+//           // `${mainUrl.mainUrl}/tokens/${ud.refreshToken}`,
+//           { headers }
+//         );
+//         if (res?.data?.token) {
+//           // store.dispatch(setToken(res.data));
+//           const user = JSON.parse(localStorage.getItem("authUserData"));
 
-          localStorage.setItem(
-            "authUserData",
-            JSON.stringify({
-              ...user,
-              token: res?.data.token || "",
-            })
-          );
+//           localStorage.setItem(
+//             "authUserData",
+//             JSON.stringify({
+//               ...user,
+//               token: res?.data.token || "",
+//             })
+//           );
 
-          // window.location.reload();
+//           // window.location.reload();
 
-          // const userJwt = jwt_decode(res.data.token);
+//           // const userJwt = jwt_decode(res.data.token);
 
-          return res.data.token;
-        } else {
-          console.log("response else", res);
-          localStorage.clear();
-          // window.location.reload();
-          return "";
-        }
-      } catch (error) {
-        if (error?.response?.status === 401) {
-          console.log("catch error");
-          localStorage.clear();
-          // window.location.reload();
-          return "";
-        }
-      }
-    } else {
-      return ud.token;
-    }
-  } else {
-    localStorage.clear();
-    // window.location.reload();
-    // window.location.replace("/");
-    console.log("not found token");
-    return "";
-  }
-};
+//           return res.data.token;
+//         } else {
+//           console.log("response else", res);
+//           localStorage.clear();
+//           // window.location.reload();
+//           return "";
+//         }
+//       } catch (error) {
+//         if (error?.response?.status === 401) {
+//           console.log("catch error");
+//           localStorage.clear();
+//           // window.location.reload();
+//           return "";
+//         }
+//       }
+//     } else {
+//       return ud.token;
+//     }
+//   } else {
+//     localStorage.clear();
+//     // window.location.reload();
+//     // window.location.replace("/");
+//     console.log("not found token");
+//     return "";
+//   }
+// };
 const checkForMsg = (type) => {
   const ud = JSON.parse(localStorage.getItem("authUserData"));
 
@@ -105,12 +104,14 @@ export const api = async (
     console.log("if");
     token = jwttoken;
   } else {
+    // window.location.replace("/");
+    // localStorage.clear();
     // const userData = JSON.parse(localStorage.getItem("authUserData"));
     // token = userData?.authToken;
-    if (type !== "postWithoutToken" && type !== "getWithoutToken") {
-      console.log("else token");
-      token = await getMyAccessToken(doRefresh);
-    }
+    // if (type !== "postWithoutToken" && type !== "getWithoutToken") {
+    //   console.log("else token");
+    //   token = await getMyAccessToken(doRefresh);
+    // }
   }
   let headers = { "Content-Type": "application/json" };
 
@@ -199,28 +200,39 @@ export const api = async (
     }
   } catch (error) {
     console.log("error");
-
-    response.data.success = false;
-    if (error && error.response) {
-      if (!hideMsg && checkForMsg(type))
-        toast.error(
-          error.response?.data?.error ||
-            error.response?.data?.message ||
-            ERRORMSG
-        );
-      if (error.response.status === 401 || error.response.status === 503) {
-        // await store.dispatch(logout());
-        localStorage.clear();
-        // window.location.reload();
-        response = error.response;
-        console.log("401");
-        if (response.data) response.data.success = false;
-      } else {
-        response = error.response;
-        if (response.data) response.data.success = false;
-      }
+    if (
+      error &&
+      error.response &&
+      error.response.status === 401 &&
+      retry === true
+    ) {
+      localStorage.clear();
+      window.location.reload();
+      window.location.replace("/login");
+      // console.log(error);
     } else {
-      if (!hideMsg && checkForMsg(type)) toast.error(ERRORMSG);
+      response.data.success = false;
+      if (error && error.response) {
+        if (!hideMsg && checkForMsg(type))
+          toast.error(
+            error.response?.data?.error ||
+              error.response?.data?.message ||
+              ERRORMSG
+          );
+        if (error.response.status === 401 || error.response.status === 503) {
+          // await store.dispatch(logout());
+          localStorage.clear();
+          // window.location.reload();
+          response = error.response;
+          console.log("401");
+          if (response.data) response.data.success = false;
+        } else {
+          response = error.response;
+          if (response.data) response.data.success = false;
+        }
+      } else {
+        if (!hideMsg && checkForMsg(type)) toast.error(ERRORMSG);
+      }
     }
   }
 
