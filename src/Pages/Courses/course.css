@@ -179,6 +179,10 @@ button.join_course {
   font-size: 18px;
   margin-right: 5px;
 }
+
+.course_videos .video_link {
+  cursor: pointer;
+}
 .course_video i,
 .course_student i {
   color: #ff7d38;
