@@ -25,6 +25,7 @@ import star_orange from "../../assets/image/icon/star_orange.png";
 import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import Faq from "../../Components/faq/Faq";
+import ReactPlayer from "react-player";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();

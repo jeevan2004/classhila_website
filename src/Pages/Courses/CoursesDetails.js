@@ -185,9 +185,7 @@ const CoursesDetails = () => {
             <div className="left_side">
               <div className="player">
                 <ReactPlayer
-                  url={
-                    "https://d1lraevgtuc0pz.cloudfront.net/1744008624088-SampleVideo_1280x720_1mb.mp4?Expires=1744009923&Key-Pair-Id=KDMBJ5ZV896UG&Signature=PbcxK4dUUTfq9pzY0gSwOgVF3gqDQfZnn-SBJJ2I46xD3bjZEdG7N1N5OWmWuDyZNhba20qBQqhcLxpf1nvUBH7jpPJvDcgRCbOZVvi5z6NF0WR8SZ6yGk7iGvPMKvQKf1UXVy2udgh2aF16PTwuncDd9hfreHnJO~99NsCaQS-Y2GcjXsjfz4TXjec-xGIcRqWUhSDTr1sRCopIi8aYneAbsaKhQDD8LQcVXFFLPN4cjC~1R0rh8xNY24m-jj67A8urS5hIkyIebGwvvEUcJ2FyKR5tjeWkXWA4y0VNycIX440m6wK~n5bAaaldwIP7psasYkwyrV1I4S1CTlUyPw__"
-                  }
+                  url={currentVideo.videoUrl}
                   light="https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   controls
                   className="video_player"
