@@ -50,3 +50,103 @@
   font-weight: 300;
   text-decoration: none;
 }
+
+.otp_input div {
+  max-width: 325px;
+  margin: 0 auto;
+}
+
+.otp_input input {
+  border-radius: 4px;
+  /* border: none; */
+  background: #fff;
+  border: 1px solid #1817161a !important;
+  min-width: 40px;
+  height: 40px;
+  margin: 10px 7px;
+}
+
+.otp-content small {
+  font-size: 16px;
+}
+.login-content small span {
+  font-size: 16px;
+  color: #000;
+  padding-left: 5px;
+}
+
+@media (max-width: 375px) {
+  .otp_input input {
+    min-width: 24px;
+    height: 36px;
+    margin: 0 7px;
+  }
+  .otp_input div {
+    max-width: 225px;
+  }
+}
+
+/*  */
+
+.login_left .images .icon {
+  position: absolute;
+}
+.login_left .images .icon img {
+  max-width: 70px;
+}
+.login_left .images .icon.image1 {
+  top: -30px;
+  left: 70px;
+}
+
+.login_left .images .icon.image2 {
+  right: -73px;
+  bottom: 130px;
+}
+.forgotPassword a {
+  color: #d70d78;
+  font-size: 12px;
+}
+.login_left {
+  max-width: 56%;
+}
+
+.login_reight {
+  max-width: 44%;
+}
+/*  */
+.otp_section {
+  text-align: center;
+  margin-top: 25px;
+}
+.otp_outer {
+  max-width: 415px;
+}
+.otp_section .otp-input {
+  width: 50px;
+  height: 50px;
+  background: #f0edffcc;
+  border: 0;
+}
+p.dont_recived {
+  color: #1c1c1c;
+  font-size: 12px;
+}
+
+p.dont_recived span,
+.otp_section .dont_recived {
+  color: #d70d78 !important;
+  text-decoration: unset;
+}
+p.dont_recived .text-dark {
+  color: #1c1c1c !important;
+}
+.login-content small.error {
+  color: red;
+}
+.login_left .images img {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  right: -30px;
+}

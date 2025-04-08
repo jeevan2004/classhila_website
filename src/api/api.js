@@ -215,7 +215,7 @@ export const api = async (
       if (error && error.response) {
         if (!hideMsg && checkForMsg(type))
           toast.error(
-            error.response?.data?.error ||
+            error.response?.data?.response ||
               error.response?.data?.message ||
               ERRORMSG
           );

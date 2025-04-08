@@ -64,9 +64,7 @@ const CoursesDetails = () => {
 
   const parentAccordions = [
     { id: "videoCourses", title: "Video Courses" },
-    { id: "module", title: "Modul" },
-    { id: "audio", title: "Audio" },
-    { id: "quiz", title: "Quiz" },
+    // { id: "Documenr", title: "Modul" },
   ];
 
   // Fetch Courses
@@ -186,7 +184,7 @@ const CoursesDetails = () => {
               <div className="player">
                 <ReactPlayer
                   url={currentVideo.videoUrl}
-                  light="https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  light={course?.image}
                   controls
                   className="video_player"
                 />
@@ -602,10 +600,7 @@ const CoursesDetails = () => {
               </div>
 
               {/* Download Material Button */}
-              <button
-                className="btn_border w-100 mb-3"
-                onClick={() => handlePurchase(course?._id)}
-              >
+              <button className="btn_border w-100 mb-3">
                 {/* Download Material */}
                 Price : {course?.price}
               </button>
