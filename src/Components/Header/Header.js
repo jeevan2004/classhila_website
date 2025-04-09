@@ -8,7 +8,7 @@ import UserIcon from "../../assets/image/icon/RTM_users.png";
 import { useAuthContext } from "../../AuthContextAPI";
 
 function Header() {
-  const { popupOpen, setPopupOpen } = useAuthContext();
+  const { popupOpen, setPopupOpen, currUserData } = useAuthContext();
   const [activeSubmenu, setActiveSubmenu] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -194,6 +194,8 @@ function Header() {
     }
   };
 
+  console.log(currUserData, "ddardsfgyhuijookjhg");
+
   return (
     <>
       <header className={isSticky ? "sticky-menu" : ""}>
@@ -331,18 +333,22 @@ function Header() {
               </ul>
             </div>
 
-            <div className="call_box d-flex">
-              <button
-                className="btn_secondary"
-                onClick={() => navigate("/login")}
-              >
-                <img src={UserIcon} alt="" />
-                Login/Register
-              </button>
-              {/* <a href="#" target="_self" class="btn_primary ">
+            {!currUserData ? (
+              <div className="call_box d-flex">
+                <button
+                  className="btn_secondary"
+                  onClick={() => navigate("/login")}
+                >
+                  <img src={UserIcon} alt="" />
+                  Login/Register
+                </button>
+                {/* <a href="#" target="_self" class="btn_primary ">
               Try for free <i class="icon-4"></i>
             </a> */}
-            </div>
+              </div>
+            ) : (
+              <></>
+            )}
           </nav>
         </div>
       </header>

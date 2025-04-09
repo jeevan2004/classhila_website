@@ -30,11 +30,6 @@ const AuthContextAPI = ({ children }) => {
     const authUserData = parseUser();
     if (authUserData) {
       setCurrUserData(authUserData);
-    } else {
-      setCurrUserData({
-        token:
-          "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZWNlMWE2MGU5ZDk3MDZmYjgxMjVmOCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzQzNTgxNTk4LCJleHAiOjE3NDM2MTc1OTh9.Qb8Wn-Rzlflx5cENdwKrPbM9VyTEqpPV-qrxjfo64DNVymzCAmqONaI0auYCDiUd8wLucF_0FixIqIEAh5fxZDLMPwIAr0zIMly-mejdsREAPqHM_Pl8J-G1L1KuH0VWx5HtvK95o9L0brHFxzHJZLWgHsTGkH93-bkGku-gsM8aSYGqIoyzej7Bi5vx73W-0bpyjFPV2CcQLTzc6t5UpUko8tCibZmvHwtyCV1CztK0MUqWkX2WprMOM1pxizpH_jw_tIg9M510mkEhKt3ydnfrBzKTkXgo3h2ivzhsWzZwVEo8eZkOt2eO6wSD0agwDxh0Ky5GHmRzASYw4L7Tfg",
-      });
     }
   }, []);
 

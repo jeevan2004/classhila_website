@@ -63,16 +63,16 @@ const BestCoaching = () => {
   const filteredCourses =
     activeTab === "tab0"
       ? course
-      : course.filter(
+      : course?.filter(
           (c) =>
-            c.category &&
-            c.category._id ===
+            c?.category &&
+            c.category?._id ===
               categories[parseInt(activeTab.replace("tab", "")) - 1]?._id
         );
 
   // Pagination Logic
-  const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
-  const currentCourses = filteredCourses.slice(
+  const totalPages = Math.ceil(filteredCourses?.length / itemsPerPage);
+  const currentCourses = filteredCourses?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -103,74 +103,8 @@ const BestCoaching = () => {
   };
 
   const [status, setStatus] = useState("");
-  const handlePurchase = async (courseId) => {
-    try {
-      // Load Razorpay dynamically
-      const Razorpay = await loadRazorpay();
-      if (!Razorpay) throw new Error("Failed to load Razorpay SDK");
 
-      // Step 1: Create Order
-      const payload = { courseId };
-      const res = await api(
-        "api/v1/payment/createOrder",
-        payload,
-        "post",
-        currUserData?.token,
-        ""
-      );
-      if (!res?.status)
-        throw new Error(res?.response || "Order creation failed");
-
-      const orderData = res.data;
-      console.log(orderData, "Order Created");
-
-      // Step 2: Configure Razorpay
-      const options = {
-        key: orderData.key,
-        amount: orderData.amount * 100, // Convert to paise
-        currency: orderData.currency,
-        name: "Your Learning Platform",
-        description: "Course Purchase",
-        order_id: orderData.orderId,
-        handler: async (response) => {
-          try {
-            // Step 3: Verify Payment
-            const verificationRes = await api(
-              `api/v1/payment/verifyPayment/${orderData.paymentId}`,
-              response,
-              "post",
-              currUserData?.token,
-              ""
-            );
-
-            console.log(verificationRes, "Payment Verified");
-
-            if (!verificationRes?.status)
-              throw new Error(
-                verificationRes?.response || "Payment verification failed"
-              );
-
-            setStatus("✅ Payment successful! Course enrolled.");
-          } catch (error) {
-            setStatus("❌ Verification failed: " + error.message);
-          }
-        },
-        prefill: {
-          name: currUserData?.name || "Test User",
-          email: currUserData?.email || "test@example.com",
-          contact: currUserData?.phone || "9999999999",
-        },
-        theme: { color: "#4CAF50" },
-      };
-
-      // Step 4: Open Razorpay Checkout
-      const rzp = new Razorpay(options);
-      rzp.open();
-    } catch (error) {
-      console.error("Payment Error:", error.message);
-      setStatus("❌ Error: " + error.message);
-    }
-  };
+  console.log(categories, currentCourses, "currentCourses");
 
   return (
     <div className="best_coaching">
@@ -205,10 +139,10 @@ const BestCoaching = () => {
                     <h4>All</h4>
                   </Nav.Link>
                 </Nav.Item>
-                {categories.map((category, index) => (
+                {categories?.map((category, index) => (
                   <Nav.Item key={index}>
                     <Nav.Link eventKey={`tab${index + 1}`}>
-                      <h4>{category.name}</h4>
+                      <h4>{category?.name}</h4>
                     </Nav.Link>
                   </Nav.Item>
                 ))}
@@ -221,8 +155,8 @@ const BestCoaching = () => {
                 <Tab.Content>
                   <Tab.Pane eventKey={activeTab}>
                     <div className="row">
-                      {currentCourses.length > 0 ? (
-                        currentCourses.map((item, index) => (
+                      {currentCourses?.length > 0 ? (
+                        currentCourses?.map((item, index) => (
                           <div className="col-md-4 mb-4" key={index}>
                             <div className="coaching_box">
                               <img
@@ -231,45 +165,44 @@ const BestCoaching = () => {
                                 //   "https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 // }
                                 src={item?.image}
-                                alt={item.title}
+                                alt={item?.title}
                               />
 
                               <div className="content">
                                 <ul>
                                   <li>
                                     <img src={group} alt="Students" />{" "}
-                                    {item.enrolledStudentCount} students
+                                    {item?.enrolledStudentCount} students
                                   </li>
                                   <li>
                                     <img src={notebook} alt="Lessons" />{" "}
-                                    {item.content.length} Lessons
+                                    {item?.content?.length} Lessons
                                   </li>
                                 </ul>
                                 <h4
                                   onClick={() =>
-                                    navigate(`/courses/${item._id}`)
+                                    navigate(`/courses/${item?._id}`)
                                   }
-                                  // onClick={() => handlePurchase(item._id)}
                                 >
-                                  {item.title}
+                                  {item?.title}
                                 </h4>
                                 <div className="author mt-5">
                                   <div className="author_name">
                                     <img src={blank} alt="Mentor" />
                                     <p>
                                       <span>
-                                        {item.instructor ||
+                                        {item?.instructor?.name ||
                                           "Unknown Instructor"}
                                       </span>
                                       <span className="staff">Mentor</span>
                                     </p>
                                   </div>
                                   <div className="plus_icon">
-                                    <Link to={`/courses/${item._id}`}>+</Link>
+                                    <Link to={`/courses/${item?._id}`}>+</Link>
                                   </div>
                                 </div>
                                 <div className="tag">
-                                  {item.category?.name || "General"}
+                                  {item?.category?.name || "General"}
                                 </div>
                               </div>
                             </div>
@@ -294,7 +227,6 @@ const BestCoaching = () => {
                       </div>
                     )}
 
-                    {/* Pagination Controls */}
                     <div className="pagination-container text-center mt-4">
                       <Button
                         variant="primary"
