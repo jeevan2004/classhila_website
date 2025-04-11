@@ -471,3 +471,134 @@ ul.course_videos {
   border: 0;
   margin: 0;
 }
+
+/*-----------course box---------*/
+
+.my_course {
+  padding-top: 120px;
+}
+.my_course .coaching_box {
+  box-shadow: 0px 4px 19.1px 0px rgba(0, 0, 0, 0.14);
+  background: rgba(255, 245, 238, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.my_course .coaching_box .content {
+  padding: 20px;
+}
+
+.my_course .coaching_box .content ul,
+.my_course .coaching_box .content ul li {
+  display: flex;
+  align-items: center;
+}
+
+.my_course .coaching_box .content ul li img {
+  margin-right: 10px;
+}
+.my_course .coaching_box .content h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(237, 115, 48, 1);
+  margin-top: 15px;
+}
+
+.my_course .coaching_box .content ul li {
+  margin-right: 10px;
+  color: rgba(248, 111, 3, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+}
+
+.my_course .author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my_course .author_name {
+  display: flex;
+  align-items: center;
+}
+
+.my_course .author_name p {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.my_course .author_name p span {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Inter", serif;
+
+  color: rgba(237, 115, 48, 1);
+}
+.my_course .author_name p small {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+
+  color: rgba(150, 131, 116, 1);
+}
+
+.my_course .author .plus_icon {
+  font-size: 28px;
+}
+
+.my_course .tag {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: rgba(150, 131, 116, 1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", serif;
+  padding: 6px 30px;
+}
+
+@media (max-width: 991px) {
+  .best_coaching_tab .nav-link {
+    padding: 8px 16px;
+  }
+
+  .best_coaching_tab .nav-pills {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+/*  */
+
+.pagination-container button.btn-primary {
+  background: var(--tg-theme-secondary);
+}
+
+.pagination-container button.btn.btn-dark {
+  background: #ff6d16;
+  border-color: #ff6d16;
+}
+
+.pagination-container .btn-outline-primary {
+  color: #ff6d16 !important;
+  border-color: #ff6d16 !important;
+}
+.pagination-container .btn-outline-primary:hover {
+  color: #fff !important;
+  background: #ff6d16;
+}
+/*  */
+
+.my_course .author .plus_icon i.far.fa-heart {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.my_course .author .plus_icon i.far.fa-heart:hover {
+  font-weight: 600;
+}

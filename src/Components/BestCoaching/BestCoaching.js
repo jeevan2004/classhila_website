@@ -40,17 +40,34 @@ const BestCoaching = () => {
   // Fetch Courses
   const getAllCourse = async () => {
     setIsLoading(true);
-    let res = await api(
-      `api/v1/student/getliveCourses?page=1&limit=10`,
-      "",
-      "get",
-      currUserData?.token,
-      ""
-    );
+    if (currUserData) {
+      let res = await api(
+        `api/v1/student/getAllCoursesBasedOnUser?page=1&limit=10&category=67ee2fae1520326bf985b36f`,
+        "",
+        "get",
+        currUserData.token,
+        ""
+      );
 
-    if (res?.success) {
-      setCourse(res?.data || []);
+      if (res?.success) {
+        console.log(res, "resauth");
+
+        setCourse(res?.data || []);
+      }
+    } else {
+      let res = await api(
+        `api/v1/student/getliveCourses?page=1&limit=10`,
+        "",
+        "get",
+        "",
+        ""
+      );
+
+      if (res?.success) {
+        setCourse(res?.data || []);
+      }
     }
+
     setIsLoading(false);
   };
 
