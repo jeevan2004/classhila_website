@@ -73,7 +73,7 @@ const CoursesDetails = () => {
 
     if (currUserData) {
       let res = await api(
-        `api/v1/student/getAllCoursesBasedOnUser?page=1&limit=10&category=67ee29c41520326bf985b345`,
+        `api/v1/student/getAllCoursesBasedOnUser?page=1&limit=10`,
         "",
         "get",
         currUserData.token,

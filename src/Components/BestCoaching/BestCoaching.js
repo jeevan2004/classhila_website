@@ -11,8 +11,9 @@ import blank from "../../assets/image/blank.png";
 import "./coaching.css";
 
 const BestCoaching = () => {
-  const [activeTab, setActiveTab] = useState("tab0"); // "All" as default
+  const [activeTab, setActiveTab] = useState(""); // "All" as default
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const { currUserData } = useAuthContext();
   const [categories, setCategories] = useState([]);
   const [course, setCourse] = useState([]);
@@ -33,6 +34,7 @@ const BestCoaching = () => {
 
     if (res?.success) {
       setCategories(res?.data || []);
+      setActiveTab(res?.data[0]._id);
     }
     setIsLoading(false);
   };
@@ -42,7 +44,7 @@ const BestCoaching = () => {
     setIsLoading(true);
     if (currUserData) {
       let res = await api(
-        `api/v1/student/getAllCoursesBasedOnUser?page=1&limit=10&category=67ee2fae1520326bf985b36f`,
+        `api/v1/student/getAllCoursesBasedOnUser?page=${currentPage}&limit=10&category=${activeTab}`,
         "",
         "get",
         currUserData.token,
@@ -51,12 +53,13 @@ const BestCoaching = () => {
 
       if (res?.success) {
         console.log(res, "resauth");
+        setTotalPages(res?.totalPages);
 
         setCourse(res?.data || []);
       }
     } else {
       let res = await api(
-        `api/v1/student/getliveCourses?page=1&limit=10`,
+        `api/v1/student/getliveCourses?page=${currentPage}&limit=10&category=${activeTab}`,
         "",
         "get",
         "",
@@ -65,6 +68,7 @@ const BestCoaching = () => {
 
       if (res?.success) {
         setCourse(res?.data || []);
+        setTotalPages(res?.totalPages);
       }
     }
 
@@ -73,55 +77,20 @@ const BestCoaching = () => {
 
   useEffect(() => {
     getCategory();
-    getAllCourse();
   }, []);
-
-  // Filter Courses based on selected Tab
-  const filteredCourses =
-    activeTab === "tab0"
-      ? course
-      : course?.filter(
-          (c) =>
-            c?.category &&
-            c.category?._id ===
-              categories[parseInt(activeTab.replace("tab", "")) - 1]?._id
-        );
-
-  // Pagination Logic
-  const totalPages = Math.ceil(filteredCourses?.length / itemsPerPage);
-  const currentCourses = filteredCourses?.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  useEffect(() => {
+    getAllCourse();
+  }, [activeTab, currentPage]);
 
   // Pagination Display Logic
-  const getPagination = () => {
-    const pages = [];
-    if (totalPages <= 6) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      if (currentPage < 4) {
-        pages.push(1, 2, 3, "...", totalPages - 1, totalPages);
-      } else if (currentPage > totalPages - 3) {
-        pages.push(1, 2, "...", totalPages - 2, totalPages - 1, totalPages);
-      } else {
-        pages.push(
-          1,
-          "...",
-          currentPage - 1,
-          currentPage,
-          currentPage + 1,
-          "...",
-          totalPages
-        );
-      }
-    }
-    return pages;
-  };
 
   const [status, setStatus] = useState("");
 
-  console.log(categories, currentCourses, "currentCourses");
+  const handelCategory = (e) => {
+    setActiveTab(e);
+  };
+
+  console.log(categories, activeTab, "currentCourses");
 
   return (
     <div className="best_coaching">
@@ -147,18 +116,13 @@ const BestCoaching = () => {
           <Tab.Container
             defaultActiveKey="tab0"
             activeKey={activeTab}
-            onSelect={setActiveTab}
+            onSelect={(e) => handelCategory(e)}
           >
             <div className="tabs-nav">
               <Nav variant="pills">
-                <Nav.Item>
-                  <Nav.Link eventKey="tab0">
-                    <h4>All</h4>
-                  </Nav.Link>
-                </Nav.Item>
                 {categories?.map((category, index) => (
                   <Nav.Item key={index}>
-                    <Nav.Link eventKey={`tab${index + 1}`}>
+                    <Nav.Link eventKey={category?._id}>
                       <h4>{category?.name}</h4>
                     </Nav.Link>
                   </Nav.Item>
@@ -172,8 +136,8 @@ const BestCoaching = () => {
                 <Tab.Content>
                   <Tab.Pane eventKey={activeTab}>
                     <div className="row">
-                      {currentCourses?.length > 0 ? (
-                        currentCourses?.map((item, index) => (
+                      {course?.length > 0 ? (
+                        course?.map((item, index) => (
                           <div className="col-md-4 mb-4" key={index}>
                             <div className="coaching_box">
                               <img
@@ -253,25 +217,9 @@ const BestCoaching = () => {
                       >
                         Previous
                       </Button>
-
-                      {getPagination().map((page, index) =>
-                        page === "..." ? (
-                          <span key={index} className="mx-2">
-                            ...
-                          </span>
-                        ) : (
-                          <Button
-                            key={index}
-                            variant={
-                              currentPage === page ? "dark" : "outline-primary"
-                            }
-                            onClick={() => setCurrentPage(page)}
-                            className="mx-1"
-                          >
-                            {page}
-                          </Button>
-                        )
-                      )}
+                      <Button variant="primary" type="button" className="me-2">
+                        {currentPage}
+                      </Button>
 
                       <Button
                         variant="primary"
