@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import WOW from "wowjs";
 import "animate.css/animate.min.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import "./App.css";
 import Routes from "./router/Routes";

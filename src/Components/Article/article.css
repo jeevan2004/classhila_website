@@ -2,6 +2,9 @@
   overflow: hidden;
   border-radius: 20px;
 }
+.article_card .card_image img {
+  width: 100%;
+}
 
 .article_card .card_content a {
   color: #968374;
