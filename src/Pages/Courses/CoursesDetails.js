@@ -70,22 +70,43 @@ const CoursesDetails = () => {
   // Fetch Courses
   const getCourseData = async () => {
     setIsLoading(true);
-    let res = await api(
-      `api/v1/student/getliveCourses?page=1&limit=10`,
-      "",
-      "get",
-      currUserData?.token,
-      ""
-    );
 
-    if (res?.success) {
-      // setCourse(res?.data || []);
-      console.log(res, "neeneeees");
-      const filteredData = res?.data.find((item) => item._id === courseId.name);
-      //const filteredData = res?.data.filter((item) => item._id === courseId);
+    if (currUserData) {
+      let res = await api(
+        `api/v1/student/getAllCoursesBasedOnUser?page=1&limit=10`,
+        "",
+        "get",
+        currUserData.token,
+        ""
+      );
 
-      console.log(filteredData, "filteredData");
-      setCourse(filteredData);
+      if (res?.success) {
+        const filteredData = res?.data.find(
+          (item) => item._id === courseId.name
+        );
+        //const filteredData = res?.data.filter((item) => item._id === courseId);
+
+        console.log(filteredData, "filteredData");
+        setCourse(filteredData);
+      }
+    } else {
+      let res = await api(
+        `api/v1/student/getliveCourses?page=1&limit=10`,
+        "",
+        "get",
+        "",
+        ""
+      );
+
+      if (res?.success) {
+        const filteredData = res?.data.find(
+          (item) => item._id === courseId.name
+        );
+        //const filteredData = res?.data.filter((item) => item._id === courseId);
+
+        console.log(filteredData, "filteredData");
+        setCourse(filteredData);
+      }
     }
     setIsLoading(false);
   };
@@ -598,19 +619,23 @@ const CoursesDetails = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Download Material Button */}
-              <button className="btn_border w-100 mb-3">
-                {/* Download Material */}
-                Price : {course?.price}
-              </button>
-              <button
-                className="download_button"
-                onClick={() => handlePurchase(course?._id)}
-              >
-                {/* Download Material */}
-                Purchase Now
-              </button>
+              {!course?.coursePurchased ? (
+                <>
+                  <button className="btn_border w-100 mb-3">
+                    {/* Download Material */}
+                    Price : {course?.price}
+                  </button>
+                  <button
+                    className="download_button"
+                    onClick={() => handlePurchase(course?._id)}
+                  >
+                    {/* Download Material */}
+                    Purchase Now
+                  </button>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import blank_image from "../../assets/image/blank_image.png";
@@ -9,10 +9,39 @@ import youtube from "../../assets/image/youtube.png";
 
 import "./blog.css";
 import { BlogData } from "./BlogData";
+import { useAuthContext } from "../../AuthContextAPI";
+import { api } from "../../api/api";
 
 const SingleBlog = () => {
   const { name } = useParams();
-  const blog = BlogData.find((item) => item.id === name);
+  const [isLoading, setIsLoading] = useState(false);
+  const [blogData, setBlogData] = useState([]);
+  const { currUserData } = useAuthContext();
+
+  const getBlogData = async () => {
+    setIsLoading(true);
+
+    let res = await api(
+      `api/v1/blog/${name}`,
+      "",
+      "get",
+      "",
+
+      ""
+    );
+
+    if (res?.success) {
+      setBlogData(res?.data || []);
+    }
+
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getBlogData();
+  }, []);
+
+  // const blog = BlogData.find((item) => item.id === name);
   const LatestArticle = [1, 2, 3, 4, 5];
   return (
     <div className="single_blog pt_150">
@@ -25,17 +54,24 @@ const SingleBlog = () => {
         <div className="row mt-5">
           <div className="col-md-8">
             <div className="card_image">
-              <img className="w-100" src={blog?.image} />
+              <img className="w-100" src={blogData?.image} />
             </div>
             <div className="content">
-              <h5>{blog?.heading}</h5>
-              {blog?.contentList.map((item) => {
+              <h5>{blogData?.heading}</h5>
+              {/* {blogData?.contentList.map((item) => {
                 return (
                   <>
                     <p>{item}</p>
                   </>
                 );
-              })}
+              })} */}
+              <p
+                style={{
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {blogData.content}
+              </p>
             </div>
           </div>
           <div className="col-md-4">
