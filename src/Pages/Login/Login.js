@@ -46,7 +46,7 @@ const Login = () => {
       "Login Successfully",
       ""
     );
-    if (res) {
+    if (res && res.success) {
       const getUserFromToken = async () => {
         try {
           return jwtDecode(res?.data?.token);

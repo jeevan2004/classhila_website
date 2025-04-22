@@ -341,3 +341,19 @@ header .call_box .list-wrap li.line {
     padding: 32px 10px;
   }
 }
+
+.user_menu button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
+.user_menu .user_menu_list li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.user_menu .user_menu_list li:hover {
+  background: #f0f0f0;
+}

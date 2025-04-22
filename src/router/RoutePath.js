@@ -63,7 +63,7 @@ export const routes = [
     name: "Support",
     subRouting: false,
   },
-  
+
   {
     notLazy: true,
     path: "/register",

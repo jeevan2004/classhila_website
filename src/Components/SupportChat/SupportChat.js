@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Send } from 'lucide-react';
-import './support.css';
-import CustomInput from '../common/Input/Input';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Send } from "lucide-react";
+import "./support.css";
+import CustomInput from "../common/Input/Input";
+import { api } from "../../api/api";
+import { useAuthContext } from "../../AuthContextAPI";
 
 const SupportPage = () => {
   const [tickets, setTickets] = useState([]);
+  const [ticket, setTicket] = useState([]);
+  const [course, setCourse] = useState([]);
   const [activeTicketId, setActiveTicketId] = useState(null);
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState("");
+  const { currUserData } = useAuthContext();
+  const activeTicket = ticket?.find((t) => t._id === activeTicketId);
 
   const {
     register,
@@ -16,42 +22,116 @@ const SupportPage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    console.log(data);
+
     const newTicket = {
       id: Date.now(),
       ...data,
       conversation: [
         {
-          sender: 'user',
+          sender: "user",
           text: data.message,
         },
       ],
     };
     setTickets([...tickets, newTicket]);
-    reset();
-    console.log(data , "data");
-    
-  };
 
-  const handleSendReply = () => {
-    if (!newMessage.trim() || activeTicketId === null) return;
-    const updated = tickets.map((ticket) =>
-      ticket.id === activeTicketId
-        ? {
-            ...ticket,
-            conversation: [
-              ...ticket.conversation,
-              { sender: 'user', text: newMessage },
-              { sender: 'support', text: 'We received your message.' },
-            ],
-          }
-        : ticket
+    const payload = {
+      userId: currUserData?.id,
+      courseId: data?.course,
+      question: data.message,
+    };
+    const res = await api(
+      "api/v1/tickets/createTicket",
+      payload,
+      "post",
+      currUserData?.token,
+      "Ticket Created"
     );
-    setTickets(updated);
-    setNewMessage('');
+    if (res && res.success) {
+      reset();
+      console.log(data, "data");
+    }
   };
 
-  const activeTicket = tickets.find((t) => t.id === activeTicketId);
+  const handleSendReply = async () => {
+    if (!newMessage.trim() || activeTicketId === null) return;
+
+    const payload = {
+      senderId: currUserData?.id,
+      message: newMessage,
+    };
+    const res = await api(
+      `api/v1/tickets/addConversation/${activeTicket?.ticketId}`,
+      payload,
+      "post",
+      currUserData?.token,
+      ""
+    );
+    if (res && res.success) {
+      setNewMessage("");
+      const updated = ticket.map((ticket) =>
+        ticket._id === activeTicketId
+          ? {
+              ...ticket,
+              conversations: [
+                ...ticket.conversations,
+                {
+                  senderId: currUserData?.id,
+                  message: newMessage,
+                },
+              ],
+            }
+          : ticket
+      );
+      setTicket(updated);
+    }
+    // setTickets(updated);
+    // setNewMessage("");
+  };
+
+  const getAllCourse = async () => {
+    let res = await api(
+      `api/v1/student/getMyCourses?page=1&limit=10`,
+      "",
+      "get",
+      currUserData.token,
+      ""
+    );
+
+    if (res?.success) {
+      console.log(res, "resauth");
+      const roleOptions = res.data.map((item) => ({
+        label: item.title, // Show "name" in dropdown
+        value: item._id, // Return "_id" on select
+      }));
+
+      setCourse(roleOptions);
+    }
+  };
+
+  const getTicket = async () => {
+    let res = await api(
+      `api/v1/tickets/getTicketByUserId/${currUserData?.id}`,
+      "",
+      "post",
+      currUserData.token,
+      ""
+    );
+
+    if (res?.success) {
+      console.log(res, "ticket");
+
+      setTicket(res.data);
+    }
+  };
+  useEffect(() => {
+    getAllCourse();
+  }, []);
+  useEffect(() => {
+    getTicket();
+  }, []);
 
   return (
     <div className="container support_page my-4">
@@ -63,60 +143,16 @@ const SupportPage = () => {
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <CustomInput
-              label="Name"
-              name="name"
-              id="name"
-              type="text"
-              placeholder="Enter your name"
+              label="Select Course"
+              name="course"
+              id="course"
+              type="select"
               register={register}
-              errors={errors.name}
-              validation={{ required: 'Name is required' }}
+              validation={{ required: "Please select a course" }}
               isRequired
+              options={course}
+              errors={errors.course}
             />
-            <CustomInput
-              label="Email"
-              name="email"
-              id="email"
-              type="text"
-              placeholder="Enter your email"
-              register={register}
-              errors={errors.email}
-              validation={{
-                required: 'Email is required',
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Invalid email format',
-                },
-              }}
-              isRequired
-            />
-            <CustomInput
-              label="Subject"
-              name="subject"
-              id="subject"
-              type="text"
-              placeholder="Enter subject"
-              register={register}
-              errors={errors.subject}
-              validation={{ required: 'Subject is required' }}
-              isRequired
-            />
-            <CustomInput
-  label="Select Course"
-  name="course"
-  id="course"
-  type="select"
-  register={register}
-  validation={{ required: "Please select a course" }}
-  isRequired
-  options={[
-    { label: "Select a course", value: "" },
-    { label: "React JS", value: "react" },
-    { label: "Node JS", value: "node" },
-    { label: "Python", value: "python" },
-  ]}
-  errors={errors.course}
-/>
 
             <CustomInput
               label="Message"
@@ -127,7 +163,7 @@ const SupportPage = () => {
               rows={4}
               register={register}
               errors={errors.message}
-              validation={{ required: 'Message is required' }}
+              validation={{ required: "Message is required" }}
               isRequired
             />
             <button className="btn btn-primary mt-2" type="submit">
@@ -141,16 +177,16 @@ const SupportPage = () => {
       <div className="card my-4">
         <div className="card-header">Your Tickets</div>
         <ul className="list-group list-group-flush">
-          {tickets.map((ticket) => (
+          {ticket?.map((ticket) => (
             <li
-              key={ticket.id}
+              key={ticket._id}
               className={`list-group-item ${
-                ticket.id === activeTicketId ? 'bg-light' : ''
+                ticket._id === activeTicketId ? "bg-light" : ""
               }`}
-              style={{ cursor: 'pointer' }}
-              onClick={() => setActiveTicketId(ticket.id)}
+              style={{ cursor: "pointer" }}
+              onClick={() => setActiveTicketId(ticket._id)}
             >
-              <strong>{ticket.subject}</strong> — {ticket.name}
+              <strong>{ticket.ticketId}</strong> — {ticket.question}
             </li>
           ))}
         </ul>
@@ -164,26 +200,26 @@ const SupportPage = () => {
           </div>
           <div
             className="card-body"
-            style={{ maxHeight: '300px', overflowY: 'auto' }}
+            style={{ maxHeight: "300px", overflowY: "auto" }}
           >
-            {activeTicket.conversation.map((msg, idx) => (
+            {activeTicket?.conversations?.map((msg, idx) => (
               <div
                 key={idx}
                 className={`d-flex mb-2 ${
-                  msg.sender === 'user'
-                    ? 'justify-content-end'
-                    : 'justify-content-start'
+                  msg.senderId === currUserData?.id
+                    ? "justify-content-end"
+                    : "justify-content-start"
                 }`}
               >
                 <div
                   className={`p-2 rounded ${
-                    msg.sender === 'user'
-                      ? 'bg-primary text-white'
-                      : 'bg-light text-dark'
+                    msg.senderId === currUserData?.id
+                      ? "bg-light text-dark"
+                      : "bg-light text-dark"
                   }`}
-                  style={{ maxWidth: '75%' }}
+                  style={{ maxWidth: "75%" }}
                 >
-                  {msg.text}
+                  {msg.message}
                 </div>
               </div>
             ))}
@@ -197,7 +233,7 @@ const SupportPage = () => {
               placeholder="Reply..."
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSendReply()}
+              onKeyPress={(e) => e.key === "Enter" && handleSendReply()}
             />
             <button className="btn btn-primary" onClick={handleSendReply}>
               <Send size={16} />
