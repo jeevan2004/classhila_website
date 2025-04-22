@@ -348,24 +348,9 @@ function Header() {
             </a> */}
               </div>
             ) : (
-<<<<<<< HEAD
               <>
-              
-              <UserMenu />
+                <UserMenu />
               </>
-=======
-              <div className="call_box d-flex">
-                <button
-                  className="btn_secondary"
-                  onClick={() => navigate("/my-course")}
-                >
-                  My Course
-                </button>
-                {/* <a href="#" target="_self" class="btn_primary ">
-              Try for free <i class="icon-4"></i>
-            </a> */}
-              </div>
->>>>>>> 7758a9771a64d5833d3a2309e401ee1487127181
             )}
           </nav>
         </div>
