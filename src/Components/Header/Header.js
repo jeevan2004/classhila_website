@@ -6,6 +6,7 @@ import { api } from "../../api/api";
 import { useForm } from "react-hook-form";
 import UserIcon from "../../assets/image/icon/RTM_users.png";
 import { useAuthContext } from "../../AuthContextAPI";
+import UserMenu from "./UserMenu";
 
 function Header() {
   const { popupOpen, setPopupOpen, currUserData } = useAuthContext();
@@ -347,7 +348,10 @@ function Header() {
             </a> */}
               </div>
             ) : (
-              <></>
+              <>
+              
+              <UserMenu />
+              </>
             )}
           </nav>
         </div>

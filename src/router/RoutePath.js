@@ -1,4 +1,5 @@
 import Faq from "../Components/faq/FAQPage";
+import SupportPage from "../Components/SupportChat/SupportChat";
 import AboutPage from "../Pages/About/AboutPage";
 import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
@@ -53,6 +54,15 @@ export const routes = [
     name: "PrivacyPolicy",
     subRouting: false,
   },
+  {
+    notLazy: true,
+    path: "/support",
+    element: SupportPage,
+    role: "private",
+    name: "Support",
+    subRouting: false,
+  },
+  
   {
     notLazy: true,
     path: "/register",
