@@ -592,9 +592,20 @@ const CoursesDetails = () => {
                                     {module.videos.map((video) => (
                                       <li
                                         key={video.id}
+                                        className={
+                                          !course?.isPurchased &&
+                                          childIndex !== 0
+                                            ? "disabled-video"
+                                            : ""
+                                        }
                                         onClick={() =>
+                                          (course?.isPurchased ||
+                                            childIndex === 0) &&
                                           handelCurrentVideo(video)
                                         }
+                                        // onClick={() =>
+                                        //   handelCurrentVideo(video)
+                                        // }
                                       >
                                         <Play
                                           width={8}

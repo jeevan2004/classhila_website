@@ -602,3 +602,9 @@ ul.course_videos {
 .my_course .author .plus_icon i.far.fa-heart:hover {
   font-weight: 600;
 }
+
+.disabled-video {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}

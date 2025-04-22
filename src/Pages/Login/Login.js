@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import { api } from "../../api/api";
 import { useAuthContext } from "../../AuthContextAPI";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const { doLogin } = useAuthContext();
@@ -46,9 +47,21 @@ const Login = () => {
       ""
     );
     if (res) {
+      const getUserFromToken = async () => {
+        try {
+          return jwtDecode(res?.data?.token);
+        } catch (error) {
+          return null;
+        }
+      };
+
       doLogin({
         token: res?.data?.token,
+        ...(await getUserFromToken()),
       });
+
+      console.log(getUserFromToken());
+
       navigate("/");
     }
   };
