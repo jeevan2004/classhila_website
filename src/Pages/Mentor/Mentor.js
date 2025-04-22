@@ -13,7 +13,7 @@ const Mentor = () => {
           {/* <span>Home - Our Faculty & Mentors.</span> */}
         </div>
       </div>
-      <OurMentor viewMore={true} viewAll={false} />
+      {/* <OurMentor viewMore={true} viewAll={false} /> */}
       <Faq />
     </>
   );

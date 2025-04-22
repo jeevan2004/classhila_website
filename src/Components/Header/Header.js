@@ -6,6 +6,7 @@ import { api } from "../../api/api";
 import { useForm } from "react-hook-form";
 import UserIcon from "../../assets/image/icon/RTM_users.png";
 import { useAuthContext } from "../../AuthContextAPI";
+import UserMenu from "./UserMenu";
 
 function Header() {
   const { popupOpen, setPopupOpen, currUserData } = useAuthContext();
@@ -347,6 +348,12 @@ function Header() {
             </a> */}
               </div>
             ) : (
+<<<<<<< HEAD
+              <>
+              
+              <UserMenu />
+              </>
+=======
               <div className="call_box d-flex">
                 <button
                   className="btn_secondary"
@@ -358,6 +365,7 @@ function Header() {
               Try for free <i class="icon-4"></i>
             </a> */}
               </div>
+>>>>>>> 7758a9771a64d5833d3a2309e401ee1487127181
             )}
           </nav>
         </div>

@@ -26,6 +26,8 @@ import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import Faq from "../../Components/faq/Faq";
 import ReactPlayer from "react-player";
+import SupportPage from "../../Components/SupportChat/SupportChat";
+
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -163,7 +165,7 @@ const Home = () => {
 
       <WithUs btn={true} />
       <OurGoal />
-      <OurMentor viewMore={false} viewAll={true} />
+      {/* <OurMentor viewMore={false} viewAll={true} /> */}
 
       <div className="total_counter">
         <div className="container">
@@ -311,6 +313,7 @@ const Home = () => {
           </div>
           <button className="btn_primary px-5 mt-4 mx-auto">More</button>
         </Container>
+       
       </div>
     </>
   );

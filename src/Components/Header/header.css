@@ -261,6 +261,19 @@ header .call_box .contact p strong {
   font-weight: 700;
 }
 
+.header_uswer_icon .relative {
+  position: relative;
+}
+
+.header_uswer_icon .absolute {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.menu_section {
+  top: 61px !important;
+  border-radius: 10px;
+}
 @media (max-width: 768px) {
   header .navbar-toggler {
     border: none !important;

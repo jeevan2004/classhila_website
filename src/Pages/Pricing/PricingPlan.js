@@ -200,7 +200,7 @@ const PricingPlan = () => {
           </div>
         </div>
       </div>
-      <OurMentor viewMore={true} viewAll={false} />
+      {/* <OurMentor viewMore={true} viewAll={false} /> */}
     </div>
   );
 };
