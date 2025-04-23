@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./course.css";
 import BestCoaching from "../../Components/BestCoaching/BestCoaching";
 import Plan from "../../Components/Plan/Plan";
@@ -9,7 +9,10 @@ import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import { useNavigate } from "react-router-dom";
 
+
 const Courses = () => {
+  
+    
   const navigate = useNavigate();
   const planData = [
     {

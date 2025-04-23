@@ -350,6 +350,25 @@ input::placeholder {
   position: relative;
   top: 3px;
 }
+
+.pagination li.page-item.active button.page-link {
+  background: #ff6b0d;
+  border-color: #ff6b0d;
+  color: #fff;
+}
+
+
+
+.pagination li.page-item button.page-link {
+  color: #ff6b0d;
+}
+
+.pagination li.page-item.disabled {
+  cursor: not-allowed;
+}
+
+
+
 @media (max-width: 1024px) {
   .btn_secondary {
     padding: 10px 10px;

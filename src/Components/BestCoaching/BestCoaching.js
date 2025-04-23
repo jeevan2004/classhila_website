@@ -9,7 +9,7 @@ import notebook from "../../assets/image/icon/notebook.png";
 import group from "../../assets/image/icon/user-group.png";
 import blank from "../../assets/image/blank.png";
 import "./coaching.css";
-
+import Skeleton from "react-loading-skeleton";
 const BestCoaching = () => {
   const [activeTab, setActiveTab] = useState(""); // "All" as default
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,11 +21,19 @@ const BestCoaching = () => {
   const itemsPerPage = 6;
   const navigate = useNavigate();
 
+    const [imageLoaded, setImageLoaded] = useState(false);
+      const [contentLoaded, setContentLoaded] = useState(false);
+ useEffect(() => {
+        const timer = setTimeout(() => {
+          setContentLoaded(true);
+        }, 800); // Adjust this delay as needed
+        return () => clearTimeout(timer);
+      }, []);
   // Fetch Categories
   const getCategory = async () => {
     setIsLoading(true);
     let res = await api(
-      `api/v1/student/getCategories?page=1&limit=10`,
+      `api/v1/student/getCategories?page=${currentPage}&limit=10`,
       "",
       "get",
       currUserData?.token,
@@ -140,34 +148,44 @@ const BestCoaching = () => {
                         course?.map((item, index) => (
                           <div className="col-md-4 mb-4" key={index}>
                             <div className="coaching_box">
+                               {!imageLoaded && <Skeleton height={200} />}
                               <img
                                 className="w-100"
-                                // src={
-                                //   "https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                // }
                                 src={item?.image}
                                 alt={item?.title}
+                                onLoad={() => setImageLoaded(true)}
                               />
+                              
 
                               <div className="content">
-                                <ul>
-                                  <li>
-                                    <img src={group} alt="Students" />{" "}
-                                    {item?.enrolledStudentCount} students
-                                  </li>
-                                  <li>
-                                    <img src={notebook} alt="Lessons" />{" "}
-                                    {item?.content?.length} Lessons
-                                  </li>
-                                </ul>
-                                <h4
-                                  onClick={() =>
-                                    navigate(`/courses/${item?._id}`)
-                                  }
-                                >
-                                  {item?.title}
-                                </h4>
-                                <div className="author mt-5">
+                           {contentLoaded ? (
+                                       <ul>
+                                       <li>
+                                         <img src={group} alt="Students" />{" "}
+                                         {item?.enrolledStudentCount} students
+                                       </li>
+                                       <li>
+                                         <img src={notebook} alt="Lessons" />{" "}
+                                         {item?.content?.length} Lessons
+                                       </li>
+                                     </ul>
+                                    ) : (
+                                      <Skeleton width={`80%`} height={20} />
+                                    )}
+
+                                {contentLoaded ? (
+                                   <h4
+                                   onClick={() =>
+                                     navigate(`/courses/${item?._id}`)
+                                   }
+                                 >
+                                   {item?.title}
+                                 </h4>
+                                    ) : (
+                                      <Skeleton width={`80%`} height={20} />
+                                    )}
+                               {contentLoaded ? (
+                                  <div className="author mt-5">
                                   <div className="author_name">
                                     <img src={blank} alt="Mentor" />
                                     <p>
@@ -182,9 +200,18 @@ const BestCoaching = () => {
                                     <Link to={`/courses/${item?._id}`}>+</Link>
                                   </div>
                                 </div>
-                                <div className="tag">
+                                    ) : (
+                                      <Skeleton width={`80%`} height={20} />
+                                    )}
+                                
+                                {contentLoaded ? (
+                                  <div className="tag">
                                   {item?.category?.name || "General"}
                                 </div>
+                                    ) : (
+                                      <Skeleton width={`80%`} height={10} />
+                                    )}
+                               
                               </div>
                             </div>
                           </div>
@@ -207,31 +234,71 @@ const BestCoaching = () => {
                         {status}
                       </div>
                     )}
+ {/* Pagination */}
+ <div className="pagination-container text-center my-4 mb-5">
+  <ul className="pagination justify-content-center">
+    {/* Previous Button */}
+    <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+      <button
+        className="page-link"
+        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+      >
+        Previous
+      </button>
+    </li>
 
-                    <div className="pagination-container text-center mt-4">
-                      <Button
-                        variant="primary"
-                        disabled={currentPage === 1}
-                        onClick={() => setCurrentPage(currentPage - 1)}
-                        className="me-2"
-                      >
-                        Previous
-                      </Button>
-                      <Button variant="primary" type="button" className="me-2">
-                        {currentPage}
-                      </Button>
+    {/* Pagination Items */}
+    {Array.from({ length: totalPages }, (_, i) => i + 1)
+      .filter((page) => {
+        return (
+          page === 1 ||
+          page === 2 ||
+          page === totalPages ||
+          page === totalPages - 1 ||
+          (page >= currentPage - 1 && page <= currentPage + 1)
+        );
+      })
+      .reduce((acc, page, i, arr) => {
+        if (i > 0 && page - arr[i - 1] > 1) {
+          acc.push("dots");
+        }
+        acc.push(page);
+        return acc;
+      }, [])
+      .map((item, index) =>
+        item === "dots" ? (
+          <li className="page-item disabled" key={`dots-${index}`}>
+            <span className="page-link">...</span>
+          </li>
+        ) : (
+          <li
+            key={item}
+            className={`page-item ${item === currentPage ? "active" : ""}`}
+          >
+            <button className="page-link" onClick={() => setCurrentPage(item)}>
+              {item}
+            </button>
+          </li>
+        )
+      )}
 
-                      <Button
-                        variant="primary"
-                        disabled={
-                          currentPage === totalPages || totalPages === 0
-                        }
-                        onClick={() => setCurrentPage(currentPage + 1)}
-                        className="ms-2"
-                      >
-                        Next
-                      </Button>
-                    </div>
+    {/* Next Button */}
+    <li
+      className={`page-item ${
+        currentPage === totalPages || totalPages === 0 ? "disabled" : ""
+      }`}
+    >
+      <button
+        className="page-link"
+        onClick={() =>
+          setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+        }
+      >
+        Next
+      </button>
+    </li>
+  </ul>
+</div>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
