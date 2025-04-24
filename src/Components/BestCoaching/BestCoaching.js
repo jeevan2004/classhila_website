@@ -41,8 +41,10 @@ const BestCoaching = () => {
 
   // Fetch Courses
   const getAllCourse = async () => {
+    if (!activeTab) return;
     setIsLoading(true);
-    if (currUserData) {
+
+    if (currUserData && currUserData?.token) {
       let res = await api(
         `api/v1/student/getAllCoursesBasedOnUser?page=${currentPage}&limit=10&category=${activeTab}`,
         "",

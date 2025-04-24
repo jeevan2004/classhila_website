@@ -589,36 +589,44 @@ const CoursesDetails = () => {
                               >
                                 <div className="accordion-body p-0">
                                   <ul className="course_videos">
-                                    {module.videos.map((video) => (
-                                      <li
-                                        key={video.id}
-                                        className={
-                                          !course?.isPurchased &&
-                                          childIndex !== 0
-                                            ? "disabled-video"
-                                            : ""
-                                        }
-                                        onClick={() =>
-                                          (course?.isPurchased ||
-                                            childIndex === 0) &&
-                                          handelCurrentVideo(video)
-                                        }
-                                        // onClick={() =>
-                                        //   handelCurrentVideo(video)
-                                        // }
-                                      >
-                                        <Play
-                                          width={8}
-                                          height={8}
-                                          className="play-icon"
-                                        />{" "}
-                                        <span className="ps-3 d-flex   justify-content-between video_link w-100">
-                                          {" "}
-                                          <span> {video.title} </span>{" "}
-                                          <span> {video.duration} </span>
-                                        </span>
-                                      </li>
-                                    ))}
+                                    {module.videos.map((video, childIndex) => {
+                                      const isLocked =
+                                        !course?.coursePurchased &&
+                                        !video?.isFreeAccess;
+
+                                      return (
+                                        <li
+                                          key={video.id}
+                                          className={` ${
+                                            isLocked ? "disabled-video" : ""
+                                          }`}
+                                          onClick={() => {
+                                            if (!isLocked) {
+                                              handelCurrentVideo(video);
+                                            }
+                                          }}
+                                          // onClick={() =>
+                                          //   handelCurrentVideo(video)
+                                          // }
+                                        >
+                                          {console.log(
+                                            course?.isPurchased !== true &&
+                                              childIndex !== 0,
+                                            "DISABLED?"
+                                          )}
+                                          <Play
+                                            width={8}
+                                            height={8}
+                                            className="play-icon"
+                                          />{" "}
+                                          <span className="ps-3 d-flex   justify-content-between video_link w-100">
+                                            {" "}
+                                            <span> {video.title} </span>{" "}
+                                            <span> {video.duration} </span>
+                                          </span>
+                                        </li>
+                                      );
+                                    })}
                                   </ul>
                                 </div>
                               </div>
