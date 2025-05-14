@@ -608,3 +608,20 @@ ul.course_videos {
   opacity: 0.5;
   cursor: not-allowed;
 }
+/*  */
+
+
+.courses__details-content .courses_about p {
+  font-size: 15px;
+  margin-bottom:10px;
+}
+
+.courses_about h5 ,.courses_about h6 {
+  margin-bottom: 23px;
+  font-size: 20px;
+}
+.courses_about h3 {
+  margin-bottom: 15px;
+  font-size: 23px;
+  color: #ff6d11;
+}

@@ -38,7 +38,7 @@ const Article = ({ data }) => {
       <div className="card_content">
         <div className="mt-3">
           {contentLoaded ? (
-            <h5>{data?.heading}</h5>
+            <h5>{data?.title}</h5>
           ) : (
             <Skeleton width={`80%`} height={20} />
           )}

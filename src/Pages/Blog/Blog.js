@@ -24,6 +24,8 @@ const Blog = () => {
     );
 
     if (res?.success) {
+      console.log(res, 'blog');
+      
       setBlogData(res?.data || []);
       setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
     }

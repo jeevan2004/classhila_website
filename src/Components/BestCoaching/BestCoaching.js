@@ -114,8 +114,7 @@ const BestCoaching = () => {
                 Best Coaching At The Lowest Prices In The Market
               </h1>
               <p className="main_text">
-                We offer an affordable and accessible solution compared to the
-                high costs associated with other coaching institutes.
+              The SSC Telangana Mathematics Course 
               </p>
             </div>
           </div>
