@@ -1,0 +1,85 @@
+.coming-soon-container {    background: linear-gradient(to right, #b3b3b3, #ff9357);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .coming-soon-content {
+    max-width: 600px;
+  }
+  
+  .coming-soon-content h1 {
+    font-size: 48px;
+    margin: 10px 0;
+  }
+  
+  .coming-soon-content .subheading {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #60a5fa;
+  }
+  
+  .coming-soon-content .description {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #d1d5db;
+  }
+  
+  .countdown {
+    font-family: monospace;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+  .subscribe-text {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .subscribe-form input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    width: 60%;
+  }
+  
+  .subscribe-form button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .social-icons li {
+    list-style: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .social-icons li:hover {
+    color: #60a5fa;
+  }
+  
+ 

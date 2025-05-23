@@ -16,8 +16,7 @@ const WithUs = ({ btn }) => {
           <div className="col-lg-6 mb-4">
             <div className="content">
               <h2 className="main_heading mb-3">
-                Start Better Learning <br />
-                <span className="secondary_text">with Us.</span>
+              Outperform, Outlearn, Outshine-With Our Proven Coaching
               </h2>
               <p className="main_text mb-2">
                 To create a world where every student, regardless of their
@@ -44,12 +43,23 @@ const WithUs = ({ btn }) => {
               <div className="row">
                 <div className="col-sm-6">
                   <img src={boy} alt="" className="rounded-4" />
-                  <div className="with_us_button btn_secondary mt-3">
+                  <div className="with_us_button btn_secondary d-block mt-3">
+                  <div className="inner d-flex">
+
                     <img src={phone} alt="" />
                     <div>
                       <p>Contact Us</p>
                       <span>+91-7036816361</span>
                     </div>
+                    </div>
+                    <div className="inner d-flex align-items-center">
+
+<img src={phone} alt="" />
+<div>
+
+  <span>+91-7036816361</span>
+</div>
+</div>
                   </div>
                 </div>
                 <div className="col-sm-6">

@@ -64,3 +64,8 @@
 .share_on p a {
   margin-left: 10px;
 }
+.article_card .card_image {
+  overflow: hidden;
+  border-radius: 20px;
+  max-height: 275px;
+}

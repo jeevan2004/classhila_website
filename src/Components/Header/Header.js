@@ -135,43 +135,43 @@ function Header() {
       path: "/courses",
       subMenu: false,
     },
-    // {
-    //   title: "Online AI Club",
-    //   path: "#",
-    //   subMenu: true,
-    //   subMenu: [
-    //     {
-    //       title: "Guest Lectures",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //     {
-    //       title: "Online Workshops",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //     {
-    //       title: "Mentorship programs",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //     {
-    //       title: "Project Showcase",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //     {
-    //       title: "AI Hackathons",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //     {
-    //       title: "Resources Repository",
-    //       path: "/",
-    //       subMenu: false,
-    //     },
-    //   ],
-    // },
+    {
+      title: "Online AI Club",
+      path: "#",
+      subMenu: true,
+      subMenu: [
+        {
+          title: "Guest Lectures",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+        {
+          title: "Online Workshops",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+        {
+          title: "Mentorship programs",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+        {
+          title: "Project Showcase",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+        {
+          title: "AI Hackathons",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+        {
+          title: "Resources Repository",
+          path: "/comming-soon",
+          subMenu: false,
+        },
+      ],
+    },
 
     {
       title: "Blog",
@@ -285,8 +285,8 @@ function Header() {
                                     }`}
                                   >
                                     <Link
-                                      className={`navbar_link `}
-                                      to="/"
+                                      className={`navbar_link`}
+                                      to={subFirst?.path}
                                       id={subFirst.title}
                                       role="button"
                                     >

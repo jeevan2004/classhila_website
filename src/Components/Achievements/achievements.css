@@ -1,0 +1,53 @@
+.achievements {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 150px 0;
+    min-height: 500px;
+    position: relative;
+}
+.achievements  .content_box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 220px;
+    text-align: center;
+}
+.achievements .content_box img {
+    max-width: 90px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.achievements  .content_box p {
+    font-size: 20px;
+    line-height: 32px;
+}
+.achievements  .heading h5 {
+    color: #f3d38b;
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 60px;
+}.achievements .content_box h6 {
+    font-size: 22px;
+    color: #000;
+    margin-bottom: 10px;
+    min-height: 57px;
+}
+
+.achievements:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: #000000c9;
+}
+
+.achievements .container {
+    position: relative;
+    z-index: 999;
+}

@@ -27,7 +27,15 @@ import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import Faq from "../../Components/faq/Faq";
 import ReactPlayer from "react-player";
 import SupportPage from "../../Components/SupportChat/SupportChat";
+import ImageBg from '../../assets/image/Image-Bg.jpg'
+import AiImage from '../../assets/image/AiImage.png'
+import OurWorkShop from "../../Components/OurWorkShop/OurWorkShop";
+import homeimage2 from "../../assets/image/robot2.jpeg";
+import otbi from "../../assets/image/otbi.jpeg";
 
+import bggrace from '../../assets/image/bggrace.png'
+
+import Achievements from "../../Components/Achievements/Achievements";
 
 const Home = () => {
   const { popupOpen, setPopupOpen } = useAuthContext();
@@ -161,7 +169,104 @@ const Home = () => {
   ];
   return (
     <>
+
+
+{/* <section className="manbanner-section position-relative">
+      <div className="manbanner-image-wrapper">
+        <img src={bannerImage} alt="AI Club Banner" className="img-fluid w-100" />
+        <div className="manbanner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
+          <div className="manbanner-content px-4">
+            <h1 className="manbanner-title display-4 fw-bold mb-3">
+              World’s First <span className="text-warning">AI Online Club</span>
+            </h1>
+            <h2 className="manbanner-subtitle h4">Launched by <strong>ClassHila</strong></h2>
+            <p className="manbanner-description mt-3">Empowering young minds with the future of technology!</p>
+          </div>
+        </div>
+      </div>
+    </section> */}
+
+
+
+
+<section className="hero-section d-flex align-items-center justify-content-center" style={{
+  backgroundImage: `url(${ImageBg})`
+}}>
+    <div className="container">
+      <div className="row align-items-center">
+        <div className="col-md-6">
+        <h1 className="hero-title">World's First AI Online Club launched by Classhila </h1>
+      <p className="hero-subtitle">Classhila creates history by inaugurating the world's first AI Club, setting a global precedent in AI education.</p> 
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Read More</a>
+      {/* <p className="hero-subtitle">Invest in your Career</p>
+      {/* <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</a>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</a>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </a> */}
+        </div>
+        <div className="col-md-6">
+          <img src={AiImage} />
+        </div>
+      </div>
+
+
+     
+    </div>
+  </section>
+  <section className="hero-section hero_section2 d-flex align-items-center justify-content-center pb-5"    style={{
+  backgroundImage: `url(${bggrace})`
+}}>
+    <div className="container">
+      <div className="row align-items-center">
+      <div className="col-md-6">
+          <img src={homeimage2} />
+        </div>
+        <div className="col-md-6">
+        <h1 className="hero-title">World's First </h1>
+      <p className="hero-subtitle"> Classhila, a pioneering EduTech platform, brings together AI enthusiasts, learners, and innovators  to collaborate at the forefront of artificial intelligence innovation and community learning.
+</p>
+      {/* <p className="hero-subtitle">Invest in your Career</p> */}
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</a>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</a>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </a>
+        </div>
+       
+      </div>
+
+
+     
+    </div>
+  </section>
+  
+  <OurWorkShop />
+  <section className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5" >
+    <div className="container">
+      <div className="row align-items-center">
+      <div className="col-md-6">
+        <div className="image_fram">
+          <img src={otbi} />
+          </div>
+        </div>
+        <div className="col-md-6">
+        <h1 className="hero-title">Historic First</h1>
+        <h4>Classhila is India’s first EdTech Company backed by Osmania University’s Technology Business Incubation</h4>
+
+      <p className="hero-subtitle">Classhila holds the distinguished honor of being India’s first EdTech Company to receive backing from Osmania Technology Business Incubation (OTBI) of India’s Premier university-Osmania University. This landmark partnership validates Classhila’s cutting-edge approach, combining Osmania University’s research legacy with Classhila’s scalable, tech-driven education model- bridging academic and industry to build future-ready learning solutions.</p>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Affordable & Accessible Education</a>
+      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button"> Cross Cultural Learning</a>
+
+
+           
+        </div>
+       
+      </div>
+
+
+     
+    </div>
+  </section>
+  <Achievements />
       <HomeBanner />
+      
 
       <WithUs btn={true} />
       <OurGoal />

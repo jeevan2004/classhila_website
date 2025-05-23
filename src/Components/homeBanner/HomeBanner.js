@@ -44,8 +44,9 @@ const HomeBanner = ({ handleScroll }) => {
                   data-sal-duration="1000"
                   className="sal-animate"
                 >
-                  Discover the possibilities of online education and unlock your
-                  true potential! <br /> Expand your mind with online education.
+                
+From foundations to advanced tricks, our coaches handpick techniques that give you an unbeatable edge.
+
                 </p>
 
                 <div
@@ -138,7 +139,7 @@ const HomeBanner = ({ handleScroll }) => {
           </div>
         </div>
       </div> */}
-      <div class="features-area">
+      {/* <div class="features-area">
         <div class="container">
           <div class="features-grid-wrap">
             <div class="features-box features-style-2 edublink-svg-animate">
@@ -168,7 +169,7 @@ const HomeBanner = ({ handleScroll }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

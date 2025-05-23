@@ -3,6 +3,7 @@ import SupportPage from "../Components/SupportChat/SupportChat";
 import AboutPage from "../Pages/About/AboutPage";
 import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
+import CommingSoon from "../Pages/CommingSoon/CommingSoon";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Courses from "../Pages/Courses/Courses";
 import CoursesDetails from "../Pages/Courses/CoursesDetails";
@@ -195,4 +196,16 @@ export const routes = [
     name: "Blog",
     subRouting: false,
   },
+  {
+    notLazy: true,
+    path: "/comming-soon",
+    element: CommingSoon,
+    role: "private",
+    name: "Blog",
+    subRouting: false,
+  },
+
+
+
+  
 ];
