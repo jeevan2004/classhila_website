@@ -9,10 +9,10 @@
 }
 
 .our-work-shop .box img {
-  transition: 0.3s all;
+  transition: 0.8s all;
 }
 .our-work-shop .box img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .yarl__toolbar {
   right: 90px !important;
