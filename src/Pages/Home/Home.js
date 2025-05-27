@@ -32,6 +32,7 @@ import AiImage from '../../assets/image/AiImage.png'
 import OurWorkShop from "../../Components/OurWorkShop/OurWorkShop";
 import homeimage2 from "../../assets/image/robot2.jpeg";
 import otbi from "../../assets/image/otbi.jpeg";
+import otbi1 from "../../assets/image/otbi1.png";
 
 import bggrace from '../../assets/image/bggrace.png'
 
@@ -177,7 +178,7 @@ const Home = () => {
         <div className="manbanner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
           <div className="manbanner-content px-4">
             <h1 className="manbanner-title display-4 fw-bold mb-3">
-              World’s First <span className="text-warning">AI Online Club</span>
+              World's First <span className="text-warning">AI Online Club</span>
             </h1>
             <h2 className="manbanner-subtitle h4">Launched by <strong>ClassHila</strong></h2>
             <p className="manbanner-description mt-3">Empowering young minds with the future of technology!</p>
@@ -237,20 +238,19 @@ const Home = () => {
     </div>
   </section>
   
-  <OurWorkShop />
-  <section className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5" >
+  <section className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5">
     <div className="container">
       <div className="row align-items-center">
       <div className="col-md-6">
         <div className="image_fram">
-          <img src={otbi} />
+          <img src={otbi1} />
           </div>
         </div>
         <div className="col-md-6">
         <h1 className="hero-title">Historic First</h1>
-        <h4>Classhila is India’s first EdTech Company backed by Osmania University’s Technology Business Incubation</h4>
+        <h4>Classhila is India's first EdTech Company backed by Osmania University's Technology Business Incubation</h4>
 
-      <p className="hero-subtitle">Classhila holds the distinguished honor of being India’s first EdTech Company to receive backing from Osmania Technology Business Incubation (OTBI) of India’s Premier university-Osmania University. This landmark partnership validates Classhila’s cutting-edge approach, combining Osmania University’s research legacy with Classhila’s scalable, tech-driven education model- bridging academic and industry to build future-ready learning solutions.</p>
+      <p className="hero-subtitle">Classhila holds the distinguished honor of being India's first EdTech Company to receive backing from Osmania Technology Business Incubation (OTBI) of India's Premier university-Osmania University. This landmark partnership validates Classhila's cutting-edge approach, combining Osmania University's research legacy with Classhila's scalable, tech-driven education model- bridging academic and industry to build future-ready learning solutions.</p>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Affordable & Accessible Education</a>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button"> Cross Cultural Learning</a>
 
@@ -265,6 +265,9 @@ const Home = () => {
     </div>
   </section>
   <Achievements />
+  <OurWorkShop />
+ 
+ 
       <HomeBanner />
       
 
