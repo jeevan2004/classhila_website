@@ -1,11 +1,20 @@
 .our-work-shop {
-    background: linear-gradient(98deg, #FFEBE4 16.02%, #E4E7FF 75.01%);
-    position: relative;
-  }
-  .our-work-shop .box{
-    border-radius: 8px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
-  .yarl__toolbar {
-    right: 90px !important;
-    top: 90px !important;
+  background: linear-gradient(98deg, #ffebe4 16.02%, #e4e7ff 75.01%);
+  position: relative;
+}
+.our-work-shop .box {
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+}
+
+.our-work-shop .box img {
+  transition: 0.3s all;
+}
+.our-work-shop .box img:hover {
+  transform: scale(1.5);
+}
+.yarl__toolbar {
+  right: 90px !important;
+  top: 90px !important;
 }

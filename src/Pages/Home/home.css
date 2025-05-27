@@ -152,19 +152,23 @@
 }
 /*  */
 
-
 .hero-section {
   color: white;
   padding: 100px 20px;
-  text-align: center;    margin-top: 90px;min-height: 630px;padding-bottom: 0;
+  text-align: center;
+  margin-top: 90px;
+  min-height: 630px;
+  padding-bottom: 0;
 }
 .hero-title {
   font-size: 2.8rem;
-  font-weight: 700;color: #ff6b00;
+  font-weight: 700;
+  color: #ff6b00;
 }
 .hero-subtitle {
   font-size: 1.3rem;
-  margin-top: 15px;color: #000;
+  margin-top: 15px;
+  color: #000;
 }
 .cta-button {
   margin-top: 30px;
@@ -202,8 +206,6 @@
   border-radius: 20px;
 }
 
-
-
 /*  */
 
 .hero_section2 {
@@ -231,7 +233,6 @@
   color: #fff;
 }
 
-
 /*  */
 @media (min-width: 768px) {
   .hero-title {
@@ -240,4 +241,9 @@
   .hero-subtitle {
     font-size: 16px;
   }
+}
+
+/*----lightbox-------*/
+.yarl__portal {
+  z-index: 9999999999 !important;
 }
