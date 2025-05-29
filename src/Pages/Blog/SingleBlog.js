@@ -16,6 +16,8 @@ const SingleBlog = () => {
   const { name } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
+  const [blogAllData, setBlogAllData] = useState([]);
+  
   const { currUserData } = useAuthContext();
 
   const getBlogData = async () => {
@@ -37,8 +39,28 @@ const SingleBlog = () => {
     setIsLoading(false);
   };
 
+   const getAllBlogData = async () => {
+      setIsLoading(true);
+      let res = await api(
+        `api/v1/blog`,
+        "",
+        "get",
+        "",
+        ""
+      );
+  
+      if (res?.success) {
+        setBlogAllData(res?.data || []);
+       // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
+      }
+  
+      setIsLoading(false);
+    };
+  
+ 
+  
   useEffect(() => {
-    getBlogData();
+    getBlogData();getAllBlogData();
   }, []);
 
   // const blog = BlogData.find((item) => item.id === name);
@@ -78,19 +100,22 @@ const SingleBlog = () => {
             <div className="latest_sec">
               <h4>Latest Article</h4>
               <ul>
-                {LatestArticle?.map((item) => {
-                  return (
-                    <>
-                      <li>
-                        <img src={blank_image} alt="" />
-                        <div className="contents">
-                          <h5>How They Impact Your Online Education Journey</h5>
-                          <Link to={"#"}>{"Read More >"}</Link>
-                        </div>
-                      </li>
-                    </>
-                  );
-                })}
+                 {blogAllData.slice(1, 6).map((item) => (
+                
+                                  <li key={item._id}>
+                                    <span className="img_sec">
+                                  <img src={item?.image} alt="" /></span>
+                                  <div className="contents">
+                                    <h5>
+                                      {item?.title}
+                                    </h5>
+                                    <p>
+                                      {item?.content.split(" ").slice(0, 25).join(" ") + (item?.content.split(" ").length > 20 ? "..." : "")}
+                                    </p>
+                                     <Link to={`/blog/${item?._id}`}>{"Read More >"}</Link>
+                                  </div>
+                                </li>
+                ))}
               </ul>
             </div>
           </div>

@@ -49,11 +49,14 @@
 }
 
 .latest_sec ul li img {
-  max-width: 160px;
-  margin-right: 15px;
   border-radius: 8px;
 }
-
+.latest_sec ul li .img_sec {
+  max-width: 220px;
+  margin-right: 15px;
+  max-height: 240px;
+  border-radius: 8px;
+}
 .latest_sec ul li .contents h5 {
   font-size: 20px;
   line-height: 24px;
@@ -141,11 +144,7 @@
 .latest_sec ul li {
   align-items: flex-start;
 }
-.latest_sec ul li img {
-  max-width: 220px;
-  margin-right: 15px;
-  border-radius: 8px;
-}
+
 .home_single_blog .card_image {
   border-radius: 20px;
   overflow: hidden;
