@@ -230,6 +230,9 @@
     right: 5px;
     z-index: 999;
   }
+  .hero_section2 {
+    margin: 0 !important;
+}
 }
 .hero-banner .banner-content .top {
   margin-bottom: 15px;

@@ -365,7 +365,7 @@ const Home = () => {
             {planData?.map((item) => {
               return (
                 <>
-                  <div className="col-md-6 col-lg-4">
+                  <div className="col-md-6 col-lg-4 mb-4">
                     <Plan data={item} />
                   </div>
                 </>
@@ -383,13 +383,16 @@ const Home = () => {
       <div className="faq_sec">
         <Faq />
       </div>
+     
+
+
       <div className="home_single_blog p-70">
         <Container>
           <div className="row justify-content-center text-center">
             <div className="col-12 col-lg-6 mx-auto">
               <div className="text-center mb-5">
                 <h6 className="pre_heading mb-2 text-uppercase">
-                  Latest Article
+                  Latest Articles
                 </h6>
 
                 <h1
@@ -406,7 +409,7 @@ const Home = () => {
             </div>
           </div>
           <div className="row ">
-            <div className="col-lg-7">
+          <div className="col-lg-7">
               <div className="card_image">
                 <img className="w-100" src={PM} />
               </div>
@@ -437,33 +440,34 @@ PM SHRI Scheme is being implemented by saturating all the components such as Bal
               <div className="latest_sec">
                 {/* <h4>Latest Article</h4> */}
                 <ul>
-                {blogData.slice(0, 5).map((item) => (
-
-                  <li key={item._id}>
-                    <span className="img_sec">
-                  <img src={item?.image} alt="" /></span>
-                  <div className="contents">
-                    <h5>
-                      {item?.title}
-                    </h5>
-                    <p>
-                      {item?.content.split(" ").slice(0, 25).join(" ") + (item?.content.split(" ").length > 20 ? "..." : "")}
-                    </p>
-                     <Link to={`/blog/${item?._id}`}>{"Read More >"}</Link>
-                  </div>
-                </li>
-))}
-
-
-
-                  
+                  {LatestArticle?.map((item) => {
+                    return (
+                      <>
+                        <li>
+                          <img src={item?.image} alt="" />
+                          <div className="contents">
+                            <h5>
+                              How They Impact Your Online Education Journey
+                            </h5>
+                            <p>
+                              Juggling work, family, and studies can be
+                              daunting. This article offers tips on time
+                              management, prioritization, and setting realistic
+                              goals.
+                            </p>
+                            <Link to={"/blog/maximizing-online-learning"}>
+                              {"Read More >"}
+                            </Link>
+                          </div>
+                        </li>
+                      </>
+                    );
+                  })}
                 </ul>
               </div>
             </div>
           </div>
-          <Link className="btn_primary px-5 mt-4 mx-auto" to={"/blog"}>
-                      {"More "}
-                    </Link>
+          <button className="btn_primary px-5 mt-4 mx-auto">More</button>
         </Container>
        
       </div>

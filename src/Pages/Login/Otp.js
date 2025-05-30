@@ -71,6 +71,11 @@ const Otp = () => {
     setCountdown(60); // Reset timer
     setIsExpired(false);
     inputRefs.current[0]?.focus(); // Auto-focus first input
+
+
+
+
+    
   };
 
   return (
@@ -88,8 +93,7 @@ const Otp = () => {
                   <div className="col-md-9 mx-auto">
                     <div className="mb-3 px-3">
                       <p className="mb-3">
-                        Please enter the 6-digit code sent to your mobile
-                        number.
+                        Please enter the 6-digit code sent to your Email
                       </p>
                       <div className="d-flex justify-content-between">
                         {otp.map((digit, index) => (

@@ -61,3 +61,15 @@
   background: rgba(248, 111, 3, 1);
   color: rgba(255, 255, 255, 1);
 }
+
+
+@media (max-width:991px){
+  .plan {
+    margin-top: 90px;
+}
+.review_inner .review_content {
+ 
+  right: 20px;
+}
+
+}

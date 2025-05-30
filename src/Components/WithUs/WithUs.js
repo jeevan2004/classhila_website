@@ -49,7 +49,7 @@ const WithUs = ({ btn }) => {
                     <img src={phone} alt="" />
                     <div>
                       <p>Contact Us</p>
-                      <span>+91-7036816361</span>
+                      <span>+91 9553460456</span>
                     </div>
                     </div>
                     <div className="inner d-flex align-items-center">
@@ -57,7 +57,7 @@ const WithUs = ({ btn }) => {
 <img src={phone} alt="" />
 <div>
 
-  <span>+91-7036816361</span>
+  <span>+91 8333812323</span>
 </div>
 </div>
                   </div>

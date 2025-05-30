@@ -514,3 +514,11 @@ html {
 .fit_auto {
   max-width: fit-content;
 }
+
+@media (max-width: 480px) {
+body .hero-title {
+  font-size: 23px;
+}
+}
+
+

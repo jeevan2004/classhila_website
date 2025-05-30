@@ -13,7 +13,7 @@ import location from "../../assets/image/location.svg";
 import email from "../../assets/image/email.svg";
 import website from "../../assets/image/website.svg";
 const data = [
-  { image: phone, heading: `Phone Number`, content: `+91-7036816361` },
+  { image: phone, heading: `Phone Number`, content: `+91 9553460456` },
   {
     image: location,
     heading: `Location`,

@@ -107,7 +107,7 @@ const Faq = () => {
                         <h5 className="mb-0 text-white">
                           Any Question? Ask Us !
                         </h5>
-                        <p className="mb-0 text-white">+91-70368 16361</p>
+                        <p className="mb-0 text-white">+91 9553460456</p>
                       </div>
                     </div>
                   </Card.Body>

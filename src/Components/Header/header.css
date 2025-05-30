@@ -357,3 +357,50 @@ header .call_box .list-wrap li.line {
 .user_menu .user_menu_list li:hover {
   background: #f0f0f0;
 }
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.call_box {
+  gap: 10px;
+}
+
+@media (max-width: 991.98px) {
+  .call_box {
+    margin-left: auto;
+  }
+  .hero-section {
+    margin-top: 50px !important;
+}
+}
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+
+header nav.navbar{
+  display: flex;
+  flex-direction: row;
+}
+
+header nav.navbar a.navbar-brand {
+  order: 0;
+}
+
+header nav.navbar .navbar-collapse {order: 1;}
+
+header nav.navbar .call_box {
+  order: 3;
+}
+}
+@media (max-width: 480px) {
+header .navbar-brand img {
+  max-width: 165px;
+}
+}

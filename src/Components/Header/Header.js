@@ -22,23 +22,20 @@ function Header() {
   const [isSticky, setIsSticky] = useState(false);
 
   const handlePhoneChange = (value, country) => {
-    const dialCode = country.dialCode; // Get dial code
-
+    const dialCode = country.dialCode;
     setFullPhone(value);
     setCountryCode(country?.dialCode);
 
     const phoneStr = `+${value}`;
     const codeStr = `+${dialCode}`;
 
-    // Check if the phone number starts with the code and remove it
     if (phoneStr.startsWith(codeStr)) {
-      setPhone(phoneStr.slice(codeStr.length)); // Remove the code from the phone number
+      setPhone(phoneStr.slice(codeStr.length));
     } else {
-      // Return the phone number unchanged if it doesn't start with the code
-
-      setPhone(phoneStr); // Remove the code from the phone number
+      setPhone(phoneStr);
     }
   };
+
   const {
     register,
     control,
@@ -54,13 +51,9 @@ function Header() {
     companyName: { required: "required" },
     experience: { required: "required" },
   };
-  const handelError = (error) => {
-    console.log(error);
-  };
 
   const handleScroll = () => {
     if (window.scrollY > 160) {
-      // Adjust the scroll position where the header becomes sticky
       setIsSticky(true);
     } else {
       setIsSticky(false);
@@ -69,14 +62,11 @@ function Header() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleRegistration = async (data) => {
-    console.log(data, "data");
-    var payload = {
+    const payload = {
       fullName: data?.name,
       emailId: data?.email,
       phoneNumber: `+${countryCode}${phone}`,
@@ -86,6 +76,7 @@ function Header() {
       topicsOfInterest: data?.Interest,
       occupation: "Software Engineer",
     };
+
     let res = await api(
       `api/v1/application/create`,
       payload,
@@ -94,100 +85,36 @@ function Header() {
       "Send Successfully",
       ""
     );
+
     if (res && res.success) {
-      // setPetTypeData(res?.data);
-      console.log(res.data, res, "card");
       setPopupOpen(!popupOpen);
       reset();
     }
   };
 
   const headerMenu = [
-    {
-      title: "Home",
-      path: "/",
-      subMenu: false,
-    },
-
-    {
-      title: "About",
-      path: "/about-us",
-      subMenu: false,
-    },
-    // {
-    //   title: "vvGrad Abroad",
-    //   path: "/vvgard-abroad",
-    //   subMenu: false,
-    // },
-    // {
-    //   title: "Prepare Job",
-    //   path: "#",
-    //   subMenu: false,
-    // },
-    // {
-    //   title: "Hire with Us",
-    //   path: "#",
-    //   subMenu: false,
-    // },
-
-    {
-      title: "Courses",
-      path: "/courses",
-      subMenu: false,
-    },
+    { title: "Home", path: "/", subMenu: false },
+    { title: "About", path: "/about-us", subMenu: false },
+    { title: "Courses", path: "/courses", subMenu: false },
     {
       title: "Online AI Club",
       path: "#",
-      subMenu: true,
       subMenu: [
-        {
-          title: "Guest Lectures",
-          path: "/comming-soon",
-          subMenu: false,
-        },
-        {
-          title: "Online Workshops",
-          path: "/comming-soon",
-          subMenu: false,
-        },
-        {
-          title: "Mentorship programs",
-          path: "/comming-soon",
-          subMenu: false,
-        },
-        {
-          title: "Project Showcase",
-          path: "/comming-soon",
-          subMenu: false,
-        },
-        {
-          title: "AI Hackathons",
-          path: "/comming-soon",
-          subMenu: false,
-        },
-        {
-          title: "Resources Repository",
-          path: "/comming-soon",
-          subMenu: false,
-        },
+        { title: "Guest Lectures", path: "/comming-soon" },
+        { title: "Online Workshops", path: "/comming-soon" },
+        { title: "Mentorship programs", path: "/comming-soon" },
+        { title: "Project Showcase", path: "/comming-soon" },
+        { title: "AI Hackathons", path: "/comming-soon" },
+        { title: "Resources Repository", path: "/comming-soon" },
       ],
     },
-
-    {
-      title: "Blog",
-      path: "/blog",
-      subMenu: false,
-    },
-    {
-      title: "Contact Us",
-      path: "/contact-us",
-      subMenu: false,
-    },
+    { title: "Blog", path: "/blog", subMenu: false },
+    { title: "Contact Us", path: "/contact-us", subMenu: false },
   ];
+
   const getHeaderStyle = () => {
     switch (location.pathname) {
       case "/talent-hub":
-        return "header_white";
       case "/skill-sprint":
         return "header_white";
       default:
@@ -195,147 +122,30 @@ function Header() {
     }
   };
 
-  console.log(currUserData, "ddardsfgyhuijookjhg");
-
   return (
     <>
       <header className={isSticky ? "sticky-menu" : ""}>
         <div className="container">
-          <nav
-            className={`navbar navbar-expand-lg navbar-light p-0 ${getHeaderStyle()}`}
-          >
+          <nav className={`navbar navbar-expand-lg navbar-light p-0 ${getHeaderStyle()}`}>
             <Link className="navbar-brand" to="/">
-              <img src={Logo} alt="" />
+              <img src={Logo} alt="Logo" />
             </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mb-2 mb-lg-0">
-                {headerMenu?.map((item, index) => {
-                  return (
-                    // <li className="nav-item" key={index}>
-                    //   {item.scrollToId ? (
-                    //     <Link
-                    //       className="navbar_link Link-link"
-                    //       onClick={() => {
-                    //         const section = document.getElementById(
-                    //           item.scrollToId
-                    //         );
-                    //         if (section) {
-                    //           section.scrollIntoView({ behavior: "smooth" });
-                    //         }
-                    //       }}
-                    //     >
-                    //       {item.title}
-                    //     </Link>
-                    //   ) : (
-                    //     // Render a Link for navigation
-                    //     <Link
-                    //       className={`${
-                    //         location.pathname === item.path ? "active" : ""
-                    //       } navbar_link`}
-                    //       to={item.path}
-                    //       id={item.title}
-                    //       role="button"
-                    //     >
-                    //       {item.title}
-                    //     </Link>
-                    //   )}
-                    // </li>
 
-                    <li className="nav-item">
-                      <Link
-                        className={`${
-                          location.pathname === item.path ? "active" : ""
-                        } navbar_link`}
-                        to={item.path}
-                        id={item.title}
-                        role="button"
-                      >
-                        {item.title}{" "}
-                        {/* {item.subMenu && <i className="fas fa-angle-down"></i>} */}
-                      </Link>
+            {/* Toggle and User Menu in one row */}
+            <div className="call_box d-flex align-items-center ms-auto">
+              <button
+                className="navbar-toggler me-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
 
-                      {item.subMenu && (
-                        <div className="dropdown-menu sub_first">
-                          <ul
-                            className="sub_first_ul"
-                            aria-labelledby={item.title}
-                          >
-                            {item.subMenu &&
-                              item.subMenu?.map((subFirst, index) => {
-                                return (
-                                  <li
-                                    className={`nav-item dropdown dropdown-item sub_first_item ${
-                                      activeSubmenu === subFirst?.title
-                                        ? "active"
-                                        : ""
-                                    }`}
-                                  >
-                                    <Link
-                                      className={`navbar_link`}
-                                      to={subFirst?.path}
-                                      id={subFirst.title}
-                                      role="button"
-                                    >
-                                      {subFirst.title}{" "}
-                                    </Link>
-
-                                    {subFirst.subMenu && (
-                                      <div className="dropdown-menu sub_sec">
-                                        <ul
-                                          className="sub_sec_ul"
-                                          aria-labelledby={subFirst.title}
-                                        >
-                                          {subFirst.subMenu &&
-                                            subFirst.subMenu?.map(
-                                              (subSec, index) => {
-                                                return (
-                                                  <li>
-                                                    <Link
-                                                      className={`${
-                                                        location.pathname ===
-                                                        subSec?.title
-                                                          ? "active"
-                                                          : ""
-                                                      } navbar_link dropdown-item`}
-                                                      to={subSec?.path}
-                                                    >
-                                                      {subSec.title}
-                                                    </Link>
-                                                  </li>
-                                                );
-                                              }
-                                            )}
-                                        </ul>
-                                      </div>
-                                    )}
-                                  </li>
-                                );
-                              })}
-                          </ul>
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {!currUserData ? (
-              <div className="call_box d-flex">
+              {!currUserData ? (
                 <button
                   className="btn_secondary"
                   onClick={() => navigate("/login")}
@@ -343,15 +153,70 @@ function Header() {
                   <img src={UserIcon} alt="" />
                   Login/Register
                 </button>
-                {/* <a href="#" target="_self" class="btn_primary ">
-              Try for free <i class="icon-4"></i>
-            </a> */}
-              </div>
-            ) : (
-              <>
+              ) : (
                 <UserMenu />
-              </>
-            )}
+              )}
+            </div>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                {headerMenu.map((item, index) => (
+                  <li className="nav-item" key={index}>
+                    <Link
+                      className={`navbar_link ${location.pathname === item.path ? "active" : ""}`}
+                      to={item.path}
+                      id={item.title}
+                      role="button"
+                    >
+                      {item.title}
+                    </Link>
+
+                    {item.subMenu && (
+                      <div className="dropdown-menu sub_first">
+                        <ul className="sub_first_ul" aria-labelledby={item.title}>
+                          {item.subMenu.map((subFirst, subIndex) => (
+                            <li
+                              key={subIndex}
+                              className={`nav-item dropdown dropdown-item sub_first_item ${
+                                activeSubmenu === subFirst.title ? "active" : ""
+                              }`}
+                            >
+                              <Link
+                                className="navbar_link"
+                                to={subFirst.path}
+                                id={subFirst.title}
+                                role="button"
+                              >
+                                {subFirst.title}
+                              </Link>
+
+                              {subFirst.subMenu && (
+                                <div className="dropdown-menu sub_sec">
+                                  <ul className="sub_sec_ul" aria-labelledby={subFirst.title}>
+                                    {subFirst.subMenu.map((subSec, i) => (
+                                      <li key={i}>
+                                        <Link
+                                          className={`navbar_link dropdown-item ${
+                                            location.pathname === subSec.path ? "active" : ""
+                                          }`}
+                                          to={subSec.path}
+                                        >
+                                          {subSec.title}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </div>
       </header>

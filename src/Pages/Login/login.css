@@ -150,3 +150,15 @@ p.dont_recived .text-dark {
   max-width: 430px;
   right: -30px;
 }
+.contact-form select.form-select {
+  border: 0;
+  padding: 10px;
+  color: rgba(61, 45, 33, 1);
+  border-radius: 0px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid rgba(61, 45, 33, 1);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  background: #fff;
+}

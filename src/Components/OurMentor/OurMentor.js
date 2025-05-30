@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import teacher from "../../assets/image/teacher.png";
 import team from "../../assets/image/team.png";
-import ArnoldTroy from "../../assets/image/ArnoldTroy.png";
+import Ourmenters from "../../assets/image/ourmenters.png";
 import RebeccaSky from "../../assets/image/RebeccaSky.png";
 import MarkRobinson from "../../assets/image/MarkRobinson.png";
 
 import "./ourMentor.css";
 
 const mentorData = [
-  { id: 1, name: "Arnold Troy", role: "Mentor", img: ArnoldTroy },
-  { id: 2, name: "Rebecca Sky", role: "Mentor", img: RebeccaSky },
-  { id: 3, name: "Mark Robinson", role: "Mentor", img: MarkRobinson },
-  { id: 4, name: "Sophia Brown", role: "Mentor", img: team }, // Example extra mentor
-  { id: 5, name: "James Carter", role: "Mentor", img: team }, // Example extra mentor
+  { id: 1, name: "Arnold Troy", role: "Mentor", img: Ourmenters },
 ];
 
 const OurMentor = ({ viewMore, viewAll }) => {
