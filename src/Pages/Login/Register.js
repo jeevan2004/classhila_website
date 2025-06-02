@@ -178,7 +178,7 @@ const Register = () => {
                       <p className="mb-3">
                         Please enter the OTP sent to {email}
                       </p>
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-between otp_outer mx-auto">
                         {otp.map((digit, index) => (
                           <input
                             key={index}

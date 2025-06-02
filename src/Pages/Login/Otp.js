@@ -1,81 +1,104 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
+import { api } from "../../api/api";
 
 const Otp = () => {
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [countdown, setCountdown] = useState(60);
+  const [countdown, setCountdown] = useState(180);
   const [isExpired, setIsExpired] = useState(false);
-  const inputRefs = useRef([]);
-  const navigate = useNavigate();
 
-  // Countdown Timer
+  const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email");
+  const isLogin = queryParams.get("page");
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    setFocus,
+    getValues,
+  } = useForm({
+    defaultValues: Object.fromEntries(
+      Array.from({ length: 6 }, (_, i) => [`otp${i}`, ""])
+    ),
+  });
+
+  const otpValues = watch();
+
+  // Start countdown
   useEffect(() => {
     if (countdown > 0) {
-      const timer = setInterval(() => {
-        setCountdown((prev) => prev - 1);
-      }, 1000);
+      const timer = setInterval(() => setCountdown((prev) => prev - 1), 1000);
       return () => clearInterval(timer);
     } else {
       setIsExpired(true);
     }
   }, [countdown]);
 
-  // Handle OTP input change
+  // Auto-focus first input on mount
+  useEffect(() => {
+    setFocus("otp0");
+  }, [setFocus]);
+
+  // Automatically resend OTP if `isLogin === "login"`
+  useEffect(() => {
+    if (isLogin === "login") {
+      handleResendOTP();
+    }
+  }, [isLogin]);
+
   const handleChange = (e, index) => {
     const value = e.target.value;
     if (/^\d?$/.test(value)) {
-      const newOtp = [...otp];
-      newOtp[index] = value;
-      setOtp(newOtp);
-
-      // Move to next input if filled
-      if (value !== "" && index < 5) {
-        inputRefs.current[index + 1].focus();
+      setValue(`otp${index}`, value);
+      if (value && index < 5) {
+        setFocus(`otp${index + 1}`);
       }
     }
   };
 
-  // Handle Backspace for previous input
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace") {
-      const newOtp = [...otp];
-      if (otp[index]) {
-        newOtp[index] = ""; // Clear current input
-      } else if (index > 0) {
-        inputRefs.current[index - 1].focus(); // Move to previous input
+      const val = getValues(`otp${index}`);
+      if (!val && index > 0) {
+        setFocus(`otp${index - 1}`);
       }
-      setOtp(newOtp);
     }
   };
 
-  // Handle OTP Submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = (data) => {
     if (isExpired) {
       alert("OTP has expired. Please request a new one.");
       return;
     }
 
-    const enteredOtp = otp.join("");
-    if (enteredOtp.length === 6) {
+    const otp = Object.values(data).join("");
+    if (otp.length === 6) {
       navigate("/create-password");
     } else {
       alert("Please enter a valid 6-digit OTP.");
     }
   };
 
-  // Resend OTP
-  const handleResendOTP = () => {
-    setOtp(["", "", "", "", "", ""]); // Clear OTP
-    setCountdown(60); // Reset timer
+  const handleResendOTP = async () => {
+    if (!email) return;
+
+    setCountdown(60);
     setIsExpired(false);
-    inputRefs.current[0]?.focus(); // Auto-focus first input
+    for (let i = 0; i < 6; i++) setValue(`otp${i}`, "");
+    setFocus("otp0");
 
-
-
-
-    
+    await api(
+      `api/v1/student/resendOTP`,
+      { email },
+      "postWithoutToken",
+      "",
+      "OTP Resent Successfully"
+    );
   };
 
   return (
@@ -88,51 +111,48 @@ const Otp = () => {
               <img src={login_img} alt="Login" />
             </div>
             <div className="contact-form">
-              <form className="mt-4" onSubmit={handleSubmit}>
+              <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                   <div className="col-md-9 mx-auto">
                     <div className="mb-3 px-3">
-                      <p className="mb-3">
-                        Please enter the 6-digit code sent to your Email
-                      </p>
+                      <p className="mb-3">Enter the 6-digit code sent to your email</p>
                       <div className="d-flex justify-content-between">
-                        {otp.map((digit, index) => (
+                        {Array.from({ length: 6 }).map((_, index) => (
                           <input
                             key={index}
                             type="text"
-                            className="form-control text-center otp-input"
                             maxLength={1}
-                            value={digit}
+                            className="form-control text-center otp-input"
+                            {...register(`otp${index}`)}
+                            value={otpValues[`otp${index}`]}
                             onChange={(e) => handleChange(e, index)}
                             onKeyDown={(e) => handleKeyDown(e, index)}
-                            ref={(el) => (inputRefs.current[index] = el)}
                             disabled={isExpired}
                           />
                         ))}
                       </div>
                     </div>
+
                     <p className="text-danger text-center">
                       {isExpired
                         ? "OTP has expired!"
-                        : `OTP expires in ${countdown}s`}
+                        : `Expires in ${String(Math.floor(countdown / 60)).padStart(2, "0")}:${String(countdown % 60).padStart(2, "0")}`}
                     </p>
 
                     <button
-                      className="btn_secondary btn_md w-100 mt-3 text-center"
+                      className="btn_secondary btn_md w-100 mt-3"
                       type="submit"
                       disabled={isExpired}
                     >
                       Verify OTP
                     </button>
 
-                    <p className="d-flex align-items-center justify-content-center mt-3">
-                      Didn't receive code?
+                    <p className="text-center mt-3">
+                      Didn't receive code?{" "}
                       <span
-                        className={`btn-link ps-1 ${
-                          isExpired ? "text-primary" : "text-muted"
-                        }`}
+                        className={`btn-link ps-1 ${isExpired ? "text-primary" : "text-muted"}`}
                         onClick={isExpired ? handleResendOTP : undefined}
-                        style={{ cursor: isExpired ? "pointer" : "default" }}
+                        style={{ cursor: isExpired ? "pointer" : "not-allowed" }}
                       >
                         Resend OTP
                       </span>
@@ -145,33 +165,28 @@ const Otp = () => {
         </div>
       </div>
 
-      {/* Add styles for OTP input boxes */}
-      <style>
-        {`
-          .otp-input {
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-            text-align: center;
-            margin: 0 5px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-          }
-
-          .otp-input:focus {
-            border-color: #007bff;
-            outline: none;
-          }
-
-          .btn-link {
-            cursor: pointer;
-          }
-
-          .btn-link.text-muted {
-            cursor: not-allowed;
-          }
-        `}
-      </style>
+      {/* Inline styles */}
+      <style>{`
+        .otp-input {
+          width: 45px;
+          height: 45px;
+          font-size: 20px;
+          text-align: center;
+          margin: 0 5px;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
+        }
+        .otp-input:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+        .btn-link {
+          cursor: pointer;
+        }
+        .btn-link.text-muted {
+          cursor: not-allowed;
+        }
+      `}</style>
     </div>
   );
 };

@@ -1,42 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./login.css";
 import login_img from "../../assets/image/login_img.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
+import { useForm } from "react-hook-form";
 
 const ForgotPassword = () => {
-  const [formData, setFormData] = useState({
-    phone: "",
-  });
-
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const emailsFromURL = queryParams.get("email");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
-    // Allow only digits
-    if (name === "phone" && !/^\d{0,10}$/.test(value)) return;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    setError(""); // clear error on typing
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    // Validate phone number
-    if (!formData.phone || formData.phone.length !== 10) {
-      setError("Please enter a valid 10-digit phone number.");
-      return;
+  useEffect(() => {
+    // If email is in URL, prefill it
+    if (emailsFromURL) {
+      setValue("email", emailsFromURL);
     }
+  }, [emailsFromURL, setValue]);
 
-    // Send OTP or proceed
-    // const res = await api(...);
-    navigate(`/otp?phone=${formData.phone}`);
+  const onSubmit = async (data) => {
+    const payload = {
+      email: data.email,
+    };
+
+    let res = await api(
+      `api/v1/student/forgotPassword`,
+      payload,
+      "postWithoutToken",
+      "",
+      "Reset Link Sent to Your Email"
+    );
+
+    if (res && res.success) {
+      navigate(`/otp?email=${data.email}`);
+    }
   };
 
   return (
@@ -44,27 +48,30 @@ const ForgotPassword = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mx-auto">
-            <h3 className="text-center mb-4">Confirm Your Phone Number</h3>
+            <h3 className="text-center mb-4">Confirm Your Email</h3>
             <div className="img_sec">
               <img src={login_img} alt="Login" />
             </div>
             <div className="contact-form">
-              <form className="mt-4" onSubmit={handleSubmit}>
+              <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                   <div className="col-md-9 mx-auto">
                     <div className="mb-3 px-2">
                       <input
-                        type="text"
+                        type="email"
                         className="form-control"
-                        placeholder="*Phone Number"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        maxLength="10"
+                        placeholder="Enter your email"
+                        {...register("email", {
+                          required: "Please enter your email address.",
+                          pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: "Enter a valid email address.",
+                          },
+                        })}
                       />
-                      {error && (
+                      {errors.email && (
                         <div className="text-danger mt-1" style={{ fontSize: "14px" }}>
-                          {error}
+                          {errors.email.message}
                         </div>
                       )}
                     </div>

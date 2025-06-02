@@ -342,9 +342,9 @@ const Home = () => {
       <BestCoaching />
       <Review />
 
-      <div className="plan p-100">
+      {/* <div className="plan p-100">
         <div className="container ">
-          {/* Header Section */}
+         
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <div className="text-center mb-5">
@@ -379,7 +379,7 @@ const Home = () => {
           <img src={ellipse_orange} alt="" className="shape3" />
           <img src={ellipse_yellow} alt="" className="shape4" />
         </div>
-      </div>
+      </div> */}
       <div className="faq_sec">
         <Faq />
       </div>
