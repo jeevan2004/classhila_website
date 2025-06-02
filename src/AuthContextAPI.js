@@ -11,7 +11,7 @@ const parseUser = () => {
     const user = localStorage.getItem("authUserData");
     return (user && typeof user === "string" && JSON.parse(user)) || null;
   } catch (error) {
-    return "test";
+    return null;
   }
 };
 const AuthContextAPI = ({ children }) => {
@@ -21,9 +21,12 @@ const AuthContextAPI = ({ children }) => {
   const [currUserData, setCurrUserData] = useState(() => {
     return parseUser();
   });
+  const [profileData, setProfileData] = useState(() => {
+    const storedUser = localStorage.getItem("profile");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [currentPatient, setCurrentPatient] = useState("patientList");
   const [currentSidebar, setCurrentSidebar] = useState(true);
 
   useEffect(() => {
@@ -57,10 +60,10 @@ const AuthContextAPI = ({ children }) => {
         doLogout: userLogout,
         currentStep,
         setCurrentStep,
-        currentPatient,
-        setCurrentPatient,
         currentSidebar,
         setCurrentSidebar,
+        setProfileData,
+        profileData,
       }}
     >
       {children}

@@ -95,7 +95,7 @@ export const api = async (
     console.log("url");
   } else {
     baseURL = process.env.REACT_APP_API_ENDPOINT;
-    console.log("urlelse");
+    console.log("urlelse", process.env.REACT_APP_API_ENDPOINT);
   }
 
   let token;
@@ -195,8 +195,10 @@ export const api = async (
     }
     if ((susMsg && response.status === 200) || response.status === 201)
       response.data.success = true;
-    if (type !== "get" && msg) {
-      toast.success(msg);
+    if (type !== "get") {
+      // console.log(response);
+
+      toast.success(msg || response.data.response);
     }
   } catch (error) {
     console.log("error");
@@ -215,8 +217,9 @@ export const api = async (
       if (error && error.response) {
         if (!hideMsg && checkForMsg(type))
           toast.error(
-            error.response?.data?.response ||
+            error.response?.data?.error ||
               error.response?.data?.message ||
+              error.response?.data?.response ||
               ERRORMSG
           );
         if (error.response.status === 401 || error.response.status === 503) {

@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
@@ -11,7 +8,7 @@ import { useAuthContext } from "../../AuthContextAPI";
 import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
-  const { doLogin } = useAuthContext();
+  const { doLogin, setProfileData } = useAuthContext();
   const navigate = useNavigate();
 
   const {
@@ -34,12 +31,16 @@ const Login = () => {
       "",
       ""
     );
-    console.log(res, 'res');
-    
-    if (res  ) {
-      console.log(res , "res.viviviiviviv");
-      
-        if (res?.data?.isVerified ===true) {     
+
+    if (res) {
+      console.log(res, "res.viviviiviviv");
+
+      if (res?.data?.isVerified === false) {
+        // ✅ Redirect to OTP if not verified
+        navigate(`/otp?email=${formData.email}&page=login`);
+        console.log("not verified");
+      } else {
+        if (res && res.success) {
           const getUserFromToken = async () => {
             try {
               return jwtDecode(res?.data?.token);
@@ -51,17 +52,29 @@ const Login = () => {
             token: res?.data?.token,
             ...(await getUserFromToken()),
           });
+
+          getProfile(res?.data?.token);
+
           navigate("/");
-        } 
-        
-        else {
-          // ✅ Redirect to OTP if not verified
-          navigate(`/otp?email=${formData.email}&page=login`);
-          console.log("not verified");
-          
         }
-      } 
-   
+      }
+    }
+  };
+
+  const getProfile = async (token) => {
+    const res = await api(
+      "api/v1/auth/getProfileData", // ✅ corrected API endpoint format
+      {},
+      "get",
+      token,
+      "",
+      ""
+    );
+
+    if (res && res.status) {
+      localStorage.setItem("profile", JSON.stringify(res?.data));
+      setProfileData(res?.data);
+    }
   };
 
   return (
@@ -102,9 +115,7 @@ const Login = () => {
                         })}
                       />
                       {errors.password && (
-                        <p className="text-danger">
-                          {errors.password.message}
-                        </p>
+                        <p className="text-danger">{errors.password.message}</p>
                       )}
                     </div>
                     <button

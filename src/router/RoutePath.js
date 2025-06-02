@@ -16,6 +16,7 @@ import ForgotPassword from "../Pages/Login/ForgotPassword";
 import Login from "../Pages/Login/Login";
 import Otp from "../Pages/Login/Otp";
 import Register from "../Pages/Login/Register";
+import ResetPassword from "../Pages/Login/ResetPassword";
 import ThankYou from "../Pages/Login/ThankYou";
 import Mentor from "../Pages/Mentor/Mentor";
 import PricingPlan from "../Pages/Pricing/PricingPlan";
@@ -154,6 +155,14 @@ export const routes = [
     name: "ForgotPassword",
     subRouting: false,
   },
+  {
+    notLazy: true,
+    path: "/reset-password",
+    element: ResetPassword,
+    role: "private",
+    name: "ResetPassword",
+    subRouting: false,
+  },
 
   {
     notLazy: true,
@@ -204,8 +213,4 @@ export const routes = [
     name: "Blog",
     subRouting: false,
   },
-
-
-
-  
 ];

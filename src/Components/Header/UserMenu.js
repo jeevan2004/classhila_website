@@ -6,7 +6,7 @@ import { useAuthContext } from "../../AuthContextAPI";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { doLogout } = useAuthContext();
+  const { doLogout, profileData } = useAuthContext();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -28,8 +28,8 @@ const UserMenu = () => {
       {isOpen && (
         <div className="menu_section absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-md border z-50">
           <div className="p-4 border-b">
-            <h4 className="font-bold text-sm">User</h4>
-            <p className="text-xs text-gray-500">classhila@gmail.com</p>
+            <h4 className="font-bold text-sm">{profileData?.name}</h4>
+            <p className="text-xs text-gray-500">{profileData?.email}</p>
           </div>
           <ul className="text-sm text-gray-700 divide-y user_menu_list">
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">

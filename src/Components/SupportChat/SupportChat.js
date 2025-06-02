@@ -47,7 +47,7 @@ const SupportPage = () => {
       payload,
       "post",
       currUserData?.token,
-      "Ticket Created"
+      ""
     );
     if (res && res.success) {
       reset();

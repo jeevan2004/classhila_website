@@ -9,7 +9,8 @@ import { useAuthContext } from "../../AuthContextAPI";
 import UserMenu from "./UserMenu";
 
 function Header() {
-  const { popupOpen, setPopupOpen, currUserData } = useAuthContext();
+  const { popupOpen, setPopupOpen, currUserData, profileData } =
+    useAuthContext();
   const [activeSubmenu, setActiveSubmenu] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ function Header() {
       payload,
       "postWithoutToken",
       "",
-      "Send Successfully",
+      "",
       ""
     );
 
@@ -126,7 +127,9 @@ function Header() {
     <>
       <header className={isSticky ? "sticky-menu" : ""}>
         <div className="container">
-          <nav className={`navbar navbar-expand-lg navbar-light p-0 ${getHeaderStyle()}`}>
+          <nav
+            className={`navbar navbar-expand-lg navbar-light p-0 ${getHeaderStyle()}`}
+          >
             <Link className="navbar-brand" to="/">
               <img src={Logo} alt="Logo" />
             </Link>
@@ -158,12 +161,17 @@ function Header() {
               )}
             </div>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav mb-2 mb-lg-0">
                 {headerMenu.map((item, index) => (
                   <li className="nav-item" key={index}>
                     <Link
-                      className={`navbar_link ${location.pathname === item.path ? "active" : ""}`}
+                      className={`navbar_link ${
+                        location.pathname === item.path ? "active" : ""
+                      }`}
                       to={item.path}
                       id={item.title}
                       role="button"
@@ -173,7 +181,10 @@ function Header() {
 
                     {item.subMenu && (
                       <div className="dropdown-menu sub_first">
-                        <ul className="sub_first_ul" aria-labelledby={item.title}>
+                        <ul
+                          className="sub_first_ul"
+                          aria-labelledby={item.title}
+                        >
                           {item.subMenu.map((subFirst, subIndex) => (
                             <li
                               key={subIndex}
@@ -192,12 +203,17 @@ function Header() {
 
                               {subFirst.subMenu && (
                                 <div className="dropdown-menu sub_sec">
-                                  <ul className="sub_sec_ul" aria-labelledby={subFirst.title}>
+                                  <ul
+                                    className="sub_sec_ul"
+                                    aria-labelledby={subFirst.title}
+                                  >
                                     {subFirst.subMenu.map((subSec, i) => (
                                       <li key={i}>
                                         <Link
                                           className={`navbar_link dropdown-item ${
-                                            location.pathname === subSec.path ? "active" : ""
+                                            location.pathname === subSec.path
+                                              ? "active"
+                                              : ""
                                           }`}
                                           to={subSec.path}
                                         >

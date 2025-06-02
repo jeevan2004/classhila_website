@@ -82,7 +82,7 @@ const Register = () => {
       payload,
       "postWithoutToken",
       "",
-      "Registered Successfully"
+      ""
     );
     if (res && res.success) {
       setOtpShow(true);
@@ -107,7 +107,7 @@ const Register = () => {
       payload,
       "postWithoutToken",
       "",
-      "OTP Verified Successfully"
+      ""
     );
 
     if (res && res.success) {
@@ -122,7 +122,7 @@ const Register = () => {
       payload,
       "postWithoutToken",
       "",
-      "OTP Send Successfully"
+      ""
     );
 
     if (res && res.success) {
@@ -226,7 +226,10 @@ const Register = () => {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(handleRegister)} className="mt-4">
+                  <form
+                    onSubmit={handleSubmit(handleRegister)}
+                    className="mt-4"
+                  >
                     <div className="mb-3">
                       <input
                         {...register("name", registerOptions.name)}

@@ -28,8 +28,9 @@
   color: rgba(61, 45, 33, 1);
   padding: 10px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   /* justify-content: center; */
+  text-align: start;
   font-size: 16px;
   font-weight: 400;
   font-family: "Inter", serif;
@@ -40,6 +41,7 @@
 }
 .plan_card ul li img {
   margin-right: 10px;
+  margin-top: 4px;
 }
 
 .plan_card button {
@@ -62,14 +64,11 @@
   color: rgba(255, 255, 255, 1);
 }
 
-
-@media (max-width:991px){
+@media (max-width: 991px) {
   .plan {
     margin-top: 90px;
-}
-.review_inner .review_content {
- 
-  right: 20px;
-}
-
+  }
+  .review_inner .review_content {
+    right: 20px;
+  }
 }

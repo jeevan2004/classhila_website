@@ -35,11 +35,11 @@ const ForgotPassword = () => {
       payload,
       "postWithoutToken",
       "",
-      "Reset Link Sent to Your Email"
+      ""
     );
 
     if (res && res.success) {
-      navigate(`/otp?email=${data.email}`);
+      navigate(`/reset-password?email=${data.email}`);
     }
   };
 
@@ -70,7 +70,10 @@ const ForgotPassword = () => {
                         })}
                       />
                       {errors.email && (
-                        <div className="text-danger mt-1" style={{ fontSize: "14px" }}>
+                        <div
+                          className="text-danger mt-1"
+                          style={{ fontSize: "14px" }}
+                        >
                           {errors.email.message}
                         </div>
                       )}

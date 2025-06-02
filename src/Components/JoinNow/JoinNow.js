@@ -71,7 +71,7 @@ const JoinNow = () => {
       payload,
       "postWithoutToken",
       "",
-      "Send Successfully",
+      "",
       ""
     );
     if (res && res.success) {

@@ -5,7 +5,7 @@ import login_img from "../../assets/image/login_img.png";
 import { api } from "../../api/api";
 import { toast } from "react-toastify";
 
-const Otp = () => {
+const ResetPassword = () => {
   const [countdown, setCountdown] = useState(180);
   const [isExpired, setIsExpired] = useState(false);
 
@@ -15,14 +15,22 @@ const Otp = () => {
   const email = queryParams.get("email");
   const isLogin = queryParams.get("page");
 
-  const { register, handleSubmit, setValue, watch, setFocus, getValues } =
-    useForm({
-      defaultValues: Object.fromEntries(
-        Array.from({ length: 6 }, (_, i) => [`otp${i}`, ""])
-      ),
-    });
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    setFocus,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    defaultValues: Object.fromEntries(
+      Array.from({ length: 6 }, (_, i) => [`otp${i}`, ""])
+    ),
+  });
 
   const otpValues = watch();
+  const password = watch("password");
 
   // Start countdown
   useEffect(() => {
@@ -66,13 +74,18 @@ const Otp = () => {
   };
 
   const onSubmit = async (data) => {
-    const otpNumber = Object.values(data).join("");
+    const otpNumber = Object.keys(data)
+      .filter((key) => key.startsWith("otp"))
+      .sort() // ensure order: otp0, otp1, ..., otp5
+      .map((key) => data[key])
+      .join("");
 
-    const payload = { email, otp: otpNumber };
+    const payload = { email, otp: otpNumber, newPassword: data.password };
+    console.log(data, otpNumber);
 
     if (otpNumber.length === 6) {
       let res = await api(
-        `api/v1/student/verifyEmail`,
+        `api/v1/student/resetPassword`,
         payload,
         "postWithoutToken",
         "",
@@ -132,32 +145,61 @@ const Otp = () => {
                             value={otpValues[`otp${index}`]}
                             onChange={(e) => handleChange(e, index)}
                             onKeyDown={(e) => handleKeyDown(e, index)}
-                            disabled={isExpired}
                           />
                         ))}
                       </div>
                     </div>
 
-                    <p className="text-danger text-center">
-                      {isExpired
-                        ? "OTP has expired!"
-                        : `Expires in ${String(
-                            Math.floor(countdown / 60)
-                          ).padStart(2, "0")}:${String(countdown % 60).padStart(
-                            2,
-                            "0"
-                          )}`}
-                    </p>
+                    <div className="mb-3 px-2 mt-5">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="*Password"
+                        {...register("password", {
+                          required: "Password is required",
+                          maxLength: {
+                            value: 15,
+                            message: "Max 15 characters",
+                          },
+                        })}
+                      />
+                      {errors.password && (
+                        <small style={{ color: "red", fontSize: "16px" }}>
+                          {errors.password.message}
+                        </small>
+                      )}
+                    </div>
+
+                    <div className="mb-5 px-2">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="*Confirm Password"
+                        {...register("confirmPassword", {
+                          required: "Confirm Password is required",
+                          validate: (value) =>
+                            value === password || "Passwords do not match",
+                          maxLength: {
+                            value: 15,
+                            message: "Max 15 characters",
+                          },
+                        })}
+                      />
+                      {errors.confirmPassword && (
+                        <small style={{ color: "red", fontSize: "16px" }}>
+                          {errors.confirmPassword.message}
+                        </small>
+                      )}
+                    </div>
 
                     <button
                       className="btn_secondary btn_md w-100 mt-3"
                       type="submit"
-                      disabled={isExpired}
                     >
                       Verify OTP
                     </button>
 
-                    <p className="text-center mt-3">
+                    {/* <p className="text-center mt-3">
                       Didn't receive code?{" "}
                       <span
                         className={`btn-link ps-1 ${
@@ -170,7 +212,7 @@ const Otp = () => {
                       >
                         Resend OTP
                       </span>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </form>
@@ -205,4 +247,4 @@ const Otp = () => {
   );
 };
 
-export default Otp;
+export default ResetPassword;
