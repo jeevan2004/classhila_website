@@ -17,8 +17,8 @@ import Plan, { SubscriptionPlan } from "../../Components/Plan/Plan";
 const CoursesDetails = () => {
   const [course, setCourse] = useState();
   const [currentVideo, setCurrentVideo] = useState({
-    videoUrl: `https://www.w3schools.com/html/mov_bbb.mp4`,
-    title: "Drawing Fundamentals 1: Basic Skills & Sketching Accurately",
+    videoUrl: ``,
+    title: "",
   });
   const [status, setStatus] = useState("");
 
