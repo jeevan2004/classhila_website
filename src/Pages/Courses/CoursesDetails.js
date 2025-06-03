@@ -781,7 +781,7 @@ const CoursesDetails = () => {
             </div>
           )}
 
-          {course?.monthlyPrice && course?.monthlyDescription && (
+          {course?.yearlyPrice && course?.yearlyDescription && (
             <div className="col-md-6 col-lg-4">
               <SubscriptionPlan
                 planNumber={2}
