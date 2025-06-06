@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import phone from "../../assets/image/phone.svg";
 
-import ContactImg from '../../assets/image/contact.png'
+import ContactImg from "../../assets/image/contact.png";
 import "./Support.css";
 
 const Support = ({ Contact_box }) => {
@@ -63,7 +63,9 @@ const Support = ({ Contact_box }) => {
                         {...register("name", { required: "Name is required" })}
                       />
                       {errors.name && (
-                        <small className="text-danger">{errors.name.message}</small>
+                        <small className="text-danger">
+                          {errors.name.message}
+                        </small>
                       )}
                     </div>
                   </Col>
@@ -83,7 +85,9 @@ const Support = ({ Contact_box }) => {
                         })}
                       />
                       {errors.email && (
-                        <small className="text-danger">{errors.email.message}</small>
+                        <small className="text-danger">
+                          {errors.email.message}
+                        </small>
                       )}
                     </div>
                   </Col>
@@ -103,11 +107,16 @@ const Support = ({ Contact_box }) => {
                           },
                         })}
                         onInput={(e) => {
-                          e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                          e.target.value = e.target.value.replace(
+                            /[^0-9]/g,
+                            ""
+                          );
                         }}
                       />
                       {errors.phone && (
-                        <small className="text-danger">{errors.phone.message}</small>
+                        <small className="text-danger">
+                          {errors.phone.message}
+                        </small>
                       )}
                     </div>
                   </Col>
@@ -118,16 +127,31 @@ const Support = ({ Contact_box }) => {
                         className="form-control"
                         placeholder="Message"
                         rows="4"
-                        {...register("message", { required: "Message is required" })}
+                        {...register("message", {
+                          required: "Message is required",
+                          validate: (value) => {
+                            const words = value.trim().split(/\s+/);
+                            const wordCount =
+                              value.trim() === "" ? 0 : words.length;
+                            return (
+                              wordCount <= 300 || "Maximum 300 words allowed"
+                            );
+                          },
+                        })}
                       />
                       {errors.message && (
-                        <small className="text-danger">{errors.message.message}</small>
+                        <small className="text-danger">
+                          {errors.message.message}
+                        </small>
                       )}
                     </div>
                   </Col>
                 </Row>
 
-                <button className="btn_secondary btn_md w-100 mt-5 text-center d-block" type="submit">
+                <button
+                  className="btn_secondary btn_md w-100 mt-5 text-center d-block"
+                  type="submit"
+                >
                   Send Message
                 </button>
               </form>

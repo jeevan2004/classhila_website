@@ -16,6 +16,7 @@ const Register = () => {
   const [otpShow, setOtpShow] = useState(false);
   const inputRefs = useRef([]);
   const [error, setError] = useState("");
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const {
     register,
@@ -270,33 +271,52 @@ const Register = () => {
                       )}
                     </div>
                     <div className="mb-3">
-                      <input
-                        {...register("password", registerOptions.password)}
-                        type="password"
-                        className="form-control"
-                        placeholder="*Password"
-                      />
-                      {errors.password && (
-                        <span className="text-danger small">
-                          {errors.password.message}
+                      <div className="password">
+                        <input
+                          {...register("password", registerOptions.password)}
+                          type={passwordShow ? "text" : "password"}
+                          className="form-control"
+                          placeholder="*Password"
+                        />
+
+                        <span className="icon">
+                          {/* <img onClick={() => setPassword(!password)} src={eye} /> */}
+                          <i
+                            className="fas fa-eye"
+                            onClick={() => setPasswordShow(!passwordShow)}
+                          ></i>
                         </span>
-                      )}
+                        {errors.password && (
+                          <span className="text-danger small">
+                            {errors.password.message}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <div className="mb-3">
-                      <input
-                        {...register(
-                          "confirmPassword",
-                          registerOptions.confirmPassword
-                        )}
-                        type="password"
-                        className="form-control"
-                        placeholder="*Confirm Password"
-                      />
-                      {errors.confirmPassword && (
-                        <span className="text-danger small">
-                          {errors.confirmPassword.message}
+                      <div className="password">
+                        <input
+                          {...register(
+                            "confirmPassword",
+                            registerOptions.confirmPassword
+                          )}
+                          type={passwordShow ? "text" : "password"}
+                          className="form-control"
+                          placeholder="*Confirm Password"
+                        />
+                        <span className="icon">
+                          {/* <img onClick={() => setPassword(!password)} src={eye} /> */}
+                          <i
+                            className="fas fa-eye"
+                            onClick={() => setPasswordShow(!passwordShow)}
+                          ></i>
                         </span>
-                      )}
+                        {errors.confirmPassword && (
+                          <span className="text-danger small">
+                            {errors.confirmPassword.message}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <button
                       className="btn_secondary btn_md w-100 mt-5 text-center"
