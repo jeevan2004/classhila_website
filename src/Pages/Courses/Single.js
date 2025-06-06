@@ -87,7 +87,7 @@ function Single() {
       const result = await response.json();
       if (result.url) {
         const key = `${moduleIndex}-${videoIndex}`;
-        setSignedVideoUrls((prev) => ({ ...prev, [key]: result.url }));
+        setSignedVideoUrls((prev) => ({ ...prev, [key]: result.data.url }));
       }
     } catch (err) {
       console.error("Error fetching signed URL:", err);

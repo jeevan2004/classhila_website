@@ -16,7 +16,7 @@ export const getTemporaryUrl = async (fileUrl, AuthToken) => {
   if (res?.success) {
     console.log(res, res.url, "new vido");
 
-    return res?.url;
+    return res.data?.url;
   } else {
     return;
   }
