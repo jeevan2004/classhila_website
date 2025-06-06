@@ -17,61 +17,45 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const registerOptions = {
+    email: {
+      required: "Email is required",
+      pattern: {
+        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        message: "Enter a valid email address",
+      },
+    },
+    password: {
+      required: "Password is required",
+    },
+  };
+
   const onSubmit = async (formData) => {
     const payload = {
       email: formData.email,
       password: formData.password,
     };
 
-    const res = await api(
-      "api/v1/student/login", // ✅ corrected API endpoint format
-      payload,
-      "postWithoutToken",
-      "",
-      "",
-      ""
-    );
+    const res = await api("api/v1/student/login", payload, "postWithoutToken");
 
     if (res) {
-      console.log(res, "res.viviviiviviv");
-
       if (res?.data?.isVerified === false) {
-        // ✅ Redirect to OTP if not verified
         navigate(`/otp?email=${formData.email}&page=login`);
-        console.log("not verified");
-      } else {
-        if (res && res.success) {
-          const getUserFromToken = async () => {
-            try {
-              return jwtDecode(res?.data?.token);
-            } catch (error) {
-              return null;
-            }
-          };
-          doLogin({
-            token: res?.data?.token,
-            ...(await getUserFromToken()),
-          });
+        return;
+      }
 
-          getProfile(res?.data?.token);
-
-          navigate("/");
-        }
+      if (res?.success) {
+        const user = jwtDecode(res?.data?.token);
+        doLogin({ token: res?.data?.token, ...user });
+        await getProfile(res?.data?.token);
+        navigate("/");
       }
     }
   };
 
   const getProfile = async (token) => {
-    const res = await api(
-      "api/v1/auth/getProfileData", // ✅ corrected API endpoint format
-      {},
-      "get",
-      token,
-      "",
-      ""
-    );
-
-    if (res && res.status) {
+    const res = await api("api/v1/auth/getProfileData", {}, "get", token);
+    if (res?.status) {
       localStorage.setItem("profile", JSON.stringify(res?.data));
       setProfileData(res?.data);
     }
@@ -95,9 +79,7 @@ const Login = () => {
                         type="email"
                         className="form-control"
                         placeholder="*Email / Phone"
-                        {...register("email", {
-                          required: "Email is required",
-                        })}
+                        {...register("email", registerOptions.email)}
                       />
                       {errors.email && (
                         <p className="text-danger">{errors.email.message}</p>
@@ -110,9 +92,7 @@ const Login = () => {
                         type="password"
                         className="form-control"
                         placeholder="*Password"
-                        {...register("password", {
-                          required: "Password is required",
-                        })}
+                        {...register("password", registerOptions.password)}
                       />
                       {errors.password && (
                         <p className="text-danger">{errors.password.message}</p>

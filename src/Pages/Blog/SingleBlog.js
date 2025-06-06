@@ -18,6 +18,10 @@ const SingleBlog = () => {
   const [blogData, setBlogData] = useState([]);
   const [blogAllData, setBlogAllData] = useState([]);
   
+
+  
+  const filteredBlogs = blogAllData.filter(item => item.type === 1);
+
   const { currUserData } = useAuthContext();
 
   const getBlogData = async () => {
@@ -100,17 +104,18 @@ const SingleBlog = () => {
             <div className="latest_sec">
               <h4>Latest Article</h4>
               <ul>
-                 {blogAllData.slice(1, 6).map((item) => (
+                 {filteredBlogs.slice(0, 5).map((item) => (
                 
                                   <li key={item._id}>
                                     <span className="img_sec">
                                   <img src={item?.image} alt="" /></span>
                                   <div className="contents">
                                     <h5>
-                                      {item?.title}
+                                    
+                                      {item?.title.split(" ").slice(0, 4).join(" ") + (item?.title.split(" ").length > 20 ? "..." : "")}
                                     </h5>
                                     <p>
-                                      {item?.content.split(" ").slice(0, 25).join(" ") + (item?.content.split(" ").length > 20 ? "..." : "")}
+                                      {item?.content.split(" ").slice(0, 8).join(" ") + (item?.content.split(" ").length > 20 ? "..." : "")}
                                     </p>
                                      <Link to={`/blog/${item?._id}`}>{"Read More >"}</Link>
                                   </div>
