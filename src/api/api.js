@@ -195,10 +195,8 @@ export const api = async (
     }
     if ((susMsg && response.status === 200) || response.status === 201)
       response.data.success = true;
-    if (type !== "get") {
-      // console.log(response);
-
-      toast.success(msg || response.data.response);
+    if (type !== "get" && msg) {
+      toast.success(msg);
     }
   } catch (error) {
     console.log("error");

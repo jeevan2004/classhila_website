@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import phone from "../../assets/image/phone.svg";
+
+import ContactImg from '../../assets/image/contact.png'
 import "./Support.css";
 
 const Support = ({ Contact_box }) => {
@@ -37,7 +39,7 @@ const Support = ({ Contact_box }) => {
                   </div>
                 </div>
               )}
-              <img className="w-100" src={login_img} alt="login" />
+              <img className="w-100" src={ContactImg} alt="login" />
             </div>
           </Col>
 
