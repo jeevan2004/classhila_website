@@ -43,6 +43,10 @@ import { api } from "../../api/api";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
+   const { profileData, setProfileData } = useAuthContext();
+
+
+console.log(profileData , "profileData");
 
   const getBlogData = async () => {
     setIsLoading(true);
@@ -255,8 +259,12 @@ const Home = () => {
                 intelligence.
               </p>
               {/* <p className="hero-subtitle">Invest in your Career</p> */}
-              <Link to="/register" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</Link>
-      <Link to="/register"  className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</Link>
+              {profileData ?<></>:<>
+              
+                <Link to="/register" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</Link>
+                <Link to="/register"  className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</Link>
+              </>}
+             
       <Link to="/courses" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </Link>
 
             </div>
@@ -282,7 +290,7 @@ const Home = () => {
                 University's Technology Business Incubation
               </h4>
 
-              <p className="hero-subtitle">
+              <p className="hero-subtitle mb-4">
                 Classhila holds the distinguished honor of being India's first
                 EdTech Company to receive backing from Osmania Technology
                 Business Incubation (OTBI) of India's Premier university-Osmania
@@ -292,19 +300,19 @@ const Home = () => {
                 bridging academic and industry to build future-ready learning
                 solutions.
               </p>
-              <a
-                href="#join-now"
-                className="btn btn-primary mx-2 btn-lg cta-button"
+              <span
+              
+                className="btn btn-primary mx-2 btn-lg  cursor_auto"
               >
                 Affordable & Accessible Education
-              </a>
-              <a
-                href="#join-now"
-                className="btn btn-primary mx-2 btn-lg cta-button"
+              </span>
+              <span
+               
+                className="btn btn-primary mx-2 btn-lg  cursor_auto"
               >
                 {" "}
                 Cross Cultural Learning
-              </a>
+              </span>
             </div>
           </div>
         </div>

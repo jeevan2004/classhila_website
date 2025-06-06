@@ -65,7 +65,8 @@ const SingleBlog = () => {
   
   useEffect(() => {
     getBlogData();getAllBlogData();
-  }, []);
+  }, [ ]);
+
 
   // const blog = BlogData.find((item) => item.id === name);
   const LatestArticle = [1, 2, 3, 4, 5];
@@ -83,7 +84,7 @@ const SingleBlog = () => {
               <img className="w-100" src={blogData?.image} />
             </div>
             <div className="content">
-              <h5>{blogData?.heading}</h5>
+              <h5>{blogData?.title}</h5>
               {/* {blogData?.contentList.map((item) => {
                 return (
                   <>
