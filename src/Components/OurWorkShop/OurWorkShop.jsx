@@ -37,7 +37,7 @@ const OurWorkShop = () => {
               <p className="main_text">
                 Classhila offers immersive online and offline workshops in
                 Finance Literacy and Acting, designed to suit your learning
-                preferences. And this is just the beginning—we're gearing up to
+                preferences. And this is just the <br /> beginning—we're gearing up to
                 launch an exciting series of workshops on trending topics,
                 designed to empower you with diverse skill sets for holistic,
                 unstoppable personal and professional growth in today's rapidly

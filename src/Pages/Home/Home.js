@@ -13,7 +13,7 @@ import FAQPage from "../../Components/faq/FAQPage";
 import Review from "../../Components/Review/Review";
 import Plan from "../../Components/Plan/Plan";
 import { Container } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import blank_image from "../../assets/image/blank_image.png";
 import img1 from "../../assets/image/img1.png";
 import latest1 from "../../assets/image/latest1.png";
@@ -139,7 +139,8 @@ const Home = () => {
       content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
       contentList: [
         `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
-      ],
+      ]
+
     },
   ];
 
@@ -254,24 +255,10 @@ const Home = () => {
                 intelligence.
               </p>
               {/* <p className="hero-subtitle">Invest in your Career</p> */}
-              <a
-                href="#join-now"
-                className="btn btn-primary mx-2 btn-lg cta-button"
-              >
-                Learn new skills
-              </a>
-              <a
-                href="#join-now"
-                className="btn btn-primary mx-2 btn-lg cta-button"
-              >
-                Get Certified
-              </a>
-              <a
-                href="#join-now"
-                className="btn btn-primary mx-2 btn-lg cta-button"
-              >
-                Best courses offered{" "}
-              </a>
+              <Link to="/register" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</Link>
+      <Link to="/register"  className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</Link>
+      <Link to="/courses" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </Link>
+
             </div>
           </div>
         </div>
