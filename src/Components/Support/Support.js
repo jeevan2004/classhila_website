@@ -7,6 +7,7 @@ import phone from "../../assets/image/phone.svg";
 
 import ContactImg from "../../assets/image/contact.png";
 import "./Support.css";
+import { api } from "../../api/api";
 
 const Support = ({ Contact_box }) => {
   const navigate = useNavigate();
@@ -18,10 +19,27 @@ const Support = ({ Contact_box }) => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("Form Data:", data);
     // Add your API call here
-    reset();
+
+    const payload = {
+      name: data?.name,
+      email: data?.email,
+      phone: data?.phone,
+      message: data?.message,
+    };
+    let res = await api(
+      `api/v1/student/contactSupport`,
+      payload,
+      "postWithoutToken",
+      "",
+      ""
+    );
+
+    if (res && res.success) {
+      reset();
+    }
   };
 
   return (
