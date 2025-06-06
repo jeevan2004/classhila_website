@@ -19,6 +19,7 @@ const SingleBlog = () => {
   const [blogAllData, setBlogAllData] = useState([]);
   
 
+  console.log(name , "name");
   
   const filteredBlogs = blogAllData.filter(item => item.type === 1);
 
@@ -63,10 +64,18 @@ const SingleBlog = () => {
   
  
   
-  useEffect(() => {
-    getBlogData();getAllBlogData();
-  }, [ ]);
+  // useEffect(() => {
+  //   getBlogData();getAllBlogData();
+  // }, [ ]);
 
+  useEffect(() => {
+    getBlogData(); 
+  }, [name]);
+  
+  useEffect(() => {
+    getAllBlogData();
+  }, []);
+  
 
   // const blog = BlogData.find((item) => item.id === name);
   const LatestArticle = [1, 2, 3, 4, 5];
