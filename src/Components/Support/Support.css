@@ -49,3 +49,7 @@
   line-height: 27px;
   color: #fff;
 }
+.support .image_sec {
+  border-radius: 10px;
+  overflow: hidden;
+}

@@ -122,7 +122,7 @@ const ResetPassword = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mx-auto">
-            <h3 className="text-center mb-4">Verify OTP</h3>
+            <h3 className="text-center mb-4" >Verify OTP</h3>
             <div className="img_sec">
               <img src={login_img} alt="Login" />
             </div>

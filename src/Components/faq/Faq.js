@@ -10,36 +10,37 @@ import "./faq.css";
 const Faq = () => {
   const questions = [
     {
-      title: "Industry Company-Ready Certification (ICRC)",
+      title: "How do I get started?",
       content:
-        "Earn India’s first Company-Ready Certification (ICRC 5.0 ), ensuring you stand out in the competitive tech job market.",
+        "Download the app or connect with our team at +91 9553460456, 8333812323 or mail to support@classhila.com",
     },
     {
-      title: "Top Company Mentorship",
+      title: "What languages are the learning programs available in?",
       content:
-        "Learn from alumni and company experts from top companies like Google, Microsoft, and Amazon.etc…",
+        "Classhila's programs are presently available in English and we will shortly provide classes/subtitles in regional languages – Malayalam, Kannada, Telugu, Bengali, Gujarati, Hindi and Tamil.",
     },
     {
-      title: "Hands-On Projects",
+      title: "Is the Classhila app available for free?",
       content:
-        "Build cutting-edge solutions using AI, Machine Learning, IoT, Blockchain, and more.",
+        "Yes, the Classhila app is free to download and some content is free of charge. You have to purchase the program to access the complete learning program.",
     },
     {
-      title: "Job-Ready Skills",
+      title: "What makes Classhila so affordable?",
       content:
-        "Gain expertise in full-stack development, competitive programming, and real-world problem-solving.",
+        "At Classhila, we ignite the potential in every learner—because dreams deserve wings, not price tags. We believe that it's the passion, not privilege that determines success.",
     },
     {
-      title: "Flexible Learning",
+      title: "Do you provide customer support?",
       content:
-        "Juggle studies and vvGrad’s curriculum with just 10 hours of weekly effort alongside your college education.",
+        "Yes, we provide customer support for all our users. You can write to us at support@classhila.com",
     },
     {
-      title: "Direct Job Placement Support",
+      title: "What is the procedure to get a refund of my money?",
       content:
-        "Benefit from placement assistance, career coaching, and a direct pipeline to hiring partners, with salaries Upto ₹30 LPA.",
+        "You need to drop an email with the course details and registered email id to support@classhila.com. Once you send the email the concerned team will connect with you shortly.",
     },
   ];
+  
   return (
     <>
       {/* <section class="fact__area mt-5 pt-5">

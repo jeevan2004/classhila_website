@@ -62,6 +62,10 @@ const Home = () => {
     getBlogData();
   }, []);
 
+  const filteredBlogs = blogData.filter((item) => item.type === 2);
+
+  console.log(filteredBlogs, "filteredBlogs");
+
   const tabs = [
     "tab1",
     "tab2",
@@ -109,18 +113,6 @@ const Home = () => {
     ],
   };
 
-  const BlogData = [
-    {
-      id: "importance-feedback-in-online-learning",
-      image: img1,
-      heading: `Maximizing Your Online Learning Experience: Essential Strategies `,
-      content: `Discover strategies to optimize your online courses, from setting a study schedule to actively participating in discussions.`,
-      contentList: [
-        `To truly benefit from your online courses, it's important to adopt effective strategies that enhance your learning experience. Start by setting clear goals for what you want to achieve by the end of the course. This focus will keep you motivated and directed throughout your studies.`,
-      ],
-    },
-  ];
-  const blog = BlogData[0];
   const LatestArticle = [
     {
       id: "importance-feedback-in-online-learning",
@@ -439,83 +431,41 @@ const Home = () => {
           <div className="row ">
             <div className="col-lg-7">
               <div className="card_image">
-                <img className="w-100" src={PM} />
+                <img className="w-100" src={[filteredBlogs[0]?.image]} />
               </div>
               <div className="content">
-                <h5>
-                  PM Schools For Rising India (PM SHRI Scheme)- Transforming
-                  India's Education Landscape
-                </h5>
-
+                <h5>{filteredBlogs[0]?.title}</h5>
                 <p>
-                  Approved by the Union Cabinet on 7 September 2022, the
-                  centrally sponsored PM SHRI (PM Schools for Rising India)
-                  scheme aims to develop over 14,500 exemplar PM SHRI Schools by
-                  upgrading existing institutions across Central/State/UT
-                  governments and local bodies. With a total outlay of ₹27,360
-                  crore (Central share: ₹18,128 crore) over five years, these
-                  schools will demonstrate effective implementation of National
-                  Education Policy 2020 and mentor neighboring institutions. The
-                  total cost of the project will be Rs. 27360 crore spread over
-                  a period of 5 years which includes a central share of Rs.
-                  18128 crore.
+                  {filteredBlogs[0]?.content
+                    ?.split(" ")
+                    .slice(0, 100)
+                    .join(" ")}
+                  {filteredBlogs[0]?.content?.split(" ").length > 20 && "..."}
                 </p>
-                <p>
-                  <b>Key Highlights:</b> <br />
-                  Progress: 12,084 schools selected across 32 States/UTs
-                  (including KVS/NVS) through a transparent challenge method
-                  (Phases 1-4) - Primary: 1,329 | Elementary: 3,340 | Secondary:
-                  2,907 | Senior Secondary: 4,508{" "}
-                </p>
-
-                <p>
-                  <b>Comprehensive Upgrades: </b> <br />
-                  Primary/Elementary: Balvatika facilities, Jadui Pitara,
-                  child-friendly furniture, play materials Secondary/Senior
-                  Secondary: Smart classrooms, STEM labs (Science/ICT/Atal
-                  Tinkering), skill labs, innovation councils, sports
-                  infrastructure Governance: 33 States/UTs including KVS & NVS
-                  have signed MoUs with the Education Ministry to implement the
-                  PM SHRI scheme.{" "}
-                </p>
-
-                <p>
-                  Selection of PM SHRI schools is done through Challenge Mode
-                  wherein Schools compete to become benchmarks for 21st-century
-                  education in India. PM SHRI Scheme is being implemented by
-                  saturating all the components such as Bala feature and Jadui
-                  Pitara, Support at Pre-school Education, Smart Classrooms,
-                  Computer Lab/ ICT Lab, Atal Tinkering Lab, Skill Lab, School
-                  Innovation Councils, Child Friendly Furniture, Outdoor Play
-                  Materials etc. in Primary and Elementary Schools and
-                  Furniture, Fully equipped integrated Science Lab/Physics
-                  Lab/Chemistry Lab/ Biology Lab, Playground with well-equipped
-                  sports facilities etc. for secondary and senior secondary
-                  schools.
-                </p>
-                <Link to={"#"}>{"Read More >"}</Link>
+                <Link to={`blog/${filteredBlogs[0]?._id}`}>
+                  {"Read More >"}
+                </Link>
               </div>
             </div>
             <div className="col-lg-5">
               <div className="latest_sec">
                 {/* <h4>Latest Article</h4> */}
                 <ul>
-                  {LatestArticle?.map((item) => {
+                  {filteredBlogs?.slice(1, 6).map((item) => {
                     return (
                       <>
                         <li>
                           <img src={item?.image} alt="" />
                           <div className="contents">
-                            <h5>
-                              How They Impact Your Online Education Journey
-                            </h5>
+                            <h5>{item?.title}</h5>
                             <p>
-                              Juggling work, family, and studies can be
-                              daunting. This article offers tips on time
-                              management, prioritization, and setting realistic
-                              goals.
+                              <p>
+                                {item?.content?.slice(0, 100)}
+                                {item?.content?.length > 100 && "..."}
+                              </p>
                             </p>
-                            <Link to={"/blog/maximizing-online-learning"}>
+
+                            <Link to={`blog/${item?._id}`}>
                               {"Read More >"}
                             </Link>
                           </div>

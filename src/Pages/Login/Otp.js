@@ -154,7 +154,7 @@ const Otp = () => {
                       type="submit"
                       disabled={isExpired}
                     >
-                      Verify OTP
+                      Forgot Password
                     </button>
 
                     <p className="text-center mt-3">

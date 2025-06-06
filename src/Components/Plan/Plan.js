@@ -24,7 +24,7 @@ const Plan = ({ data }) => {
             );
           })}
         </ul>
-        <button onClick={() => navigate("/login")}>Buy This Plan</button>
+        {/* <button onClick={() => navigate("/login")}>Buy This Plan</button> */}
       </div>
     </div>
   );

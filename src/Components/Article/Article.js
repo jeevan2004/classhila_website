@@ -5,7 +5,6 @@ import "./article.css";
 import Skeleton from "react-loading-skeleton";
 
 const Article = ({ data }) => {
-  console.log(data, "sdata");
   const [imageLoaded, setImageLoaded] = useState(false);
   const [contentLoaded, setContentLoaded] = useState(false);
 

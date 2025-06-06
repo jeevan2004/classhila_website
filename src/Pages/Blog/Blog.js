@@ -13,6 +13,10 @@ const Blog = () => {
 
   
   
+
+  const filteredBlogs = blogData.filter(item => item.type === 1);
+
+  
   const getBlogData = async () => {
     setIsLoading(true);
     let res = await api(
@@ -54,7 +58,7 @@ const Blog = () => {
         </div>
 
         <div className="row mt-5">
-          {blogData?.map((item, index) => (
+          {filteredBlogs?.map((item, index) => (
             <div className="col-md-4 mb-4 mb-lg-5" key={index}>
               <Article data={item} />
             </div>

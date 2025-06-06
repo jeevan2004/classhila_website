@@ -26,8 +26,11 @@ const CoursesDetails = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [showPlan, setShowPlan] = useState(false);
+  const [activeVideoId, setActiveVideoId] = useState(null);
+
   const courseId = useParams();
 
+  
   const tabs = [
     {
       id: "about",
@@ -146,7 +149,7 @@ const CoursesDetails = () => {
     },
   ];
 
-  console.log(course, "coursecourse");
+  // console.log(course?.image, "course?.imagecourse?.imagecourse?.imagecourse?.image");
 
   const parentAccordions = [
     { id: "videoCourses", title: "Video Courses" },
@@ -190,7 +193,7 @@ const CoursesDetails = () => {
         );
         //const filteredData = res?.data.filter((item) => item._id === courseId);
 
-        console.log(filteredData, "filteredData");
+        console.log(filteredData, "filteredData live");
         setCourse(filteredData);
       }
     }
@@ -276,14 +279,20 @@ const CoursesDetails = () => {
     }
   };
 
+  // const handelCurrentVideo = async (video , index) => {
+  //   const newVideo = await getTemporaryUrl(video.videoUrl);
+  //   console.log(video._id , video, "videovideovideo ssss");
+  //   setCurrentVideo({ ...video, videoUrl: newVideo });
+
+
+  // };
   const handelCurrentVideo = async (video) => {
     const newVideo = await getTemporaryUrl(video.videoUrl);
-    console.log(newVideo, "newv");
-
     setCurrentVideo({ ...video, videoUrl: newVideo });
+    setActiveVideoId(video._id); // ✅ Keep track of selected video
   };
 
-  console.log(currentVideo, "course");
+  // console.log(currentVideo, "course");
 
   const handleSubscription = (planNumber) => {
     if (course && course._id) {
@@ -297,17 +306,36 @@ const CoursesDetails = () => {
           <div className="row">
             <div className="col-md-8">
               <div className="left_side">
-                <div className="player">
+
+{currentVideo?.videoUrl ?<div className="player">
+                 
+                 <ReactPlayer
+                   url={currentVideo.videoUrl}
+                   light={course?.image}
+                   playing={true}
+                   controls
+                   className="video_player"
+                 />
+               </div>:
+               <div className="videp_thumbline">
+                <div className="player_icon" data-tooltip="Please Select a video"></div>
+               <img src={course?.image} />
+               </div>
+}
+                
+                {/* <div className="player">
+                 
                   <ReactPlayer
                     url={currentVideo.videoUrl}
                     light={course?.image}
+                    playing={true}
                     controls
                     className="video_player"
                   />
-                </div>
+                </div> */}
                 <div className="course_heading">
                   <h2>{currentVideo?.title}</h2>
-                  <ul>
+                  {/* <ul>
                     <li>
                       <i class="far fa-flag"></i>
                     </li>
@@ -317,7 +345,7 @@ const CoursesDetails = () => {
                     <li>
                       <i class="fas fa-share-alt"></i>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
                 <ul className="course_detail">
                   <li className="course_author">
@@ -330,12 +358,12 @@ const CoursesDetails = () => {
                   <li className="course_review">
                     <i class="fas fa-star"></i> 4.8 (Review 2K)
                   </li>
-                  <li className="course_video">
+                  {/* <li className="course_video">
                     <i class="fas fa-play-circle"></i> 120 Video Course
                   </li>
                   <li className="course_student">
                     <i class="fas fa-user-graduate"></i> 15k Students
-                  </li>
+                  </li> */}
                 </ul>
 
                 <CommonTabs tabs={tabs} defaultActive={0} />
@@ -703,13 +731,12 @@ const CoursesDetails = () => {
 
                                           return (
                                             <li
-                                              key={video.id}
-                                              className={` ${
-                                                isLocked ? "disabled-video" : ""
-                                              }`}
+                                              key={video._id}  className={`video-item ${isLocked ? "disabled-video" : ""} 
+                                              ${ activeVideoId === video._id ? "active" : ""
+        }`}
                                               onClick={() => {
                                                 if (!isLocked) {
-                                                  handelCurrentVideo(video);
+                                                  handelCurrentVideo(video , childIndex);
                                                 }
                                               }}
                                               // onClick={() =>
@@ -749,7 +776,7 @@ const CoursesDetails = () => {
                     </div>
                   ))}
                 </div>
-                {!course?.coursePurchased ? (
+                {course && !course?.coursePurchased ? (
                   <>
                     <button
                       className="download_button"
