@@ -21,14 +21,14 @@ const BestCoaching = () => {
   const itemsPerPage = 6;
   const navigate = useNavigate();
 
-    const [imageLoaded, setImageLoaded] = useState(false);
-      const [contentLoaded, setContentLoaded] = useState(false);
- useEffect(() => {
-        const timer = setTimeout(() => {
-          setContentLoaded(true);
-        }, 800); // Adjust this delay as needed
-        return () => clearTimeout(timer);
-      }, []);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setContentLoaded(true);
+    }, 800); // Adjust this delay as needed
+    return () => clearTimeout(timer);
+  }, []);
   // Fetch Categories
   const getCategory = async () => {
     setIsLoading(true);
@@ -113,9 +113,7 @@ const BestCoaching = () => {
               <h1 className="main_heading mb-3">
                 Best Coaching At The Lowest Prices In The Market
               </h1>
-              <p className="main_text">
-              The SSC Telangana Mathematics Course 
-              </p>
+              <p className="main_text">The SSC Telangana Mathematics Course</p>
             </div>
           </div>
         </div>
@@ -149,70 +147,75 @@ const BestCoaching = () => {
                         course?.map((item, index) => (
                           <div className="col-md-4 mb-4" key={index}>
                             <div className="coaching_box">
-                               {!imageLoaded && <Skeleton height={200} />}
-                              <img
-                                className="w-100"
-                                src={item?.image}
-                                alt={item?.title}
-                                onLoad={() => setImageLoaded(true)}
-                              />
-                              
-
+                              {!imageLoaded && <Skeleton height={200} />}
+                              <div
+                                className="coaching_box_img"
+                                style={{ height: "250px" }}
+                              >
+                                <img
+                                  className="w-100"
+                                  style={{ height: "100%", objectFit: "cover" }}
+                                  src={item?.image}
+                                  alt={item?.title}
+                                  onLoad={() => setImageLoaded(true)}
+                                />
+                              </div>
                               <div className="content">
-                           {contentLoaded ? (
-                                       <ul>
-                                       <li>
-                                         <img src={group} alt="Students" />{" "}
-                                         {item?.enrolledStudentCount} students
-                                       </li>
-                                       <li>
-                                         <img src={notebook} alt="Lessons" />{" "}
-                                         {item?.content?.length} Lessons
-                                       </li>
-                                     </ul>
-                                    ) : (
-                                      <Skeleton width={`80%`} height={20} />
-                                    )}
+                                {contentLoaded ? (
+                                  <ul>
+                                    <li>
+                                      <img src={group} alt="Students" />{" "}
+                                      {item?.enrolledStudentCount} students
+                                    </li>
+                                    <li>
+                                      <img src={notebook} alt="Lessons" />{" "}
+                                      {item?.content?.length} Lessons
+                                    </li>
+                                  </ul>
+                                ) : (
+                                  <Skeleton width={`80%`} height={20} />
+                                )}
 
                                 {contentLoaded ? (
-                                   <h4
-                                   onClick={() =>
-                                     navigate(`/courses/${item?._id}`)
-                                   }
-                                 >
-                                   {item?.title}
-                                 </h4>
-                                    ) : (
-                                      <Skeleton width={`80%`} height={20} />
-                                    )}
-                               {contentLoaded ? (
-                                  <div className="author mt-5">
-                                  <div className="author_name">
-                                    <img src={blank} alt="Mentor" />
-                                    <p>
-                                      <span>
-                                        {item?.instructor?.name ||
-                                          "Unknown Instructor"}
-                                      </span>
-                                      <span className="staff">Mentor</span>
-                                    </p>
-                                  </div>
-                                  <div className="plus_icon">
-                                    <Link to={`/courses/${item?._id}`}>+</Link>
-                                  </div>
-                                </div>
-                                    ) : (
-                                      <Skeleton width={`80%`} height={20} />
-                                    )}
-                                
+                                  <h4
+                                    onClick={() =>
+                                      navigate(`/courses/${item?._id}`)
+                                    }
+                                  >
+                                    {item?.title}
+                                  </h4>
+                                ) : (
+                                  <Skeleton width={`80%`} height={20} />
+                                )}
                                 {contentLoaded ? (
+                                  <div className="author mt-5">
+                                    <div className="author_name">
+                                      <img src={blank} alt="Mentor" />
+                                      <p>
+                                        <span>
+                                          {item?.instructor?.name ||
+                                            "Unknown Instructor"}
+                                        </span>
+                                        <span className="staff">Mentor</span>
+                                      </p>
+                                    </div>
+                                    <div className="plus_icon">
+                                      <Link to={`/courses/${item?._id}`}>
+                                        +
+                                      </Link>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <Skeleton width={`80%`} height={20} />
+                                )}
+
+                                {/* {contentLoaded ? (
                                   <div className="tag">
-                                  {item?.category?.name || "General"}
-                                </div>
-                                    ) : (
-                                      <Skeleton width={`80%`} height={10} />
-                                    )}
-                               
+                                    {item?.category?.name || "General"}
+                                  </div>
+                                ) : (
+                                  <Skeleton width={`80%`} height={10} />
+                                )} */}
                               </div>
                             </div>
                           </div>
@@ -235,71 +238,90 @@ const BestCoaching = () => {
                         {status}
                       </div>
                     )}
- {/* Pagination */}
- <div className="pagination-container text-center my-4 mb-5">
-  <ul className="pagination justify-content-center">
-    {/* Previous Button */}
-    <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-      <button
-        className="page-link"
-        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-      >
-        Previous
-      </button>
-    </li>
+                    {/* Pagination */}
+                    <div className="pagination-container text-center my-4 mb-5">
+                      <ul className="pagination justify-content-center">
+                        {/* Previous Button */}
+                        <li
+                          className={`page-item ${
+                            currentPage === 1 ? "disabled" : ""
+                          }`}
+                        >
+                          <button
+                            className="page-link"
+                            onClick={() =>
+                              setCurrentPage((prev) => Math.max(prev - 1, 1))
+                            }
+                          >
+                            Previous
+                          </button>
+                        </li>
 
-    {/* Pagination Items */}
-    {Array.from({ length: totalPages }, (_, i) => i + 1)
-      .filter((page) => {
-        return (
-          page === 1 ||
-          page === 2 ||
-          page === totalPages ||
-          page === totalPages - 1 ||
-          (page >= currentPage - 1 && page <= currentPage + 1)
-        );
-      })
-      .reduce((acc, page, i, arr) => {
-        if (i > 0 && page - arr[i - 1] > 1) {
-          acc.push("dots");
-        }
-        acc.push(page);
-        return acc;
-      }, [])
-      .map((item, index) =>
-        item === "dots" ? (
-          <li className="page-item disabled" key={`dots-${index}`}>
-            <span className="page-link">...</span>
-          </li>
-        ) : (
-          <li
-            key={item}
-            className={`page-item ${item === currentPage ? "active" : ""}`}
-          >
-            <button className="page-link" onClick={() => setCurrentPage(item)}>
-              {item}
-            </button>
-          </li>
-        )
-      )}
+                        {/* Pagination Items */}
+                        {Array.from({ length: totalPages }, (_, i) => i + 1)
+                          .filter((page) => {
+                            return (
+                              page === 1 ||
+                              page === 2 ||
+                              page === totalPages ||
+                              page === totalPages - 1 ||
+                              (page >= currentPage - 1 &&
+                                page <= currentPage + 1)
+                            );
+                          })
+                          .reduce((acc, page, i, arr) => {
+                            if (i > 0 && page - arr[i - 1] > 1) {
+                              acc.push("dots");
+                            }
+                            acc.push(page);
+                            return acc;
+                          }, [])
+                          .map((item, index) =>
+                            item === "dots" ? (
+                              <li
+                                className="page-item disabled"
+                                key={`dots-${index}`}
+                              >
+                                <span className="page-link">...</span>
+                              </li>
+                            ) : (
+                              <li
+                                key={item}
+                                className={`page-item ${
+                                  item === currentPage ? "active" : ""
+                                }`}
+                              >
+                                <button
+                                  className="page-link"
+                                  onClick={() => setCurrentPage(item)}
+                                >
+                                  {item}
+                                </button>
+                              </li>
+                            )
+                          )}
 
-    {/* Next Button */}
-    <li
-      className={`page-item ${
-        currentPage === totalPages || totalPages === 0 ? "disabled" : ""
-      }`}
-    >
-      <button
-        className="page-link"
-        onClick={() =>
-          setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-        }
-      >
-        Next
-      </button>
-    </li>
-  </ul>
-</div>
+                        {/* Next Button */}
+                        <li
+                          className={`page-item ${
+                            currentPage === totalPages || totalPages === 0
+                              ? "disabled"
+                              : ""
+                          }`}
+                        >
+                          <button
+                            className="page-link"
+                            onClick={() =>
+                              setCurrentPage((prev) =>
+                                Math.min(prev + 1, totalPages)
+                              )
+                            }
+                          >
+                            Next
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

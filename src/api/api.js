@@ -95,13 +95,11 @@ export const api = async (
     console.log("url");
   } else {
     baseURL = process.env.REACT_APP_API_ENDPOINT;
-    console.log("urlelse", process.env.REACT_APP_API_ENDPOINT);
   }
 
   let token;
-  console.log(jwttoken, "jwttoken");
+
   if (jwttoken) {
-    console.log("if");
     token = jwttoken;
   } else {
     // window.location.replace("/");
@@ -195,8 +193,10 @@ export const api = async (
     }
     if ((susMsg && response.status === 200) || response.status === 201)
       response.data.success = true;
-    if (type !== "get" && msg) {
-      toast.success(msg);
+    if (type !== "get") {
+      console.log(response);
+
+      toast.success(msg || response.data.response);
     }
   } catch (error) {
     console.log("error");
@@ -206,10 +206,9 @@ export const api = async (
       error.response.status === 401 &&
       retry === true
     ) {
-      localStorage.clear();
-      window.location.reload();
-      window.location.replace("/login");
-      // console.log(error);
+      // localStorage.clear();
+      // window.location.reload();
+      // window.location.replace("/");
     } else {
       response.data.success = false;
       if (error && error.response) {
