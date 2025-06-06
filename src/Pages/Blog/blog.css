@@ -68,4 +68,7 @@
   overflow: hidden;
   border-radius: 20px;
   max-height: 275px;
+}.single_blog .card_image {
+  border-radius: 10px;
+  overflow: hidden;
 }
