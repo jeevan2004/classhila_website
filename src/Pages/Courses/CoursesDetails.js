@@ -30,7 +30,6 @@ const CoursesDetails = () => {
 
   const courseId = useParams();
 
-  
   const tabs = [
     {
       id: "about",
@@ -284,7 +283,6 @@ const CoursesDetails = () => {
   //   console.log(video._id , video, "videovideovideo ssss");
   //   setCurrentVideo({ ...video, videoUrl: newVideo });
 
-
   // };
   const handelCurrentVideo = async (video) => {
     const newVideo = await getTemporaryUrl(video.videoUrl);
@@ -306,23 +304,26 @@ const CoursesDetails = () => {
           <div className="row">
             <div className="col-md-8">
               <div className="left_side">
+                {currentVideo?.videoUrl ? (
+                  <div className="player">
+                    <ReactPlayer
+                      url={currentVideo.videoUrl}
+                      light={course?.image}
+                      playing={true}
+                      controls
+                      className="video_player"
+                    />
+                  </div>
+                ) : (
+                  <div className="videp_thumbline">
+                    <div
+                      className="player_icon"
+                      data-tooltip="Please Select a video"
+                    ></div>
+                    <img src={course?.image} />
+                  </div>
+                )}
 
-{currentVideo?.videoUrl ?<div className="player">
-                 
-                 <ReactPlayer
-                   url={currentVideo.videoUrl}
-                   light={course?.image}
-                   playing={true}
-                   controls
-                   className="video_player"
-                 />
-               </div>:
-               <div className="videp_thumbline">
-                <div className="player_icon" data-tooltip="Please Select a video"></div>
-               <img src={course?.image} />
-               </div>
-}
-                
                 {/* <div className="player">
                  
                   <ReactPlayer
@@ -731,12 +732,21 @@ const CoursesDetails = () => {
 
                                           return (
                                             <li
-                                              key={video._id}  className={`video-item ${isLocked ? "disabled-video" : ""} 
-                                              ${ activeVideoId === video._id ? "active" : ""
-        }`}
+                                              key={video._id}
+                                              className={`video-item ${
+                                                isLocked ? "disabled-video" : ""
+                                              } 
+                                              ${
+                                                activeVideoId === video._id
+                                                  ? "active"
+                                                  : ""
+                                              }`}
                                               onClick={() => {
                                                 if (!isLocked) {
-                                                  handelCurrentVideo(video , childIndex);
+                                                  handelCurrentVideo(
+                                                    video,
+                                                    childIndex
+                                                  );
                                                 }
                                               }}
                                               // onClick={() =>
