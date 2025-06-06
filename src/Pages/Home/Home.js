@@ -27,15 +27,15 @@ import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import Faq from "../../Components/faq/Faq";
 import ReactPlayer from "react-player";
 import SupportPage from "../../Components/SupportChat/SupportChat";
-import ImageBg from '../../assets/image/Image-Bg.jpg'
-import PM from '../../assets/image/pm.png'
-import AiImage from '../../assets/image/AiImage.png'
+import ImageBg from "../../assets/image/Image-Bg.jpg";
+import PM from "../../assets/image/pm.png";
+import AiImage from "../../assets/image/AiImage.png";
 import OurWorkShop from "../../Components/OurWorkShop/OurWorkShop";
 import homeimage2 from "../../assets/image/robot2.jpeg";
 import otbi from "../../assets/image/otbi.jpeg";
 import otbi1 from "../../assets/image/otbi1.png";
 
-import bggrace from '../../assets/image/bggrace.png'
+import bggrace from "../../assets/image/bggrace.png";
 
 import Achievements from "../../Components/Achievements/Achievements";
 import { api } from "../../api/api";
@@ -43,24 +43,16 @@ import { api } from "../../api/api";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
-  const navigate =useNavigate();
-  
- 
- const getBlogData = async () => {
+
+  const getBlogData = async () => {
     setIsLoading(true);
-    let res = await api(
-      `api/v1/blog`,
-      "",
-      "get",
-      "",
-      ""
-    );
+    let res = await api(`api/v1/blog`, "", "get", "", "");
 
     if (res?.success) {
-      console.log(res, 'blog');
-      
+      console.log(res, "blog");
+
       setBlogData(res?.data || []);
-     // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
+      // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
     }
 
     setIsLoading(false);
@@ -70,13 +62,9 @@ const Home = () => {
     getBlogData();
   }, []);
 
-  
-  const filteredBlogs = blogData.filter(item => item.type === 2);
+  const filteredBlogs = blogData.filter((item) => item.type === 2);
 
-
-console.log(filteredBlogs , "filteredBlogs");
-
-
+  console.log(filteredBlogs, "filteredBlogs");
 
   const tabs = [
     "tab1",
@@ -125,7 +113,6 @@ console.log(filteredBlogs , "filteredBlogs");
     ],
   };
 
- 
   const LatestArticle = [
     {
       id: "importance-feedback-in-online-learning",
@@ -197,9 +184,7 @@ console.log(filteredBlogs , "filteredBlogs");
   ];
   return (
     <>
-
-
-{/* <section className="manbanner-section position-relative">
+      {/* <section className="manbanner-section position-relative">
       <div className="manbanner-image-wrapper">
         <img src={bannerImage} alt="AI Club Banner" className="img-fluid w-100" />
         <div className="manbanner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
@@ -214,91 +199,120 @@ console.log(filteredBlogs , "filteredBlogs");
       </div>
     </section> */}
 
-
-
-
-<section className="hero-section d-flex align-items-center justify-content-center" style={{
-  backgroundImage: `url(${ImageBg})`
-}}>
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-md-6">
-        <h1 className="hero-title">World's First AI Online Club launched by Classhila </h1>
-      <p className="hero-subtitle">Classhila creates history by launching the world's first Online AI Club, setting a global precedent in AI education.</p> 
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Read More</a>
-      {/* <p className="hero-subtitle">Invest in your Career</p>
+      <section
+        className="hero-section d-flex align-items-center justify-content-center"
+        style={{
+          backgroundImage: `url(${ImageBg})`,
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <h1 className="hero-title">
+                World's First AI Online Club launched by Classhila{" "}
+              </h1>
+              <p className="hero-subtitle">
+                Classhila creates history by launching the world's first Online
+                AI Club, setting a global precedent in AI education.
+              </p>
+              <a
+                href="#historic-first"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Read More
+              </a>
+              {/* <p className="hero-subtitle">Invest in your Career</p>
       {/* <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</a>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</a>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </a> */}
-        </div>
-        <div className="col-md-6">
-          <img src={AiImage} />
-        </div>
-      </div>
-
-
-     
-    </div>
-  </section>
-  <section className="hero-section hero_section2 d-flex align-items-center justify-content-center pb-5"    style={{
-  backgroundImage: `url(${bggrace})`
-}}>
-    <div className="container">
-      <div className="row align-items-center">
-      <div className="col-md-6">
-          <img src={homeimage2} />
-        </div>
-        <div className="col-md-6">
-        <h1 className="hero-title">World's First </h1>
-      <p className="hero-subtitle">Introducing Classhila’s World’s First Online AI Club — a revolutionary initiative redefining the future of AI education and collaboration. Powered by Classhila, a trailblazing EdTech platform, this global-first club serves as a vibrant community where AI enthusiasts, learners, and innovators converge to explore, create, and lead in the evolving world of artificial intelligence.
-
-</p>
-      {/* <p className="hero-subtitle">Invest in your Career</p> */}
-
-      <Link to="/register" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</Link>
-      <Link to="/register"  className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</Link>
-      <Link to="/courses" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </Link>
-        </div>
-       
-      </div>
-
-
-     
-    </div>
-  </section>
-  
-  <section className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5">
-    <div className="container">
-      <div className="row align-items-center">
-      <div className="col-md-6">
-        <div className="image_fram">
-          <img src={otbi1} />
+            </div>
+            <div className="col-md-6">
+              <img src={AiImage} />
+            </div>
           </div>
         </div>
-        <div className="col-md-6">
-        <h1 className="hero-title">Historic First</h1>
-        <h4>Classhila is India's first EdTech Company backed by Osmania University's Technology Business Incubation</h4>
+      </section>
+      <section
+        className="hero-section hero_section2 d-flex align-items-center justify-content-center pb-5"
+        style={{
+          backgroundImage: `url(${bggrace})`,
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img src={homeimage2} />
+            </div>
+            <div className="col-md-6">
+              <h1 className="hero-title">World's First </h1>
+              <p className="hero-subtitle">
+                Introducing Classhila’s World’s First Online AI Club — a
+                revolutionary initiative redefining the future of AI education
+                and collaboration. Powered by Classhila, a trailblazing EdTech
+                platform, this global-first club serves as a vibrant community
+                where AI enthusiasts, learners, and innovators converge to
+                explore, create, and lead in the evolving world of artificial
+                intelligence.
+              </p>
+              {/* <p className="hero-subtitle">Invest in your Career</p> */}
+              <Link to="/register" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</Link>
+      <Link to="/register"  className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</Link>
+      <Link to="/courses" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </Link>
 
-      <p className="hero-subtitle">Classhila holds the distinguished honor of being India's first EdTech Company to receive backing from Osmania Technology Business Incubation (OTBI) of India's Premier university-Osmania University. This landmark partnership validates Classhila's cutting-edge approach, combining Osmania University's research legacy with Classhila's scalable, tech-driven education model- bridging academic and industry to build future-ready learning solutions.</p>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Affordable & Accessible Education</a>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button"> Cross Cultural Learning</a>
-
-
-           
+            </div>
+          </div>
         </div>
-       
-      </div>
+      </section>
 
+      <section
+        id="historic-first"
+        className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5"
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <div className="image_fram">
+                <img src={otbi1} />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <h1 className="hero-title">Historic First</h1>
+              <h4>
+                Classhila is India's first EdTech Company backed by Osmania
+                University's Technology Business Incubation
+              </h4>
 
-     
-    </div>
-  </section>
-  <Achievements />
-  <OurWorkShop />
- 
- 
+              <p className="hero-subtitle">
+                Classhila holds the distinguished honor of being India's first
+                EdTech Company to receive backing from Osmania Technology
+                Business Incubation (OTBI) of India's Premier university-Osmania
+                University. This landmark partnership validates Classhila's
+                cutting-edge approach, combining Osmania University's research
+                legacy with Classhila's scalable, tech-driven education model-
+                bridging academic and industry to build future-ready learning
+                solutions.
+              </p>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Affordable & Accessible Education
+              </a>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                {" "}
+                Cross Cultural Learning
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Achievements />
+      <OurWorkShop />
+
       <HomeBanner />
-      
 
       <WithUs btn={true} />
       <OurGoal />
@@ -378,8 +392,6 @@ console.log(filteredBlogs , "filteredBlogs");
       <div className="faq_sec">
         <Faq />
       </div>
-     
-
 
       <div className="home_single_blog p-70">
         <Container>
@@ -404,22 +416,23 @@ console.log(filteredBlogs , "filteredBlogs");
             </div>
           </div>
           <div className="row ">
-          <div className="col-lg-7">
+            <div className="col-lg-7">
               <div className="card_image">
-             
                 <img className="w-100" src={[filteredBlogs[0]?.image]} />
               </div>
               <div className="content">
-                    <h5>{filteredBlogs[0]?.title}</h5>
-                    <p>
-                      {filteredBlogs[0]?.content
-                        ?.split(" ")
-                        .slice(0, 100)
-                        .join(" ")}
-                      {filteredBlogs[0]?.content?.split(" ").length > 20 && "..."}
-                    </p>
-                    <Link to={`blog/${filteredBlogs[0]?._id}`}>{"Read More >"}</Link>
-                  </div>
+                <h5>{filteredBlogs[0]?.title}</h5>
+                <p>
+                  {filteredBlogs[0]?.content
+                    ?.split(" ")
+                    .slice(0, 100)
+                    .join(" ")}
+                  {filteredBlogs[0]?.content?.split(" ").length > 20 && "..."}
+                </p>
+                <Link to={`blog/${filteredBlogs[0]?._id}`}>
+                  {"Read More >"}
+                </Link>
+              </div>
             </div>
             <div className="col-lg-5">
               <div className="latest_sec">
@@ -431,15 +444,17 @@ console.log(filteredBlogs , "filteredBlogs");
                         <li>
                           <img src={item?.image} alt="" />
                           <div className="contents">
-                            <h5>
-                             {item?.title}
-                            </h5>
+                            <h5>{item?.title}</h5>
                             <p>
-                            <p>{item?.content?.slice(0, 100)}{item?.content?.length > 100 && "..."}</p>
-
+                              <p>
+                                {item?.content?.slice(0, 100)}
+                                {item?.content?.length > 100 && "..."}
+                              </p>
                             </p>
-                            
-                              <Link to={`blog/${item?._id}`}>{"Read More >"}</Link>
+
+                            <Link to={`blog/${item?._id}`}>
+                              {"Read More >"}
+                            </Link>
                           </div>
                         </li>
                       </>
@@ -451,7 +466,6 @@ console.log(filteredBlogs , "filteredBlogs");
           </div>
           <button className="btn_primary px-5 mt-4 mx-auto">More</button>
         </Container>
-       
       </div>
     </>
   );
