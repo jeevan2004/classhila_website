@@ -16,12 +16,14 @@ const SingleBlog = () => {
   const { name } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
-  const [blogAllData, setBlogAllData] = useState([]);
-  
 
-  console.log(name , "name");
-  
-  const filteredBlogs = blogAllData.filter(item => item.type === 1);
+  const [blogAllData, setBlogAllData] = useState([]);
+
+  console.log(name, "name");
+
+  const filteredBlogs = blogAllData.filter(
+    (item) => item.type === blogData?.type
+  );
 
   const { currUserData } = useAuthContext();
 
@@ -44,38 +46,29 @@ const SingleBlog = () => {
     setIsLoading(false);
   };
 
-   const getAllBlogData = async () => {
-      setIsLoading(true);
-      let res = await api(
-        `api/v1/blog`,
-        "",
-        "get",
-        "",
-        ""
-      );
-  
-      if (res?.success) {
-        setBlogAllData(res?.data || []);
-       // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
-      }
-  
-      setIsLoading(false);
-    };
-  
- 
-  
+  const getAllBlogData = async () => {
+    setIsLoading(true);
+    let res = await api(`api/v1/blog`, "", "get", "", "");
+
+    if (res?.success) {
+      setBlogAllData(res?.data || []);
+      // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
+    }
+
+    setIsLoading(false);
+  };
+
   // useEffect(() => {
   //   getBlogData();getAllBlogData();
   // }, [ ]);
 
   useEffect(() => {
-    getBlogData(); 
+    getBlogData();
   }, [name]);
-  
+
   useEffect(() => {
     getAllBlogData();
   }, []);
-  
 
   // const blog = BlogData.find((item) => item.id === name);
   const LatestArticle = [1, 2, 3, 4, 5];
@@ -84,7 +77,10 @@ const SingleBlog = () => {
       <Container>
         <div className="row justify-content-center text-center">
           <div className="col-12 col-lg-6 mx-auto">
-            <h2 className="second_heading ">Single Blog</h2>
+            <h2 className="second_heading ">
+              {" "}
+              {blogData?.type === 1 ? "Single Blog" : "Single Artical"}
+            </h2>
           </div>
         </div>
         <div className="row mt-5">
@@ -112,24 +108,25 @@ const SingleBlog = () => {
           </div>
           <div className="col-md-4">
             <div className="latest_sec">
-              <h4>Latest Article</h4>
+              <h4>{blogData?.type === 1 ? "Latest Blog" : "Latest Artical"}</h4>
               <ul>
-                 {filteredBlogs.slice(0, 5).map((item) => (
-                
-                                  <li key={item._id}>
-                                    <span className="img_sec">
-                                  <img src={item?.image} alt="" /></span>
-                                  <div className="contents">
-                                    <h5>
-                                    
-                                      {item?.title.split(" ").slice(0, 4).join(" ") + (item?.title.split(" ").length > 20 ? "..." : "")}
-                                    </h5>
-                                    <p>
-                                      {item?.content.split(" ").slice(0, 8).join(" ") + (item?.content.split(" ").length > 20 ? "..." : "")}
-                                    </p>
-                                     <Link to={`/blog/${item?._id}`}>{"Read More >"}</Link>
-                                  </div>
-                                </li>
+                {filteredBlogs.slice(0, 5).map((item) => (
+                  <li key={item._id}>
+                    <span className="img_sec">
+                      <img src={item?.image} alt="" />
+                    </span>
+                    <div className="contents">
+                      <h5>
+                        {item?.title.split(" ").slice(0, 4).join(" ") +
+                          (item?.title.split(" ").length > 20 ? "..." : "")}
+                      </h5>
+                      <p>
+                        {item?.content.split(" ").slice(0, 8).join(" ") +
+                          (item?.content.split(" ").length > 20 ? "..." : "")}
+                      </p>
+                      <Link to={`/blog/${item?._id}`}>{"Read More >"}</Link>
+                    </div>
+                  </li>
                 ))}
               </ul>
             </div>
