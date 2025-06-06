@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
+import eye from "../../assets/image/login_img.png";
+
 import { api } from "../../api/api";
 import { useAuthContext } from "../../AuthContextAPI";
 import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const { doLogin, setProfileData } = useAuthContext();
+  const [password, setPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const {
@@ -88,15 +92,26 @@ const Login = () => {
                   </div>
                   <div className="col-md-10 mx-auto">
                     <div className="mb-3 px-2">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="*Password"
-                        {...register("password", registerOptions.password)}
-                      />
-                      {errors.password && (
-                        <p className="text-danger">{errors.password.message}</p>
-                      )}
+                      <div className="password">
+                        <input
+                          type={password ? "text" : "password"}
+                          className="form-control"
+                          placeholder="*Password"
+                          {...register("password", registerOptions.password)}
+                        />
+                        <span className="icon">
+                          {/* <img onClick={() => setPassword(!password)} src={eye} /> */}
+                          <i
+                            className="fas fa-eye"
+                            onClick={() => setPassword(!password)}
+                          ></i>
+                        </span>
+                        {errors.password && (
+                          <p className="text-danger">
+                            {errors.password.message}
+                          </p>
+                        )}
+                      </div>
                     </div>
                     <button
                       className="btn_secondary btn_md w-100 mt-4 text-center"

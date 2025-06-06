@@ -357,8 +357,6 @@ input::placeholder {
   color: #fff;
 }
 
-
-
 .pagination li.page-item button.page-link {
   color: #ff6b0d;
 }
@@ -366,8 +364,6 @@ input::placeholder {
 .pagination li.page-item.disabled {
   cursor: not-allowed;
 }
-
-
 
 @media (max-width: 1024px) {
   .btn_secondary {
@@ -457,6 +453,22 @@ input::placeholder {
   left: 15px;
 }
 
+.password {
+  position: relative;
+}
+
+.password .icon {
+  width: 20px;
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+}
+
+@media (max-width: 1439.98px) {
+  .password .icon {
+    bottom: 8px;
+  }
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -516,9 +528,7 @@ html {
 }
 
 @media (max-width: 480px) {
-body .hero-title {
-  font-size: 23px;
+  body .hero-title {
+    font-size: 23px;
+  }
 }
-}
-
-
