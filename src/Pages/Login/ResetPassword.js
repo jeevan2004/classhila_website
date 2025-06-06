@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import login_img from "../../assets/image/login_img.png";
 import { api } from "../../api/api";
 import { toast } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
+
 
 const ResetPassword = () => {
   const [countdown, setCountdown] = useState(180);
@@ -14,7 +16,15 @@ const ResetPassword = () => {
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get("email");
   const isLogin = queryParams.get("page");
-
+  const token = queryParams.get("token");
+  let decodedEmail
+  try {
+    decodedEmail = jwtDecode(token).email;
+  
+  } catch (error) {
+    console.error("Invalid token", error);
+  }
+  
   const {
     register,
     handleSubmit,
@@ -80,7 +90,10 @@ const ResetPassword = () => {
       .map((key) => data[key])
       .join("");
 
-    const payload = { email, otp: otpNumber, newPassword: data.password };
+    const payload = { email:email || decodedEmail,
+      otp: otpNumber,
+       newPassword: data.password 
+      };
     console.log(data, otpNumber);
 
     if (otpNumber.length === 6) {

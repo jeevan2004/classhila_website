@@ -2,11 +2,15 @@ import { Navigate, Route, Routes as MyRoutes } from "react-router";
 
 import PublicLayout from "../Components/Layout/PublicLayout";
 import { routes } from "./RoutePath";
+import ResetPassword from "../Pages/Login/ResetPassword";
 
 const Routes = () => {
   return (
     <>
       <MyRoutes>
+
+    
+  <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/" element={<PublicLayout />}>
           {routes.map((r) =>
             r.subRouting ? (
