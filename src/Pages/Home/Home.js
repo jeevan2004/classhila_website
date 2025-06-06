@@ -27,15 +27,15 @@ import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import Faq from "../../Components/faq/Faq";
 import ReactPlayer from "react-player";
 import SupportPage from "../../Components/SupportChat/SupportChat";
-import ImageBg from '../../assets/image/Image-Bg.jpg'
-import PM from '../../assets/image/pm.png'
-import AiImage from '../../assets/image/AiImage.png'
+import ImageBg from "../../assets/image/Image-Bg.jpg";
+import PM from "../../assets/image/pm.png";
+import AiImage from "../../assets/image/AiImage.png";
 import OurWorkShop from "../../Components/OurWorkShop/OurWorkShop";
 import homeimage2 from "../../assets/image/robot2.jpeg";
 import otbi from "../../assets/image/otbi.jpeg";
 import otbi1 from "../../assets/image/otbi1.png";
 
-import bggrace from '../../assets/image/bggrace.png'
+import bggrace from "../../assets/image/bggrace.png";
 
 import Achievements from "../../Components/Achievements/Achievements";
 import { api } from "../../api/api";
@@ -43,22 +43,16 @@ import { api } from "../../api/api";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
- 
- const getBlogData = async () => {
+
+  const getBlogData = async () => {
     setIsLoading(true);
-    let res = await api(
-      `api/v1/blog`,
-      "",
-      "get",
-      "",
-      ""
-    );
+    let res = await api(`api/v1/blog`, "", "get", "", "");
 
     if (res?.success) {
-      console.log(res, 'blog');
-      
+      console.log(res, "blog");
+
       setBlogData(res?.data || []);
-     // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
+      // setTotalPages(res?.totalPages || 1); // ensure API returns totalPages
     }
 
     setIsLoading(false);
@@ -67,12 +61,6 @@ const Home = () => {
   useEffect(() => {
     getBlogData();
   }, []);
-
-  
-
-
-
-
 
   const tabs = [
     "tab1",
@@ -203,9 +191,7 @@ const Home = () => {
   ];
   return (
     <>
-
-
-{/* <section className="manbanner-section position-relative">
+      {/* <section className="manbanner-section position-relative">
       <div className="manbanner-image-wrapper">
         <img src={bannerImage} alt="AI Club Banner" className="img-fluid w-100" />
         <div className="manbanner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
@@ -220,90 +206,134 @@ const Home = () => {
       </div>
     </section> */}
 
-
-
-
-<section className="hero-section d-flex align-items-center justify-content-center" style={{
-  backgroundImage: `url(${ImageBg})`
-}}>
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-md-6">
-        <h1 className="hero-title">World's First AI Online Club launched by Classhila </h1>
-      <p className="hero-subtitle">Classhila creates history by launching the world's first Online AI Club, setting a global precedent in AI education.</p> 
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Read More</a>
-      {/* <p className="hero-subtitle">Invest in your Career</p>
+      <section
+        className="hero-section d-flex align-items-center justify-content-center"
+        style={{
+          backgroundImage: `url(${ImageBg})`,
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <h1 className="hero-title">
+                World's First AI Online Club launched by Classhila{" "}
+              </h1>
+              <p className="hero-subtitle">
+                Classhila creates history by launching the world's first Online
+                AI Club, setting a global precedent in AI education.
+              </p>
+              <a
+                href="#historic-first"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Read More
+              </a>
+              {/* <p className="hero-subtitle">Invest in your Career</p>
       {/* <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</a>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</a>
       <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </a> */}
-        </div>
-        <div className="col-md-6">
-          <img src={AiImage} />
-        </div>
-      </div>
-
-
-     
-    </div>
-  </section>
-  <section className="hero-section hero_section2 d-flex align-items-center justify-content-center pb-5"    style={{
-  backgroundImage: `url(${bggrace})`
-}}>
-    <div className="container">
-      <div className="row align-items-center">
-      <div className="col-md-6">
-          <img src={homeimage2} />
-        </div>
-        <div className="col-md-6">
-        <h1 className="hero-title">World's First </h1>
-      <p className="hero-subtitle">Introducing Classhila’s World’s First Online AI Club — a revolutionary initiative redefining the future of AI education and collaboration. Powered by Classhila, a trailblazing EdTech platform, this global-first club serves as a vibrant community where AI enthusiasts, learners, and innovators converge to explore, create, and lead in the evolving world of artificial intelligence.
-
-</p>
-      {/* <p className="hero-subtitle">Invest in your Career</p> */}
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Learn new skills</a>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Get Certified</a>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Best courses offered </a>
-        </div>
-       
-      </div>
-
-
-     
-    </div>
-  </section>
-  
-  <section className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5">
-    <div className="container">
-      <div className="row align-items-center">
-      <div className="col-md-6">
-        <div className="image_fram">
-          <img src={otbi1} />
+            </div>
+            <div className="col-md-6">
+              <img src={AiImage} />
+            </div>
           </div>
         </div>
-        <div className="col-md-6">
-        <h1 className="hero-title">Historic First</h1>
-        <h4>Classhila is India's first EdTech Company backed by Osmania University's Technology Business Incubation</h4>
-
-      <p className="hero-subtitle">Classhila holds the distinguished honor of being India's first EdTech Company to receive backing from Osmania Technology Business Incubation (OTBI) of India's Premier university-Osmania University. This landmark partnership validates Classhila's cutting-edge approach, combining Osmania University's research legacy with Classhila's scalable, tech-driven education model- bridging academic and industry to build future-ready learning solutions.</p>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button">Affordable & Accessible Education</a>
-      <a href="#join-now" className="btn btn-primary mx-2 btn-lg cta-button"> Cross Cultural Learning</a>
-
-
-           
+      </section>
+      <section
+        className="hero-section hero_section2 d-flex align-items-center justify-content-center pb-5"
+        style={{
+          backgroundImage: `url(${bggrace})`,
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img src={homeimage2} />
+            </div>
+            <div className="col-md-6">
+              <h1 className="hero-title">World's First </h1>
+              <p className="hero-subtitle">
+                Introducing Classhila’s World’s First Online AI Club — a
+                revolutionary initiative redefining the future of AI education
+                and collaboration. Powered by Classhila, a trailblazing EdTech
+                platform, this global-first club serves as a vibrant community
+                where AI enthusiasts, learners, and innovators converge to
+                explore, create, and lead in the evolving world of artificial
+                intelligence.
+              </p>
+              {/* <p className="hero-subtitle">Invest in your Career</p> */}
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Learn new skills
+              </a>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Get Certified
+              </a>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Best courses offered{" "}
+              </a>
+            </div>
+          </div>
         </div>
-       
-      </div>
+      </section>
 
+      <section
+        id="historic-first"
+        className="hero-section  hero_section d-flex align-items-center justify-content-center pb-5"
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <div className="image_fram">
+                <img src={otbi1} />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <h1 className="hero-title">Historic First</h1>
+              <h4>
+                Classhila is India's first EdTech Company backed by Osmania
+                University's Technology Business Incubation
+              </h4>
 
-     
-    </div>
-  </section>
-  <Achievements />
-  <OurWorkShop />
- 
- 
+              <p className="hero-subtitle">
+                Classhila holds the distinguished honor of being India's first
+                EdTech Company to receive backing from Osmania Technology
+                Business Incubation (OTBI) of India's Premier university-Osmania
+                University. This landmark partnership validates Classhila's
+                cutting-edge approach, combining Osmania University's research
+                legacy with Classhila's scalable, tech-driven education model-
+                bridging academic and industry to build future-ready learning
+                solutions.
+              </p>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                Affordable & Accessible Education
+              </a>
+              <a
+                href="#join-now"
+                className="btn btn-primary mx-2 btn-lg cta-button"
+              >
+                {" "}
+                Cross Cultural Learning
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Achievements />
+      <OurWorkShop />
+
       <HomeBanner />
-      
 
       <WithUs btn={true} />
       <OurGoal />
@@ -383,8 +413,6 @@ const Home = () => {
       <div className="faq_sec">
         <Faq />
       </div>
-     
-
 
       <div className="home_single_blog p-70">
         <Container>
@@ -409,31 +437,63 @@ const Home = () => {
             </div>
           </div>
           <div className="row ">
-          <div className="col-lg-7">
+            <div className="col-lg-7">
               <div className="card_image">
                 <img className="w-100" src={PM} />
               </div>
               <div className="content">
-                <h5>PM Schools For Rising India (PM SHRI Scheme)- Transforming India's Education Landscape</h5>
-               
-                      <p>Approved by the Union Cabinet on 7 September 2022, the centrally sponsored PM SHRI (PM Schools for Rising India) scheme aims to develop over 14,500 exemplar PM SHRI Schools by upgrading existing institutions across Central/State/UT governments and local bodies. With a total outlay of ₹27,360 crore (Central share: ₹18,128 crore) over five years, these schools will demonstrate effective implementation of National Education Policy 2020 and mentor neighboring institutions.  The total cost of the project will be Rs. 27360 crore spread over a period of 5 years which includes a central share of Rs. 18128 crore.
+                <h5>
+                  PM Schools For Rising India (PM SHRI Scheme)- Transforming
+                  India's Education Landscape
+                </h5>
 
-                      </p>
-                      <p><b>Key Highlights:</b> <br />
-Progress: 12,084 schools selected across 32 States/UTs (including KVS/NVS) through a transparent challenge method (Phases 1-4)  
-- Primary: 1,329 | Elementary: 3,340 | Secondary: 2,907 | Senior Secondary: 4,508  </p>
+                <p>
+                  Approved by the Union Cabinet on 7 September 2022, the
+                  centrally sponsored PM SHRI (PM Schools for Rising India)
+                  scheme aims to develop over 14,500 exemplar PM SHRI Schools by
+                  upgrading existing institutions across Central/State/UT
+                  governments and local bodies. With a total outlay of ₹27,360
+                  crore (Central share: ₹18,128 crore) over five years, these
+                  schools will demonstrate effective implementation of National
+                  Education Policy 2020 and mentor neighboring institutions. The
+                  total cost of the project will be Rs. 27360 crore spread over
+                  a period of 5 years which includes a central share of Rs.
+                  18128 crore.
+                </p>
+                <p>
+                  <b>Key Highlights:</b> <br />
+                  Progress: 12,084 schools selected across 32 States/UTs
+                  (including KVS/NVS) through a transparent challenge method
+                  (Phases 1-4) - Primary: 1,329 | Elementary: 3,340 | Secondary:
+                  2,907 | Senior Secondary: 4,508{" "}
+                </p>
 
+                <p>
+                  <b>Comprehensive Upgrades: </b> <br />
+                  Primary/Elementary: Balvatika facilities, Jadui Pitara,
+                  child-friendly furniture, play materials Secondary/Senior
+                  Secondary: Smart classrooms, STEM labs (Science/ICT/Atal
+                  Tinkering), skill labs, innovation councils, sports
+                  infrastructure Governance: 33 States/UTs including KVS & NVS
+                  have signed MoUs with the Education Ministry to implement the
+                  PM SHRI scheme.{" "}
+                </p>
 
-<p><b>Comprehensive Upgrades: </b> <br />
-Primary/Elementary: Balvatika facilities, Jadui Pitara, child-friendly furniture, play materials  
-Secondary/Senior Secondary: Smart classrooms, STEM labs (Science/ICT/Atal Tinkering), skill labs, innovation councils, sports infrastructure 
-Governance: 33 States/UTs including KVS & NVS have signed MoUs with the Education Ministry to implement the PM SHRI scheme.  </p>
-
-
-<p>Selection of PM SHRI schools is done through Challenge Mode wherein Schools compete to become benchmarks for 21st-century education in India.  
-PM SHRI Scheme is being implemented by saturating all the components such as Bala feature and Jadui Pitara, Support at Pre-school Education, Smart Classrooms, Computer Lab/ ICT Lab, Atal Tinkering Lab, Skill Lab, School Innovation Councils, Child Friendly Furniture, Outdoor Play Materials etc. in Primary and Elementary Schools and Furniture, Fully equipped integrated Science Lab/Physics Lab/Chemistry Lab/ Biology Lab, Playground with well-equipped sports facilities etc. for secondary and senior secondary schools.</p>
-                      <Link to={"#"}>{"Read More >"}</Link>
-                   
+                <p>
+                  Selection of PM SHRI schools is done through Challenge Mode
+                  wherein Schools compete to become benchmarks for 21st-century
+                  education in India. PM SHRI Scheme is being implemented by
+                  saturating all the components such as Bala feature and Jadui
+                  Pitara, Support at Pre-school Education, Smart Classrooms,
+                  Computer Lab/ ICT Lab, Atal Tinkering Lab, Skill Lab, School
+                  Innovation Councils, Child Friendly Furniture, Outdoor Play
+                  Materials etc. in Primary and Elementary Schools and
+                  Furniture, Fully equipped integrated Science Lab/Physics
+                  Lab/Chemistry Lab/ Biology Lab, Playground with well-equipped
+                  sports facilities etc. for secondary and senior secondary
+                  schools.
+                </p>
+                <Link to={"#"}>{"Read More >"}</Link>
               </div>
             </div>
             <div className="col-lg-5">
@@ -469,7 +529,6 @@ PM SHRI Scheme is being implemented by saturating all the components such as Bal
           </div>
           <button className="btn_primary px-5 mt-4 mx-auto">More</button>
         </Container>
-       
       </div>
     </>
   );
