@@ -155,14 +155,14 @@ export const routes = [
     name: "ForgotPassword",
     subRouting: false,
   },
-  {
-    notLazy: true,
-    path: "/reset-password",
-    element: ResetPassword,
-    role: "private",
-    name: "ResetPassword",
-    subRouting: false,
-  },
+  // {
+  //   notLazy: true,
+  //   path: "/reset-password",
+  //   element: ResetPassword,
+  //   role: "private",
+  //   name: "ResetPassword",
+  //   subRouting: false,
+  // },
 
   {
     notLazy: true,
