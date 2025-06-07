@@ -45,6 +45,9 @@
   border-radius: 20px;
 }
 
+.with_us_button {
+  max-width: fit-content;
+}
 @media (min-width: 1400px) {
   .with_us .images .shape3 {
     bottom: 0;

@@ -414,7 +414,7 @@ console.log(profileData , "profileData");
                   className="main_heading mb-3"
                   style={{ color: "rgba(237, 115, 48, 1)" }}
                 >
-                  Latest Updates in Online <br /> Courses and Education.
+                  Latest Updates in Online <br /> Courses and Education
                 </h1>
                 <p className="main_text">
                   Check back regularly for new courses, special events, and

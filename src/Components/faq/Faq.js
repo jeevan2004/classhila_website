@@ -86,7 +86,7 @@ const Faq = () => {
               <div className="mb-4">
                 <h6 className="pre_heading">FAQS</h6>
                 <h2 className="main_heading mb-3">
-                  Your Guide To Online Learning Success.
+                  Your Guide To Online Learning Success
                 </h2>
                 <p className="main_text">
                   We've got answers! Here you'll find information on enrollment,

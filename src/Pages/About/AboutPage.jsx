@@ -130,15 +130,14 @@ const AboutPage = () => {
                 <div className="mb-5">
                   <h4 className="second_heading">Vision</h4>
                   <p>
-                    Empowering every student with accessible, inclusive, and
-                    transformative education for a brighter future.
+                  To create a world where every student, regardless of their background, is empowered with a well-rounded education that nurtures resilience, critical thinking, and a passion for lifelong learning, equipping them to confidently navigate and succeed in the complexities of the modern world.
+
                   </p>
                 </div>
                 <div className="">
                   <h4 className="second_heading">Mission</h4>
                   <p>
-                    To make quality education affordable and inclusive,
-                    fostering academic and personal and academic growth for all.
+                  Our mission is to break down barriers to quality education and create a supportive, inclusive learning environment ensuring that every student, including those with special needs, reach their full potential. We are dedicated to providing a transformative educational experience by leveraging innovative teaching methods and affordable access to expert guidance that fosters academic excellence, personal growth, and social development.
                   </p>
                 </div>
               </div>

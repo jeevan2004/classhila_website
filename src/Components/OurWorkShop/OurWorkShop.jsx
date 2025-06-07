@@ -33,7 +33,7 @@ const OurWorkShop = () => {
           <div className="col-lg-6 col-md-12">
             <div className="text-center mb-5">
               {/* <div className="pre_heading">Our Workshop</div> */}
-              <h1 className="main_heading mb-3">Our Workshop</h1>
+              <h1 className="main_heading mb-3">Our Workshops</h1>
               <p className="main_text">
                 Classhila offers immersive online and offline workshops in
                 Finance Literacy and Acting, designed to suit your learning

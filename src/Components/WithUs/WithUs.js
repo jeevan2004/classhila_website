@@ -1,6 +1,6 @@
 import React from "react";
 import boy from "../../assets/image/boy.png";
-import video from "../../assets/image/Video.png";
+import banner_about from "../../assets/image/banner_about.jpg";
 import phone from "../../assets/image/icon/phone.png";
 import ellipse_grey from "../../assets/image/icon/ellipse_grey.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
@@ -16,34 +16,18 @@ const WithUs = ({ btn }) => {
           <div className="col-lg-6 mb-4">
             <div className="content">
               <h2 className="main_heading mb-3">
-              Outperform, Outlearn, Outshine-With Our Proven Coaching
+              We boost your performance beyond your expectations
               </h2>
               <p className="main_text mb-2">
-                To create a world where every student, regardless of their
-                background, is empowered with a well-rounded education that
-                nurtures resilience, critical thinking, and a passion for
-                lifelong learning, equipping them to confidently navigate and
-                succeed in the complexities of the modern world.
-              </p>
-              <p className="main_text mb-3">
-                With a team of experienced educators and industry professionals,
-                we offer engaging content designed to inspire and motivate
-                learners from all backgrounds. Join our vibrant community of
-                learners and start your journey with us today!
-              </p>
+              Classhila is a subscription-based online learning platform that provides access to a wide range of educational resources and expert guidance.
+              We strongly believe that our digital solutions can provide students with the opportunity to learn anytime, anywhere, and be equipped with the right knowledge and skills to achieve their dreams and goals. Through our strong focus on technology and innovative educational content, we are changing the landscape of learning for students in India. </p>
               {btn && (
                 <Link to={"/about-us"} className="btn_secondary fit_auto">
                   Learn More
                 </Link>
               )}
             </div>
-          </div>
-          <div className="col-lg-6 mb-4">
-            <div className="images">
-              <div className="row">
-                <div className="col-sm-6">
-                  <img src={boy} alt="" className="rounded-4" />
-                  <div className="with_us_button btn_secondary d-block mt-3">
+            <div className="with_us_button btn_secondary d-block mt-3">
                   <div className="inner d-flex">
 
                     <img src={phone} alt="" />
@@ -61,10 +45,14 @@ const WithUs = ({ btn }) => {
 </div>
 </div>
                   </div>
-                </div>
-                <div className="col-sm-6">
+          </div>
+          <div className="col-lg-6 mb-4">
+            <div className="images">
+              <div className="row">
+               
+                <div className="col-sm-12">
                   <div className="img_box">
-                    <img src={video} alt="" className="mt-5 w-100" />
+                    <img src={banner_about} alt="" className="w-100" />
                   </div>
                 </div>
               </div>
