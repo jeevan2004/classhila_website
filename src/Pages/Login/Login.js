@@ -12,6 +12,7 @@ import { jwtDecode } from "jwt-decode";
 const Login = () => {
   const { doLogin, setProfileData } = useAuthContext();
   const [password, setPassword] = useState(false);
+  const [loginNumber, setLoginNumber] = useState(false);
 
   const navigate = useNavigate();
 
@@ -29,16 +30,22 @@ const Login = () => {
         message: "Enter a valid email address",
       },
     },
+    phone: {
+      required: "Phone Number is required",
+      pattern: {
+        value: /^\+91[0-9]{10}$/, // +91 followed by exactly 10 digits
+        message: "Enter a valid phone number starting with +91 and 10 digits",
+      },
+    },
     password: {
       required: "Password is required",
     },
   };
 
   const onSubmit = async (formData) => {
-    const payload = {
-      email: formData.email,
-      password: formData.password,
-    };
+    const payload = loginNumber
+      ? { phone: formData.phone, password: formData.password }
+      : { email: formData.email, password: formData.password };
 
     const res = await api("api/v1/student/login", payload, "postWithoutToken");
 
@@ -77,19 +84,36 @@ const Login = () => {
             <div className="contact-form">
               <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
-                  <div className="col-md-10 mx-auto">
-                    <div className="mb-3 px-2">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="*Email / Phone"
-                        {...register("email", registerOptions.email)}
-                      />
-                      {errors.email && (
-                        <p className="text-danger">{errors.email.message}</p>
-                      )}
+                  {loginNumber ? (
+                    <div className="col-md-10 mx-auto">
+                      <div className="mb-3 px-2">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="*Phone"
+                          {...register("phone", registerOptions.phone)}
+                        />
+                        {errors.phone && (
+                          <p className="text-danger">{errors.phone.message}</p>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="col-md-10 mx-auto">
+                      <div className="mb-3 px-2">
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="*Email"
+                          {...register("email", registerOptions.email)}
+                        />
+                        {errors.email && (
+                          <p className="text-danger">{errors.email.message}</p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="col-md-10 mx-auto">
                     <div className="mb-3 px-2">
                       <div className="password">
@@ -129,6 +153,17 @@ const Login = () => {
                       Don't have an account?
                       <Link to="/register" className="ms-2">
                         Sign Up
+                      </Link>
+                    </p>
+
+                    <p className="already">
+                      Login With
+                      <Link
+                        to="#"
+                        className="ms-2"
+                        onClick={() => setLoginNumber(!loginNumber)}
+                      >
+                        {loginNumber ? "Email" : "Phone Number"}
                       </Link>
                     </p>
                   </div>

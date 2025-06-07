@@ -75,7 +75,7 @@ const Register = () => {
     let payload = {
       email: data.email,
       name: data.name,
-      phone: `+91${data.phone}`,
+      phone: `${data.phone}`,
       password: data.password,
     };
     let res = await api(
@@ -140,12 +140,18 @@ const Register = () => {
 
   const registerOptions = {
     name: { required: "name is required" },
-    email: { required: "email is required" },
-    phone: {
-      required: "Phone is required",
+    email: {
+      required: "Email is required",
       pattern: {
-        value: /^[0-9]{10}$/,
-        message: "Phone number must be exactly 10 digits",
+        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        message: "Enter a valid email address",
+      },
+    },
+    phone: {
+      required: "Phone Number is required",
+      pattern: {
+        value: /^\+91[0-9]{10}$/, // +91 followed by exactly 10 digits
+        message: "Enter a valid phone number starting with +91 and 10 digits",
       },
     },
     password: { required: "password is required" },
@@ -260,7 +266,7 @@ const Register = () => {
                     <div className="mb-3">
                       <input
                         {...register("phone", registerOptions.phone)}
-                        type="number"
+                        type="text"
                         className="form-control"
                         placeholder="*Phone"
                       />
