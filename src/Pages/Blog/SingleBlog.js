@@ -76,12 +76,12 @@ const SingleBlog = () => {
     <div className="single_blog pt_150">
       <Container>
         <div className="row justify-content-center text-center">
-          <div className="col-12 col-lg-6 mx-auto">
+          {/* <div className="col-12 col-lg-6 mx-auto">
             <h2 className="second_heading ">
               {" "}
               {blogData?.type === 1 ? "Single Blog" : "Single Artical"}
             </h2>
-          </div>
+          </div> */}
         </div>
         <div className="row mt-5">
           <div className="col-md-8">
