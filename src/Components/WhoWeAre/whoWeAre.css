@@ -1,0 +1,38 @@
+.whoWeAre {
+    padding-top: 80px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 100px;
+}
+.whoWeAre h4 {
+    color: #FF761A;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 40px;
+}
+.whoWeAre h3 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 64px;
+    color: #1A1A1A;
+    margin-bottom: 15px;
+}
+.whoWeAre  .box {
+    background-color: #FFFFFF;
+    padding: 40px 40px 40px 40px;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0px 4px 25px 0px rgba(10.999999999999996, 116.99999999999984, 177, 0.1);
+    height: 100%;
+}.whoWeAre .box .icon {
+    max-width: 50px;
+    border: 2px solid #ff6d11;
+    padding: 11px 11px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.whoWeAre .box .icon svg {
+    fill: #ff6d11;
+}

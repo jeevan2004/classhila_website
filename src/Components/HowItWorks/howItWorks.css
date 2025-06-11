@@ -1,0 +1,53 @@
+
+.howItWorks{
+    background-color: #FEF7F3;
+    padding: 40px 0;
+}
+.howItWorks  .journey_box .circle .text{ 
+    background-color: #ff782b;
+    margin: 0px 0px 0px 0px;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 32px;
+    color: #fff;
+    font-size: 26px;
+    text-align: center !important;
+    display: block;
+    position: relative;
+}
+.howItWorks   h3 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 64px;
+    color: #1A1A1A;margin-top: 25px;
+}
+.howItWorks  .inner_Sec {
+    margin-top: 50px;
+}
+.howItWorks .journey_box .circle {
+    position: relative;
+}
+
+.howItWorks .journey_box .circle:after {
+    position: absolute;
+    left: 50px;
+    top: 24px;
+    width: calc(100% - 55px);
+    content: "";
+    border: 2px dashed #ff782b;
+}
+
+
+.howItWorks  .content h3 {
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0 !important;
+    line-height: 50px;
+}
+
+.howItWorks  .content p {
+    color: #555555;
+}

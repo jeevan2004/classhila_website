@@ -9,6 +9,9 @@ import ellipse_yellow from "../../assets/image/icon/ellipse_yellow.png";
 import ellipse_orange from "../../assets/image/icon/ellipse_orange.png";
 import "./about.css";
 import { useNavigate } from "react-router-dom";
+import WhyChooseUs from "../../Components/WhyChooseUs/WhyChooseUs";
+import WhoWeAre from "../../Components/WhoWeAre/WhoWeAre";
+import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -123,7 +126,13 @@ const AboutPage = () => {
           </div>
         </div>
         <WithUs btn={false} />
-        <div className="vision text-center p-70">
+        <WhyChooseUs />
+
+        <WhoWeAre />
+
+        <HowItWorks />
+
+        {/* <div className="vision text-center p-70">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-10">
@@ -143,7 +152,7 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="total_counter">
           <div className="container">
             <div className="counter_inner">
@@ -226,10 +235,11 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-        <BestCoaching />
-        <div className="plan p-100">
+        
+        {/* <BestCoaching /> */}
+        {/* <div className="plan p-100">
           <div className="container ">
-            {/* Header Section */}
+         
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="text-center mb-5">
@@ -264,7 +274,7 @@ const AboutPage = () => {
               <img src={ellipse_yellow} alt="" className="shape4" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
