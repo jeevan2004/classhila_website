@@ -243,9 +243,17 @@
   .hero-subtitle {
     font-size: 16px;
   }
+ 
 }
 
 /*----lightbox-------*/
 .yarl__portal {
   z-index: 9999999999 !important;
+}
+
+@media (max-width:991px) {
+  .column_reverse_mobile{
+    flex-direction: column-reverse;
+  }
+  
 }

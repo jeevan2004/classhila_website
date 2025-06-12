@@ -243,7 +243,7 @@ console.log(profileData , "profileData");
         }}
       >
         <div className="container">
-          <div className="row align-items-center flex-sm-column-reverse">
+          <div className="row align-items-center column_reverse_mobile">
             <div className="col-md-12 col-lg-6 mb-4">
               <img src={homeimage2} />
             </div>
