@@ -302,13 +302,13 @@ console.log(profileData , "profileData");
               </p>
               <span
               
-                className="btn btn-primary mx-2 btn-lg  cursor_auto"
+                className="btn btn-primary mx-2 btn-lg  cursor_auto mb-4"
               >
                 Affordable & Accessible Education
               </span>
               <span
                
-                className="btn btn-primary mx-2 btn-lg  cursor_auto"
+                className="btn btn-primary mx-2 btn-lg  cursor_auto mb-4"
               >
                 {" "}
                 Cross Cultural Learning

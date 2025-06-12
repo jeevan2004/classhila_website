@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../AuthContextAPI";
 
 const JoinOurCommunity = () => {
+   const {  currUserData } =
+      useAuthContext();
   const navigate = useNavigate();
   return (
     <div className="discover ">
@@ -35,8 +38,7 @@ const JoinOurCommunity = () => {
                 learning. Sign up now to be part of our vibrant community!
               </p>
             </div>
-
-            <button
+{!currUserData ? <button
               className="btn_secondary mx-auto"
               onMouseOver={(e) => (e.target.style.backgroundColor = "#9e8466")}
               onMouseOut={(e) => (e.target.style.backgroundColor = "#8B7355")}
@@ -44,6 +46,20 @@ const JoinOurCommunity = () => {
             >
               Join Now
             </button>
+            :<button
+            className="btn_secondary mx-auto"
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#9e8466")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#8B7355")}
+            onClick={() => navigate("/courses")}
+          >
+            Our Course
+          </button>
+            }
+            
+
+
+
+
           </div>
         </div>
       </div>
