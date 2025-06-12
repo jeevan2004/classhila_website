@@ -59,7 +59,7 @@ const Blog = () => {
 
         <div className="row mt-5">
           {filteredBlogs?.map((item, index) => (
-            <div className="col-md-4 mb-4 mb-lg-5" key={index}>
+            <div className="col-lg-4 col-md-6 mb-4 mb-lg-5" key={index}>
               <Article data={item} />
             </div>
           ))}

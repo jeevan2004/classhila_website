@@ -19,7 +19,7 @@ const WhoWeAre = () => {
         </div>
         </div>
 <div className="row mt-5">
-    <div className="col-md-5">
+    <div className="col-md-5 mb-4">
         <div className="box">
             <div className='icon'>
       <HowWe1 />
@@ -28,7 +28,7 @@ const WhoWeAre = () => {
             <p>To create a world where every student, regardless of their background, is empowered with a well-rounded education that nurtures resilience, critical thinking, and a passion for lifelong learning, equipping them to confidently navigate and succeed in the complexities of the modern world.</p>
         </div>
     </div>
-    <div className="col-md-5">
+    <div className="col-md-5 mb-4">
         <div className="box">
         <div className='icon'>
       <HowWe2 />

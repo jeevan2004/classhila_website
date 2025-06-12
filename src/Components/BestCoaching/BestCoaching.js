@@ -145,7 +145,7 @@ const BestCoaching = () => {
                     <div className="row">
                       {course?.length > 0 ? (
                         course?.map((item, index) => (
-                          <div className="col-md-4 mb-4" key={index}>
+                          <div className="col-lg-4 col-md-6 mb-4" key={index}>
                             <div className="coaching_box">
                               {!imageLoaded && <Skeleton height={200} />}
                               <div

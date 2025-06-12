@@ -46,7 +46,7 @@ const HowItWorks = () => {
    
        {steps?.map((item)=>{
         return<>
-        <div className="col-md-6 col-lg-4 ">
+        <div className="col-md-6 col-lg-4 mb-4">
          <div className="journey_box">
       <div className="circle">
         <div className="text">{item?.number.toString().padStart(2, "0")}</div>

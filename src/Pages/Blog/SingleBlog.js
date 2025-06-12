@@ -84,7 +84,7 @@ const SingleBlog = () => {
           </div> */}
         </div>
         <div className="row mt-5">
-          <div className="col-md-8">
+          <div className="col-lg-8 col-md-12">
             <div className="card_image">
               <img className="w-100" src={blogData?.image} />
             </div>
@@ -106,7 +106,7 @@ const SingleBlog = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4 col-md-12">
             <div className="latest_sec">
               <h4>{blogData?.type === 1 ? "Latest Blog" : "Latest Artical"}</h4>
               <ul>
