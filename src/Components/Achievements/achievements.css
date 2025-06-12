@@ -51,3 +51,14 @@
     position: relative;
     z-index: 999;
 }
+
+
+@media (max-width:767px) {
+    .achievements .heading h5 {
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+    .achievements {
+        padding: 50px 0;
+}
+}

@@ -243,11 +243,11 @@ console.log(profileData , "profileData");
         }}
       >
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6">
+          <div className="row align-items-center flex-sm-column-reverse">
+            <div className="col-md-12 col-lg-6 mb-4">
               <img src={homeimage2} />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-12 col-lg-6 mb-4">
               <h1 className="hero-title">World's First </h1>
               <p className="hero-subtitle">
                 Introducing Classhila’s World’s First Online AI Club — a
@@ -322,7 +322,7 @@ console.log(profileData , "profileData");
 
       <HomeBanner />
 
-      <WithUs btn={true} />
+      <WithUs btn={false} />
       <OurGoal />
       {/* <OurMentor viewMore={false} viewAll={true} /> */}
 
@@ -472,7 +472,7 @@ console.log(profileData , "profileData");
               </div>
             </div>
           </div>
-          <button className="btn_primary px-5 mt-4 mx-auto">More</button>
+          {/* <button className="btn_primary px-5 mt-4 mx-auto">More</button> */}
         </Container>
       </div>
     </>

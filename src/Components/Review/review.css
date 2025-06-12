@@ -80,3 +80,43 @@
 .review_inner .slick-dots li {
   width: 12px;
 }
+
+
+@media(max-width:991px){
+  .review_inner .review_content {
+    padding: 17px 5px;
+    width: 98%;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    /* z-index: 999; */
+    background: rgba(255, 255, 255, 1);
+    top: -40px;
+    margin: 0 auto;
+}
+}
+@media(max-width:767px){
+.faq-page .ps-5 {
+  padding-left: 15px !important;
+}
+.review .review_inner {
+  padding: 0;
+}
+
+.review_inner .review_content_inner {
+  display: block;
+}
+
+.review_inner .review_content .author {
+  width: 100%;
+  text-align: center;
+  margin-right: 0;
+  margin-bottom: 30px;
+}
+
+.review_inner .review_content .author img {
+  text-align: center;
+  margin: 0 auto;
+}
+
+}

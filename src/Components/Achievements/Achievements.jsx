@@ -19,7 +19,7 @@ const Achievements = () => {
     <Row>
        
         {data?.map((item)=>{
-            return<><Col  md={4}>
+            return<><Col  md={4} className='mb-4'>
                  <div className="content_box h-100">
                     <img src={item?.img} />
                     <h6>{item?.heading}</h6>

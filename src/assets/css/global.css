@@ -510,18 +510,23 @@ html {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  section#historic-first span.btn.btn-primary {
+    margin-bottom: 10px;
+}
 }
 @media (max-width: 768px) {
   .flex-column-reverse-mobile {
     flex-direction: column-reverse;
   }
-}
 
-@media (max-width: 767px) {
+  
   .second_heading {
     font-size: 30px;
     font-weight: 400;
   }
+  .main_heading {
+    font-size: 36px;
+}
 }
 .fit_auto {
   max-width: fit-content;

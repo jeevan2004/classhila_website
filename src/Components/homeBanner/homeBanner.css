@@ -239,3 +239,25 @@
   font-size: 30px;
   line-height: 47px;
 }
+
+@media (max-width: 767px) {
+.hero-banner.hero-style-1 {
+  padding: 50px 0;
+}
+.hero-banner .banner-content .title {
+  font-size: 36px;
+}
+.banner-thumbnail {
+  margin-top: 50px;
+}
+}
+
+@media (max-width: 580px) {
+.hero-banner .banner-thumbnail .instructor-info {
+  display: none;
+}
+
+.hero-banner .banner-thumbnail .instructor-info.first {
+  display: block;
+}
+}

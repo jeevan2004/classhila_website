@@ -403,4 +403,60 @@ header nav.navbar .call_box {
 header .navbar-brand img {
   max-width: 165px;
 }
+.hero_section2 img {
+  max-width: 100% !important ;
+  margin-bottom: 20px;
+}
+.hero-section p {
+  font-size: 15px;
+}
+
+header .navbar-brand {
+  margin-right: 0;
+}
+
+.hero_section2 img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 15px;
+}
+
+.cta-button {
+  margin-top: 20px;
+  max-width: 100%;
+  min-width: 250px;
+}
+
+.hero-section {
+  padding-right: 0;
+  padding-left: 0;
+}
+section#historic-first {
+  padding: 0 !important;
+}
+section#historic-first .btn.btn-primary {
+  width: 250px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+}
+
+
+@media (max-width: 320px) {
+  header .navbar-brand img {
+      max-width: 130px;
+  }
+  header .btn_secondary {
+    padding: 8px 8px;
+    font-size: 12px;
+}
+header .call_box {
+  gap: 0px;
+}
+header .navbar-brand {
+  margin-right: 0;
+}
 }
