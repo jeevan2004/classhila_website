@@ -40,6 +40,13 @@ const CommonTabs = ({ tabs, defaultActive = 0 }) => {
               <p key={`para-${i}`}>{item}</p>
             ))}
 
+<div dangerouslySetInnerHTML={{ __html: tab.htmlContent }} />
+
+      
+
+{/* 
+
+
             {tab?.heading && <h5>{tab.heading}</h5>}
 
             {tab?.content?.map((item, i) => (
@@ -58,7 +65,7 @@ const CommonTabs = ({ tabs, defaultActive = 0 }) => {
 
             {tab?.para2?.map((item, i) => (
               <p key={`para2-${i}`}>{item}</p>
-            ))}
+            ))} */}
           </div>
         ))}
       </div>
