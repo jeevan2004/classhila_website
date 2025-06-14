@@ -34,20 +34,20 @@ const CoursesDetails = () => {
     {
       id: "about",
       label: "About",
-      title: course.title || "About the Course",
-      htmlContent: course.about || "", // full HTML
+      title: course?.title || "About the Course",
+      htmlContent: course?.about || "", // full HTML
     },
     {
       id: "Importance",
       label: "Importance",
       title: "Why this course is important",
-      htmlContent: course.importance || "",
+      htmlContent: course?.importance || "",
     },
     {
       id: "LearningOutcomes",
       label: "Learning Outcomes",
       title: "What You Will Learn",
-      htmlContent: course.learning || "",
+      htmlContent: course?.learning || "",
     },
   ];
 
@@ -670,9 +670,9 @@ const CoursesDetails = () => {
                                                 {" "}
                                                 <span>
                                                   {" "}
-                                                  {video.title}{" "}
+                                                  {video?.title}{" "}
                                                 </span>{" "}
-                                                <span> {video.duration} </span>
+                                                <span> {video?.duration} </span>
                                               </span>
                                             </li>
                                           );
